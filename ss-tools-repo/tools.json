@@ -1,0 +1,613 @@
+{
+  "meta": {
+    "schema_version": "1",
+    "lst_version": "LST-001 v1.0.3",
+    "index_updated": "2026-05-01",
+    "license": "MIT",
+    "canonical_url": "https://signalandshadow.com/tools",
+    "repo_url": "https://github.com/signalandshadow/tools",
+    "publisher": "Signal & Shadow"
+  },
+  "tools": [
+    {
+      "id": "ais-hub",
+      "name": "AIS Hub",
+      "url": "aishub.net",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free for technical users.",
+      "desc": "Raw AIS data feed for technical users requiring direct access to transmission data.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-001"
+      ]
+    },
+    {
+      "id": "black-sea-mou",
+      "name": "Black Sea MoU",
+      "url": "bsmou.org",
+      "category": "Maritime",
+      "jurisdiction": "Black Sea region",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Black Sea region port state control inspection records.",
+      "opsec": "PSC databases are public; no registration required for most MoU portals.",
+      "reliability": "PSC records cover safety compliance only; they do not address cargo legality or sanctions status.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-004"
+      ]
+    },
+    {
+      "id": "companies-house",
+      "name": "Companies House",
+      "url": "find-and-update.company-information.service.gov.uk",
+      "category": "Corporate",
+      "jurisdiction": "United Kingdom",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "UK entity filings including the Persons with Significant Control register. Used to identify ultimate beneficial owners of UK-registered companies.",
+      "opsec": "",
+      "reliability": "Nominee directors are placeholders, not beneficial owners; verify control structure before attribution.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-002",
+        "MAR-005"
+      ]
+    },
+    {
+      "id": "copernicus-open-access",
+      "name": "Copernicus Open Access Hub",
+      "url": "scihub.copernicus.eu",
+      "category": "Geolocation",
+      "jurisdiction": "Global · ESA",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "European Space Agency hub for Sentinel-1 SAR imagery. Used to obtain radar returns covering vessel positions during AIS gap periods.",
+      "opsec": "Treat SAR imagery coordinates as sensitive; handle with the same care as source material.",
+      "reliability": "SAR returns can be ambiguous; hull size matching requires expert interpretation.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-003"
+      ]
+    },
+    {
+      "id": "emsa-emcip",
+      "name": "EMSA EMCIP",
+      "url": "emsa.europa.eu",
+      "category": "Maritime",
+      "jurisdiction": "European Union",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "European maritime casualty database. Returns European casualty investigation summaries by vessel name and incident year.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-006"
+      ]
+    },
+    {
+      "id": "equasis",
+      "name": "Equasis",
+      "url": "equasis.org",
+      "category": "Maritime",
+      "jurisdiction": "Global · IMO-endorsed",
+      "pricing": "Free",
+      "cost": "Free with mandatory registration.",
+      "desc": "IMO-endorsed registry providing verified information on commercial vessels including registered owner, ship manager, flag state, class society, and port state control inspection history.",
+      "opsec": "Equasis requires free registration; use an investigation-dedicated email account. Equasis logs search activity; treat each query as potentially visible. Search from a dedicated research browser profile.",
+      "reliability": "Ownership data reflects registration records, not verified beneficial ownership. Inspection records show detentions, not convictions; do not conflate the two. Aggregates PSC inspection data across all major MoUs but may lag individual portal updates by days; cross-reference against the originating MoU portal for accuracy. Cross-reference all ownership data against at least two independent registries. Never rely on vessel name alone; always anchor queries to the IMO number.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-001",
+        "MAR-002",
+        "MAR-004",
+        "MAR-005",
+        "MAR-006",
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "eu-consolidated-list",
+      "name": "EU Consolidated Sanctions List",
+      "url": "webgate.ec.europa.eu/fsd/fsf",
+      "category": "Sanctions",
+      "jurisdiction": "European Union",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Consolidated list of persons, groups, and entities subject to EU financial sanctions.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-002",
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "fleetmon",
+      "name": "Fleetmon",
+      "url": "fleetmon.com",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Freemium",
+      "cost": "Free and paid tiers.",
+      "desc": "AIS replay and incident event log. Surfaces crowd-sourced and AIS-derived incident records and prior detentions for a given vessel.",
+      "opsec": "Download AIS replay data before it ages off free-tier archives.",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-006"
+      ]
+    },
+    {
+      "id": "global-fishing-watch",
+      "name": "Global Fishing Watch",
+      "url": "globalfishingwatch.org",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "AIS gap analysis and dark vessel detection. Maintains AIS reception independent of commercial platforms, enabling cross-validation of gap periods.",
+      "opsec": "",
+      "reliability": "A gap visible on Global Fishing Watch but not on a commercial AIS platform indicates selective transmission rather than technical failure. Treat dark vessel behaviour as requiring explanation; it does not confirm illicit activity.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-003",
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "icij-offshore-leaks",
+      "name": "ICIJ Offshore Leaks",
+      "url": "offshoreleaks.icij.org",
+      "category": "Corporate",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Searchable database covering Panama Papers, Pandora Papers, and related leak datasets. Used for tracing beneficial ownership through offshore structures.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-002",
+        "MAR-005"
+      ]
+    },
+    {
+      "id": "imo-gisis",
+      "name": "IMO GISIS",
+      "url": "gisis.imo.org",
+      "category": "Maritime",
+      "jurisdiction": "Global · IMO-backed",
+      "pricing": "Free",
+      "cost": "Free with registration.",
+      "desc": "IMO Global Integrated Shipping Information System. Houses the marine casualties module containing formal flag-state casualty filings and detention records.",
+      "opsec": "Save IMO casualty report PDFs immediately; documents are sometimes removed.",
+      "reliability": "Flag-state reports are sometimes filed late; delay does not always indicate concealment.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-002",
+        "MAR-004",
+        "MAR-006"
+      ]
+    },
+    {
+      "id": "itu-mars",
+      "name": "ITU MARS",
+      "url": "itu.int",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Official MMSI-to-flag-state registration database. Used to verify that an MMSI prefix matches the declared flag state.",
+      "opsec": "",
+      "reliability": "An MMSI prefix that does not match the declared flag state is an indicator of identity manipulation.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-001",
+        "MAR-002"
+      ]
+    },
+    {
+      "id": "kpler",
+      "name": "Kpler",
+      "url": "kpler.com",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Paid.",
+      "desc": "Commodity flow tracking and vessel cargo history. Returns declared cargo type and volume by voyage.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "lloyds-list-intelligence",
+      "name": "Lloyd's List Intelligence",
+      "url": "lloydslist.com",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Paid.",
+      "desc": "Vessel ownership history and corporate links. Used to identify previous owners and flag-state changes that may signal restructuring.",
+      "opsec": "Never query paid databases using a target-linked email.",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-005"
+      ]
+    },
+    {
+      "id": "maib",
+      "name": "MAIB Casualty Reports",
+      "url": "gov.uk/maib",
+      "category": "Maritime",
+      "jurisdiction": "United Kingdom",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "UK Marine Accident Investigation Branch formal investigation reports.",
+      "opsec": "Do not contact flag-state authorities from a byline-linked email address.",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-006"
+      ]
+    },
+    {
+      "id": "marinetraffic",
+      "name": "MarineTraffic",
+      "url": "marinetraffic.com",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Freemium",
+      "cost": "Free tier; paid tiers for historical playback and additional features.",
+      "desc": "Real-time AIS feed and historical playback. The default first stop for vessel position and voyage history.",
+      "opsec": "MarineTraffic logs IP addresses. Route queries through a VPN. Avoid querying the same MMSI repeatedly from the same IP; rate-limit manually. Use a dedicated browser profile for maritime investigations.",
+      "reliability": "AIS position reflects transponder data, not verified GPS, and can be manually entered incorrectly. AIS relay stations can introduce a position lag of up to 30 minutes. Reception gaps are common in remote ocean areas; coverage is not global.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-001",
+        "MAR-002",
+        "MAR-003",
+        "MAR-006"
+      ]
+    },
+    {
+      "id": "ntsb",
+      "name": "NTSB Marine Casualty Reports",
+      "url": "ntsb.gov",
+      "category": "Maritime",
+      "jurisdiction": "United States",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "US National Transportation Safety Board marine casualty investigation reports.",
+      "opsec": "Do not contact flag-state authorities from a byline-linked email address.",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-006"
+      ]
+    },
+    {
+      "id": "ofac-sdn",
+      "name": "OFAC SDN List",
+      "url": "sanctionssearch.ofac.treas.gov",
+      "category": "Sanctions",
+      "jurisdiction": "United States",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "US Treasury Specially Designated Nationals list. Returns US-designated vessels with IMO numbers and supports filtering by sanctions program.",
+      "opsec": "Segregate sanctions database queries from your primary research profile. Download OFAC SDN updates locally; the list changes without notice.",
+      "reliability": "Historical sanctions listings may predate vessel name recycling; confirm current designation status. Vessels with sanctioned-entity names that are distinct registered ships exist; verify by IMO.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-002",
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "opencorporates",
+      "name": "OpenCorporates",
+      "url": "opencorporates.com",
+      "category": "Corporate",
+      "jurisdiction": "Global · 140+ jurisdictions",
+      "pricing": "Freemium",
+      "cost": "Free web search; paid tiers for API access.",
+      "desc": "Largest open database of company registrations across 140+ jurisdictions. Used for tracing corporate layers and identifying directors and shareholders.",
+      "opsec": "",
+      "reliability": "Identically named companies in different jurisdictions exist; confirm registration numbers. Historical ownership records change frequently after incidents.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-002",
+        "MAR-005"
+      ]
+    },
+    {
+      "id": "opensanctions",
+      "name": "OpenSanctions",
+      "url": "opensanctions.org",
+      "category": "Sanctions",
+      "jurisdiction": "Global",
+      "pricing": "Freemium",
+      "cost": "Free web access; paid tiers for bulk and API.",
+      "desc": "Cross-reference platform for screening individuals and entities against consolidated sanctions lists from multiple jurisdictions.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-002"
+      ]
+    },
+    {
+      "id": "paris-mou",
+      "name": "Paris MoU",
+      "url": "parismou.org",
+      "category": "Maritime",
+      "jurisdiction": "Europe · North Atlantic",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "European and North Atlantic port state control inspection database. Publishes annual flag state performance rankings used to assess detention risk.",
+      "opsec": "PSC databases are public; no registration required for most MoU portals.",
+      "reliability": "High deficiency counts in some MoU regions reflect stricter inspection regimes, not worse vessels. Flag state ranking data reflects aggregate fleet performance, not individual vessel quality. PSC records cover safety compliance only; they do not address cargo legality or sanctions status.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-004"
+      ]
+    },
+    {
+      "id": "skytruth",
+      "name": "SkyTruth",
+      "url": "skytruth.org",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Satellite-based vessel detection and dark ship alerts. Used to surface vessels operating without AIS transmission.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-003",
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "tankertrackers",
+      "name": "TankerTrackers",
+      "url": "tankertrackers.com",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Paid; specialist access.",
+      "desc": "Specialist STS event tracking and satellite integration. Returns logged STS events with date, location, and partner vessel.",
+      "opsec": "Never request satellite tasking from a byline-linked account.",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "tokyo-mou",
+      "name": "Tokyo MoU",
+      "url": "tokyo-mou.org",
+      "category": "Maritime",
+      "jurisdiction": "Asia-Pacific",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Asia-Pacific port state control inspection database. Publishes annual flag state performance rankings used to assess detention risk.",
+      "opsec": "PSC databases are public; no registration required for most MoU portals.",
+      "reliability": "High deficiency counts in some MoU regions reflect stricter inspection regimes, not worse vessels. Flag state ranking data reflects aggregate fleet performance, not individual vessel quality. PSC records cover safety compliance only; they do not address cargo legality or sanctions status.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-004"
+      ]
+    },
+    {
+      "id": "uk-ofsi",
+      "name": "UK OFSI Sanctions List",
+      "url": "gov.uk/government/publications/the-uk-sanctions-list",
+      "category": "Sanctions",
+      "jurisdiction": "United Kingdom",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "UK Office of Financial Sanctions Implementation consolidated list. Used alongside OFAC and EU lists for full sanctions screening coverage.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-002"
+      ]
+    },
+    {
+      "id": "un-comtrade",
+      "name": "UN Comtrade",
+      "url": "comtradeplus.un.org",
+      "category": "Public Records",
+      "jurisdiction": "Global · UN",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Trade flow data used to cross-check declared cargo volumes against reporter-country and commodity-code declarations.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "un-consolidated-list",
+      "name": "UN Consolidated Sanctions List",
+      "url": "un.org/securitycouncil/content/un-sc-consolidated-list",
+      "category": "Sanctions",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "United Nations Security Council consolidated sanctions list. Confirms designation status across all UN sanctions regimes.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-005",
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "uscg-psix",
+      "name": "US Coast Guard PSIX",
+      "url": "homeport.uscg.mil",
+      "category": "Maritime",
+      "jurisdiction": "United States",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "US Coast Guard Port State Information Exchange. Independent inspection records for vessels operating in US waters, not always captured by other MoUs.",
+      "opsec": "PSC databases are public; no registration required for most MoU portals.",
+      "reliability": "PSC records cover safety compliance only; they do not address cargo legality or sanctions status.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-004"
+      ]
+    },
+    {
+      "id": "vesselfinder",
+      "name": "VesselFinder",
+      "url": "vesselfinder.com",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Freemium",
+      "cost": "Free tier available.",
+      "desc": "Alternative AIS source used to cross-reference position data and flag discrepancies in primary feeds.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-001"
+      ]
+    },
+    {
+      "id": "viirs-firms",
+      "name": "VIIRS Boat Detection (NASA FIRMS)",
+      "url": "firms.modaps.eosdis.nasa.gov",
+      "category": "Geolocation",
+      "jurisdiction": "Global · NASA",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Nighttime lights data from NASA. Provides a third independent position signal for nocturnal AIS gaps in known fishing or transfer zones.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-003"
+      ]
+    },
+    {
+      "id": "wayback-machine",
+      "name": "Wayback Machine",
+      "url": "web.archive.org",
+      "category": "Archiving",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Internet Archive snapshot service. Used to preserve sanctions designation pages, official report pages, and key company pages against later removal.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-005",
+        "MAR-006",
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "weather-underground",
+      "name": "Weather Underground History",
+      "url": "wunderground.com",
+      "category": "Geolocation",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Historical hourly meteorological records by station and date. Used to reconstruct wind, visibility, and sea-state conditions at incident time.",
+      "opsec": "",
+      "reliability": "Verify proximity of the weather station to the incident coordinates before treating records as evidence.",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-006"
+      ]
+    },
+    {
+      "id": "windward",
+      "name": "Windward",
+      "url": "windward.ai",
+      "category": "Maritime",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Paid; institutional access.",
+      "desc": "Commercial AIS risk platform with AI-flagged STS events and behavioural risk scoring.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-003",
+        "MAR-007"
+      ]
+    },
+    {
+      "id": "world-check",
+      "name": "World-Check (Refinitiv)",
+      "url": "refinitiv.com",
+      "category": "Sanctions",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Paid.",
+      "desc": "PEP and sanctions screening database for individuals and entities.",
+      "opsec": "Never query paid databases using a target-linked email.",
+      "reliability": "",
+      "verified": "2026-05-01",
+      "verifier": "DB",
+      "cards": [
+        "MAR-005"
+      ]
+    }
+  ]
+}

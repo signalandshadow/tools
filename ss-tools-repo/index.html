@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools — Signal & Shadow</title>
+<meta name="description" content="A vetted operational tools reference for investigative journalists. Every entry signed, dated, and linked to the methodology cards that use it.">
+<meta property="og:title" content="Tools — Signal & Shadow">
+<meta property="og:description" content="A vetted operational tools reference for investigative journalists. Every entry signed, dated, and linked to the methodology cards that use it.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Source+Serif+4:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #4a4a4a;
+    --ink-3: #7a7a7a;
+    --ink-4: #b0b0b0;
+    --paper: #ffffff;
+    --paper-2: #f6f4ef;
+    --paper-3: #ebe7dd;
+    --rule: #d8d4ca;
+    --rule-2: #e8e5dc;
+    --accent: #c4351c;
+    --free: #2d6b1f;
+    --free-bg: #eef5e8;
+    --freemium: #1a4d80;
+    --freemium-bg: #e8eff7;
+    --paid: #8a4a0c;
+    --paid-bg: #f7eedc;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper-2); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; text-decoration-color: var(--ink-3); text-underline-offset: 3px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  header.site { background: var(--paper); border-bottom: 1px solid var(--rule); }
+  header.site .row { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .brand { display: flex; align-items: baseline; gap: 10px; font-family: var(--serif); font-size: 20px; font-weight: 500; letter-spacing: -0.01em; }
+  .brand .glyph { width: 22px; height: 22px; background: var(--ink); border-radius: 50%; position: relative; top: 3px; }
+  .brand .glyph::after { content: ""; position: absolute; width: 8px; height: 8px; background: var(--paper); border-radius: 50%; top: 3px; left: 3px; }
+  nav.site { display: flex; gap: 28px; font-size: 13px; letter-spacing: 0.02em; }
+  nav.site a { color: var(--ink-2); }
+  nav.site a.active { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
+
+  .masthead { border-bottom: 1px solid var(--rule); background: var(--paper-2); }
+  .masthead .inner { padding: 56px 0 40px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+  h1.title { font-family: var(--serif); font-size: 64px; font-weight: 500; line-height: 1; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .lede { font-family: var(--serif); font-size: 19px; line-height: 1.5; color: var(--ink-2); max-width: 580px; }
+  .stats { display: flex; gap: 32px; text-align: right; }
+  .stat .n { font-family: var(--serif); font-size: 36px; font-weight: 500; line-height: 1; letter-spacing: -0.02em; }
+  .stat .l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; }
+
+  .controls { background: var(--paper); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 50; }
+  .controls .row { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
+  .search-wrap { flex: 1; position: relative; }
+  .search-wrap::before { content: ""; position: absolute; left: 14px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border: 1.5px solid var(--ink-3); border-radius: 50%; }
+  .search-wrap::after { content: ""; position: absolute; left: 24px; top: 50%; width: 6px; height: 1.5px; background: var(--ink-3); transform: rotate(45deg) translateY(2px); }
+  input[type="text"], select { font-family: var(--sans); font-size: 14px; padding: 11px 16px; background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; color: var(--ink); outline: none; }
+  input[type="text"] { padding-left: 40px; width: 100%; }
+  input[type="text"]:focus, select:focus { border-color: var(--ink-2); background: var(--paper); }
+  select { padding: 11px 32px 11px 14px; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3e%3cpath d='M1 1l4 4 4-4' stroke='%237a7a7a' fill='none' stroke-width='1.5'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 12px center; }
+
+  .layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 32px 0 64px; }
+
+  aside.facets { font-size: 13px; }
+  .facet-block { margin-bottom: 28px; }
+  .facet-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule-2); }
+  .facet-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; cursor: pointer; color: var(--ink-2); }
+  .facet-item:hover { color: var(--ink); }
+  .facet-item.active { color: var(--ink); font-weight: 500; }
+  .facet-item .count { font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 400; }
+
+  .download-block { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; margin-top: 32px; }
+  .download-block .label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+  .download-block .desc { font-size: 12px; color: var(--ink-2); line-height: 1.5; margin-bottom: 10px; }
+  .btn { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.04em; padding: 8px 14px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); border-radius: 4px; cursor: pointer; text-align: center; }
+  .btn:hover { background: var(--ink-2); border-color: var(--ink-2); text-decoration: none; }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--paper-2); }
+
+  main.results { min-width: 0; }
+  .meta-bar { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid var(--rule-2); margin-bottom: 18px; }
+  .meta-bar .count-line { font-family: var(--serif); font-size: 17px; font-weight: 500; }
+  .meta-bar .count-line .num { font-variant-numeric: tabular-nums; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; min-height: 22px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; font-size: 12px; cursor: pointer; color: var(--ink-2); }
+  .chip:hover { background: var(--paper-3); }
+  .chip .x { color: var(--ink-3); font-size: 14px; line-height: 1; }
+  .chips-empty { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); padding: 4px 0; }
+
+  .empty-state { padding: 80px 24px; text-align: center; border: 1px dashed var(--rule); border-radius: 8px; }
+  .empty-state .e-title { font-family: var(--serif); font-size: 22px; font-weight: 500; margin-bottom: 8px; }
+  .empty-state .e-desc { font-size: 14px; color: var(--ink-2); max-width: 380px; margin: 0 auto; line-height: 1.6; }
+
+  .tool-list { display: flex; flex-direction: column; gap: 0; }
+  .tool { display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 20px 16px; border-top: 1px solid var(--rule-2); cursor: pointer; transition: background 0.1s; margin: 0 -16px; border-radius: 6px; }
+  .tool:hover { background: var(--paper); }
+  .tool:first-child { border-top: none; padding-top: 8px; }
+  .tool-main { min-width: 0; }
+  .tool-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+  .tool-name { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.1; }
+  .tool-domain { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+  .pill { display: inline-flex; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; font-weight: 500; }
+  .pill.free { background: var(--free-bg); color: var(--free); }
+  .pill.freemium { background: var(--freemium-bg); color: var(--freemium); }
+  .pill.paid { background: var(--paid-bg); color: var(--paid); }
+  .tool-desc { font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink-2); margin-bottom: 12px; max-width: 640px; }
+  .tool-notes { display: grid; grid-template-columns: 80px 1fr; gap: 4px 16px; font-size: 13px; line-height: 1.45; margin-bottom: 12px; }
+  .tool-notes .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); padding-top: 3px; }
+  .tool-notes .v { color: var(--ink-2); }
+  .tool-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 8px; border-top: 1px dashed var(--rule-2); }
+  .card-refs { display: flex; gap: 6px; align-items: center; }
+  .card-ref { font-family: var(--mono); font-size: 11px; padding: 3px 7px; background: var(--paper-3); color: var(--ink-2); border-radius: 3px; letter-spacing: 0.04em; }
+  .card-ref.empty { background: transparent; color: var(--ink-4); padding-left: 0; }
+  .verification { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); text-align: right; }
+  .verification .by { color: var(--ink-2); }
+  .tool-aside { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; min-width: 90px; }
+  .tool-cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+
+  .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(20, 20, 20, 0.5); z-index: 100; align-items: flex-start; justify-content: center; padding: 64px 32px; overflow-y: auto; }
+  .modal-backdrop.open { display: flex; }
+  .modal { background: var(--paper); border-radius: 8px; max-width: 720px; width: 100%; padding: 40px; position: relative; }
+  .modal-close { position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; background: transparent; border: 1px solid var(--rule); border-radius: 4px; cursor: pointer; color: var(--ink-2); font-size: 18px; line-height: 1; font-family: var(--sans); }
+  .modal-close:hover { background: var(--paper-2); }
+  .modal-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+  .modal-name { font-family: var(--serif); font-size: 38px; font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .modal-domain { font-family: var(--mono); font-size: 13px; color: var(--ink-3); margin-bottom: 20px; }
+  .modal-domain a { color: var(--ink-2); }
+  .modal-pills { display: flex; gap: 6px; margin-bottom: 24px; }
+  .modal-desc { font-family: var(--serif); font-size: 18px; line-height: 1.55; color: var(--ink-2); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--rule-2); }
+  .modal-section { margin-bottom: 20px; }
+  .modal-section .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+  .modal-section .section-body { font-size: 14px; line-height: 1.6; color: var(--ink); }
+  .modal-section.warn .section-label { color: var(--accent); }
+  .modal-meta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule-2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .modal-meta .meta-block { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+  .modal-meta .meta-block .v { color: var(--ink); }
+
+  footer.site { background: var(--paper); border-top: 1px solid var(--rule); padding: 32px 0; margin-top: 48px; }
+  footer.site .row { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-3); }
+  footer.site a { color: var(--ink-2); }
+
+  .loading { padding: 80px 24px; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 0 20px; }
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    aside.facets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .download-block { grid-column: span 2; }
+    .masthead .inner { grid-template-columns: 1fr; gap: 24px; }
+    .stats { justify-content: flex-start; }
+    h1.title { font-size: 44px; }
+    .tool { grid-template-columns: 1fr; }
+    .tool-aside { flex-direction: row; align-items: center; }
+    .modal { padding: 24px; }
+    .modal-name { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap row">
+    <div class="brand">
+      <span class="glyph"></span>
+      <span>Signal &amp; Shadow</span>
+    </div>
+    <nav class="site">
+      <a href="/">Methods</a>
+      <a href="/field-guide">Field Guide</a>
+      <a href="/tools" class="active">Tools</a>
+      <a href="/the-signal">The Signal</a>
+      <a href="/training">Training</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap inner">
+    <div>
+      <div class="eyebrow">SIG-TLS-001 · v0.1 · Tool Reference</div>
+      <h1 class="title">The tools we<br>actually use.</h1>
+      <p class="lede">A vetted operational reference for investigative journalists. Every entry signed, dated, and linked to the methodology cards that use it. We ship fewer tools, verified by us, with operational notes.</p>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="n" id="stat-tools">—</div>
+        <div class="l">Tools</div>
+      </div>
+      <div class="stat">
+        <div class="n" id="stat-cats">—</div>
+        <div class="l">Categories</div>
+      </div>
+      <div class="stat">
+        <div class="n" id="stat-updated">—</div>
+        <div class="l">Last update</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="controls">
+  <div class="wrap row">
+    <div class="search-wrap">
+      <input id="search" type="text" placeholder="Search by tool, jurisdiction, technique, or use case…" autocomplete="off">
+    </div>
+    <select id="pricing">
+      <option value="">Any pricing</option>
+      <option value="Free">Free</option>
+      <option value="Freemium">Freemium</option>
+      <option value="Paid">Paid</option>
+    </select>
+    <select id="sort">
+      <option value="cat">Sort by category</option>
+      <option value="name">Sort A→Z</option>
+      <option value="verified">Most recently verified</option>
+    </select>
+  </div>
+</section>
+
+<div class="wrap layout">
+
+  <aside class="facets">
+    <div class="facet-block">
+      <div class="facet-title">Category</div>
+      <div id="cat-list"></div>
+    </div>
+
+    <div class="facet-block">
+      <div class="facet-title">Jurisdiction</div>
+      <div id="juris-list"></div>
+    </div>
+
+    <div class="download-block">
+      <div class="label">Open dataset</div>
+      <div class="desc">The full database as a single JSON file. MIT licensed. Schema versioned.</div>
+      <a class="btn" href="./tools.json" download>Download tools.json</a>
+    </div>
+
+    <div class="download-block" style="background: var(--paper-2); border-color: var(--rule-2);">
+      <div class="label">Editorial standard</div>
+      <div class="desc">Every entry is written under LST-001. The standard is open-source and citable.</div>
+      <a class="btn ghost" href="https://github.com/signalandshadow/lst-001">View LST-001 ↗</a>
+    </div>
+  </aside>
+
+  <main class="results">
+    <div class="meta-bar">
+      <div class="count-line"><span class="num" id="result-count">—</span> tools, vetted and dated</div>
+    </div>
+
+    <div class="chips" id="chips"></div>
+
+    <div id="tool-list" class="tool-list">
+      <div class="loading">Loading the catalogue…</div>
+    </div>
+  </main>
+
+</div>
+
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap row">
+    <span>© 2026 Signal &amp; Shadow · Signed and dated, every line</span>
+    <span id="footer-meta">Schema v1 · LST-001 · Loading…</span>
+  </div>
+</footer>
+
+<script>
+  let data = [];
+  const state = { query: '', pricing: '', category: null, jurisdiction: null, sort: 'cat' };
+  const els = {
+    search: document.getElementById('search'),
+    pricing: document.getElementById('pricing'),
+    sort: document.getElementById('sort'),
+    catList: document.getElementById('cat-list'),
+    jurisList: document.getElementById('juris-list'),
+    chips: document.getElementById('chips'),
+    list: document.getElementById('tool-list'),
+    count: document.getElementById('result-count'),
+    statTools: document.getElementById('stat-tools'),
+    statCats: document.getElementById('stat-cats'),
+    statUpdated: document.getElementById('stat-updated'),
+    footerMeta: document.getElementById('footer-meta'),
+    modal: document.getElementById('modal-backdrop'),
+    modalBody: document.getElementById('modal-body')
+  };
+
+  function jurisGroup(t) {
+    const j = t.jurisdiction || '';
+    if (j.includes('Russia')) return 'Russia/CIS';
+    if (j.includes('Global')) return 'Global';
+    if (j.includes('EU') || j.includes('Europe')) return 'EU/Europe';
+    if (j.includes('US')) return 'US';
+    return 'Regional';
+  }
+
+  function daysSince(dateStr) {
+    if (!dateStr) return '—';
+    const d = new Date(dateStr);
+    const now = new Date();
+    const diff = Math.floor((now - d) / (1000 * 60 * 60 * 24));
+    if (diff < 1) return 'today';
+    if (diff < 30) return diff + 'd';
+    if (diff < 365) return Math.floor(diff / 30) + 'mo';
+    return Math.floor(diff / 365) + 'y';
+  }
+
+  function filtered() {
+    return data.filter(t => {
+      if (state.category && t.category !== state.category) return false;
+      if (state.jurisdiction && jurisGroup(t) !== state.jurisdiction) return false;
+      if (state.pricing && t.pricing !== state.pricing) return false;
+      if (state.query) {
+        const q = state.query.toLowerCase();
+        const hay = [t.name, t.desc, t.category, t.opsec, t.reliability, t.jurisdiction].join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    }).sort((a, b) => {
+      if (state.sort === 'name') return a.name.localeCompare(b.name);
+      if (state.sort === 'verified') return (b.verified || '').localeCompare(a.verified || '');
+      return a.category.localeCompare(b.category) || a.name.localeCompare(b.name);
+    });
+  }
+
+  function renderFacets() {
+    const cats = {};
+    data.forEach(t => { cats[t.category] = (cats[t.category] || 0) + 1; });
+    els.catList.innerHTML = Object.entries(cats).sort().map(([c, n]) => {
+      const active = state.category === c ? 'active' : '';
+      return `<div class="facet-item ${active}" data-cat="${c}"><span>${c}</span><span class="count">${n}</span></div>`;
+    }).join('') || '<div style="font-size: 12px; color: var(--ink-4);">No categories yet</div>';
+    els.catList.querySelectorAll('[data-cat]').forEach(el => {
+      el.onclick = () => { state.category = state.category === el.dataset.cat ? null : el.dataset.cat; render(); };
+    });
+
+    const juris = {};
+    data.forEach(t => { const g = jurisGroup(t); juris[g] = (juris[g] || 0) + 1; });
+    els.jurisList.innerHTML = Object.entries(juris).sort().map(([j, n]) => {
+      const active = state.jurisdiction === j ? 'active' : '';
+      return `<div class="facet-item ${active}" data-juris="${j}"><span>${j}</span><span class="count">${n}</span></div>`;
+    }).join('') || '<div style="font-size: 12px; color: var(--ink-4);">No jurisdictions yet</div>';
+    els.jurisList.querySelectorAll('[data-juris]').forEach(el => {
+      el.onclick = () => { state.jurisdiction = state.jurisdiction === el.dataset.juris ? null : el.dataset.juris; render(); };
+    });
+  }
+
+  function renderChips() {
+    const active = [];
+    if (state.category) active.push({ label: state.category, clear: () => state.category = null });
+    if (state.jurisdiction) active.push({ label: state.jurisdiction, clear: () => state.jurisdiction = null });
+    if (state.pricing) active.push({ label: state.pricing, clear: () => { state.pricing = ''; els.pricing.value = ''; } });
+    if (state.query) active.push({ label: '"' + state.query + '"', clear: () => { state.query = ''; els.search.value = ''; } });
+
+    if (active.length === 0) {
+      els.chips.innerHTML = '<span class="chips-empty">No filters active · showing all</span>';
+    } else {
+      els.chips.innerHTML = active.map((c, i) => `<span class="chip" data-i="${i}">${c.label} <span class="x">×</span></span>`).join('');
+      els.chips.querySelectorAll('.chip').forEach((el, i) => {
+        el.onclick = () => { active[i].clear(); render(); };
+      });
+    }
+  }
+
+  function renderList() {
+    const f = filtered();
+    els.count.textContent = f.length;
+
+    if (data.length === 0) {
+      els.list.innerHTML = `<div class="empty-state"><div class="e-title">No tools loaded yet</div><div class="e-desc">The dataset at tools.json is empty. Add tool entries to start populating the reference.</div></div>`;
+      return;
+    }
+    if (f.length === 0) {
+      els.list.innerHTML = `<div class="empty-state"><div class="e-title">No matches</div><div class="e-desc">No tools match the current filters. Clear filters or broaden the search.</div></div>`;
+      return;
+    }
+
+    els.list.innerHTML = f.map(t => {
+      const cardsHtml = (t.cards || []).length > 0
+        ? t.cards.map(c => `<span class="card-ref">${c}</span>`).join('')
+        : '<span class="card-ref empty">No card yet</span>';
+      const pricing = (t.pricing || '').toLowerCase();
+      return `
+        <div class="tool" data-id="${t.id}">
+          <div class="tool-main">
+            <div class="tool-head">
+              <span class="tool-name">${t.name}</span>
+              <span class="tool-domain">${t.url}</span>
+              <span class="pill ${pricing}">${t.pricing}</span>
+            </div>
+            <p class="tool-desc">${t.desc}</p>
+            <div class="tool-notes">
+              <span class="k">OPSEC</span><span class="v">${t.opsec}</span>
+              <span class="k">Reliability</span><span class="v">${t.reliability}</span>
+              <span class="k">Cost</span><span class="v">${t.cost}</span>
+            </div>
+            <div class="tool-foot">
+              <div class="card-refs">${cardsHtml}</div>
+              <div class="verification">Verified ${t.verified} · <span class="by">${t.verifier}</span></div>
+            </div>
+          </div>
+          <div class="tool-aside">
+            <div class="tool-cat">${t.category}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+    els.list.querySelectorAll('.tool').forEach(el => {
+      el.onclick = () => openModal(el.dataset.id);
+    });
+  }
+
+  function openModal(id) {
+    const t = data.find(x => x.id === id);
+    if (!t) return;
+    const cardsHtml = (t.cards || []).length > 0
+      ? t.cards.map(c => `<span class="card-ref">${c}</span>`).join(' ')
+      : '<span class="card-ref empty">No card yet</span>';
+    els.modalBody.innerHTML = `
+      <div class="modal-eyebrow">${t.category} · ${t.jurisdiction}</div>
+      <div class="modal-name">${t.name}</div>
+      <div class="modal-domain"><a href="https://${t.url}" target="_blank" rel="noopener">${t.url} ↗</a></div>
+      <div class="modal-pills"><span class="pill ${(t.pricing || '').toLowerCase()}">${t.pricing}</span></div>
+      <p class="modal-desc">${t.desc}</p>
+      <div class="modal-section warn">
+        <div class="section-label">OPSEC</div>
+        <div class="section-body">${t.opsec}</div>
+      </div>
+      <div class="modal-section">
+        <div class="section-label">Reliability</div>
+        <div class="section-body">${t.reliability}</div>
+      </div>
+      <div class="modal-section">
+        <div class="section-label">Cost</div>
+        <div class="section-body">${t.cost}</div>
+      </div>
+      <div class="modal-section">
+        <div class="section-label">Used in methodology</div>
+        <div class="section-body">${cardsHtml}</div>
+      </div>
+      <div class="modal-meta">
+        <div>
+          <div class="meta-block">Verified <span class="v">${t.verified}</span> by <span class="v">${t.verifier}</span></div>
+          <div class="meta-block">Citation: <span class="v">signalandshadow.com/tools#${t.id}</span></div>
+        </div>
+      </div>
+    `;
+    els.modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    try { history.replaceState(null, '', '#' + t.id); } catch (e) {}
+  }
+
+  function closeModal() {
+    els.modal.classList.remove('open');
+    document.body.style.overflow = '';
+    try { history.replaceState(null, '', window.location.pathname); } catch (e) {}
+  }
+
+  els.modal.onclick = (e) => { if (e.target === els.modal) closeModal(); };
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  els.search.oninput = (e) => { state.query = e.target.value.trim(); render(); };
+  els.pricing.onchange = (e) => { state.pricing = e.target.value; render(); };
+  els.sort.onchange = (e) => { state.sort = e.target.value; render(); };
+
+  function render() { renderFacets(); renderChips(); renderList(); }
+
+  fetch('./tools.json')
+    .then(r => {
+      if (!r.ok) throw new Error('Failed to load tools.json');
+      return r.json();
+    })
+    .then(json => {
+      data = Array.isArray(json) ? json : (json.tools || []);
+      const meta = Array.isArray(json) ? {} : (json.meta || {});
+
+      els.statTools.textContent = data.length;
+      els.statCats.textContent = new Set(data.map(t => t.category)).size;
+
+      const mostRecent = data.map(t => t.verified).filter(Boolean).sort().pop();
+      els.statUpdated.textContent = mostRecent ? daysSince(mostRecent) : '—';
+
+      const schemaVersion = meta.schema_version || '1';
+      const lstVersion = meta.lst_version || 'LST-001';
+      const indexUpdated = meta.index_updated || mostRecent || '—';
+      els.footerMeta.textContent = `Schema v${schemaVersion} · ${lstVersion} · Index updated ${indexUpdated}`;
+
+      render();
+
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        setTimeout(() => openModal(hash), 100);
+      }
+    })
+    .catch(err => {
+      els.list.innerHTML = `<div class="empty-state"><div class="e-title">Could not load tools.json</div><div class="e-desc">${err.message}. The page expects a tools.json file in the same directory.</div></div>`;
+    });
+</script>
+
+</body>
+</html>
