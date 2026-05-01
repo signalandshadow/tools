@@ -513,6 +513,21 @@
     .catch(err => {
       els.list.innerHTML = `<div class="empty-state"><div class="e-title">Could not load tools.json</div><div class="e-desc">${err.message}. The page expects a tools.json file in the same directory.</div></div>`;
     });
+
+  function sendHeightToParent() {
+    if (window.parent === window) return;
+    const h = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    window.parent.postMessage({ type: 'ss-tools-height', height: h }, '*');
+  }
+  const heightObserver = new ResizeObserver(sendHeightToParent);
+  heightObserver.observe(document.body);
+  window.addEventListener('load', sendHeightToParent);
+  setInterval(sendHeightToParent, 1000);
 </script>
 
 </body>
