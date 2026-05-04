@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tools · Signal & Shadow</title>
-<meta name="description" content="The tools cited in Signal & Shadow methodology cards, written up with operational notes for working investigators. Every entry signed, dated, and sourced.">
-<meta property="og:title" content="Tools · Signal & Shadow">
-<meta property="og:description" content="The tools cited in Signal & Shadow methodology cards, written up with operational notes for working investigators. Every entry signed, dated, and sourced.">
+<title>OSINT Tool Database · Signal & Shadow</title>
+<meta name="description" content="Signal & Shadow's OSINT Tool Database. Vetted tools with operational notes, OPSEC posture, and reliability flags. Signed, dated, and sourced under LST-001.">
+<meta property="og:title" content="OSINT Tool Database · Signal & Shadow">
+<meta property="og:description" content="Signal & Shadow's OSINT Tool Database. Vetted tools with operational notes, OPSEC posture, and reliability flags. Signed, dated, and sourced under LST-001.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0A0E14;
@@ -855,7 +856,7 @@
 <section class="status-bar">
   <div class="wrap row">
     <span class="sys-id">[ S&S / OPS ]</span>
-    <span class="breadcrumb">HUB / TOOLS / REFERENCE</span>
+    <span class="breadcrumb">HUB / TOOLS / OSINT DATABASE</span>
     <span class="pulse"><span class="dot"></span>SIG-TLS-001 · v0.1</span>
     <span id="status-time">VERSOIX</span>
   </div>
@@ -865,7 +866,7 @@
 <section class="masthead">
   <div class="wrap inner">
     <div>
-      <div class="eyebrow">SIG-TLS-001 · TOOL REFERENCE</div>
+      <div class="eyebrow">SIG-TLS-001 · OSINT TOOL DATABASE</div>
       <h1 class="title">The tools we<br>actually <span class="accent">use.</span></h1>
       <p class="lede">The tools cited in our methodology cards, written up with operational notes for working investigators. Every entry signed, dated, and sourced.</p>
     </div>
@@ -1293,7 +1294,7 @@
             <div class="meta-block" style="margin-top: 2px;">By verifier <span class="v">${verifier}</span> · ${daysSince(t.verified)} ago</div>
           </div>
         </div>
-        <div class="meta-block">Citation: <span class="v">signalandshadow.com/tools#${t.id}</span></div>
+        <div class="meta-block">Citation: <span class="v">signalandshadow.io/osint-tool-database#${t.id}</span></div>
       </div>
     `;
     els.modal.classList.add('open');
