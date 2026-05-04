@@ -3,196 +3,894 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tools — Signal & Shadow</title>
+<title>Tools · Signal & Shadow</title>
 <meta name="description" content="The tools cited in Signal & Shadow methodology cards, written up with operational notes for working investigators. Every entry signed, dated, and sourced.">
-<meta property="og:title" content="Tools — Signal & Shadow">
+<meta property="og:title" content="Tools · Signal & Shadow">
 <meta property="og:description" content="The tools cited in Signal & Shadow methodology cards, written up with operational notes for working investigators. Every entry signed, dated, and sourced.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Source+Serif+4:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1a1a;
-    --ink-2: #4a4a4a;
-    --ink-3: #7a7a7a;
-    --ink-4: #b0b0b0;
-    --paper: #ffffff;
-    --paper-2: #f5f5f0;
-    --paper-3: #eaeae3;
-    --rule: #d6d6cf;
-    --rule-2: #e6e6df;
-    --accent: #c4351c;
-    --free: #2d6b1f;
-    --free-bg: #eef5e8;
-    --freemium: #1a4d80;
-    --freemium-bg: #e8eff7;
-    --paid: #8a4a0c;
-    --paid-bg: #f7eedc;
-    --serif: 'Source Serif 4', Georgia, serif;
-    --sans: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bg: #0A0E14;
+    --bg-elev: #0F141C;
+    --bg-card: #131923;
+    --bg-card-hover: #18202D;
+    --line: #1F2937;
+    --line-bright: #2D3B4F;
+    --ink: #E8EBF0;
+    --ink-soft: #B0B8C5;
+    --ink-faint: #6B7888;
+    --ink-mute: #4A5564;
+    --teal: #32BB93;
+    --teal-bright: #4DD9AE;
+    --teal-deep: #1F8F6E;
+    --teal-tint: rgba(50, 187, 147, 0.12);
+    --warn: #E89D3C;
+    --alert: #C24914;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { background: var(--paper-2); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
-  a:hover { text-decoration: underline; text-decoration-color: var(--ink-3); text-underline-offset: 3px; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; text-decoration: none; transition: color 0.15s; }
+  a:hover { color: var(--teal); }
+
   .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
 
-  .masthead { border-bottom: 1px solid var(--rule); background: var(--paper-2); }
-  .masthead .inner { padding: 56px 0 40px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
-  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
-  h1.title { font-family: var(--serif); font-size: 64px; font-weight: 500; line-height: 1; letter-spacing: -0.02em; margin-bottom: 18px; }
-  .lede { font-family: var(--serif); font-size: 19px; line-height: 1.5; color: var(--ink-2); max-width: 580px; }
-  .stats { display: flex; gap: 32px; text-align: right; }
-  .stat .n { font-family: var(--serif); font-size: 36px; font-weight: 500; line-height: 1; letter-spacing: -0.02em; }
-  .stat .l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; }
+  /* Status bar */
+  .status-bar {
+    background: var(--bg-elev);
+    border-bottom: 0.5px solid var(--line);
+    padding: 10px 0;
+  }
+  .status-bar .row {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 24px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .status-bar .sys-id { color: var(--teal); font-weight: 500; }
+  .status-bar .breadcrumb a:hover { color: var(--teal); }
+  .status-bar .pulse { display: flex; align-items: center; gap: 7px; }
+  .status-bar .pulse .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
 
-  .controls { background: var(--paper); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 50; }
-  .controls .row { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
+  /* Masthead */
+  .masthead { background: var(--bg); border-bottom: 0.5px solid var(--line); }
+  .masthead .inner {
+    padding: 64px 0 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: end;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 0.5px;
+    background: var(--teal);
+  }
+  h1.title {
+    font-family: var(--sans);
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+  h1.title .accent {
+    color: var(--teal);
+    border-bottom: 2px solid rgba(50, 187, 147, 0.4);
+    padding-bottom: 1px;
+  }
+  .lede {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 580px;
+  }
+  .stats { display: flex; gap: 0; text-align: left; border: 0.5px solid var(--line); }
+  .stat { padding: 16px 24px; border-right: 0.5px solid var(--line); min-width: 110px; }
+  .stat:last-child { border-right: none; }
+  .stat .n {
+    font-family: var(--sans);
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .stat.live .n { color: var(--teal); }
+  .stat .l {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .stat.live .l::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  /* Controls (search/sort) */
+  .controls {
+    background: var(--bg-elev);
+    border-bottom: 0.5px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .controls .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0;
+  }
   .search-wrap { flex: 1; position: relative; }
-  .search-wrap::before { content: ""; position: absolute; left: 14px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border: 1.5px solid var(--ink-3); border-radius: 50%; }
-  .search-wrap::after { content: ""; position: absolute; left: 24px; top: 50%; width: 6px; height: 1.5px; background: var(--ink-3); transform: rotate(45deg) translateY(2px); }
-  input[type="text"], select { font-family: var(--sans); font-size: 14px; padding: 11px 16px; background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; color: var(--ink); outline: none; }
-  input[type="text"] { padding-left: 40px; width: 100%; }
-  input[type="text"]:focus, select:focus { border-color: var(--ink-2); background: var(--paper); }
-  select { padding: 11px 32px 11px 14px; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3e%3cpath d='M1 1l4 4 4-4' stroke='%237a7a7a' fill='none' stroke-width='1.5'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 12px center; }
+  .search-wrap::before {
+    content: "⌕";
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--teal);
+    font-size: 14px;
+    font-family: var(--mono);
+    pointer-events: none;
+  }
+  input[type="text"], select {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding: 11px 16px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    color: var(--ink-soft);
+    outline: none;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  input[type="text"] { padding-left: 38px; width: 100%; }
+  input[type="text"]:focus, select:focus {
+    border-color: var(--line-bright);
+    color: var(--ink);
+  }
+  input[type="text"]::placeholder { color: var(--ink-faint); }
+  select {
+    padding: 11px 32px 11px 14px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3e%3cpath d='M1 1l4 4 4-4' stroke='%2332BB93' fill='none' stroke-width='1.5'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    min-width: 160px;
+  }
 
-  .layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 32px 0 64px; }
+  /* Layout */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    padding: 32px 0 64px;
+  }
 
+  /* Facets sidebar */
   aside.facets { font-size: 13px; }
   .facet-block { margin-bottom: 28px; }
-  .facet-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule-2); }
-  .facet-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; cursor: pointer; color: var(--ink-2); }
+  .facet-title {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .facet-title::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--teal);
+  }
+  .facet-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+    cursor: pointer;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 11px;
+    border-bottom: 0.5px solid var(--line);
+    transition: color 0.15s;
+  }
   .facet-item:hover { color: var(--ink); }
   .facet-item.active { color: var(--ink); font-weight: 500; }
-  .facet-item .count { font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 400; }
+  .facet-item.active::before {
+    content: '›';
+    color: var(--teal);
+    margin-right: 6px;
+    margin-left: -10px;
+  }
+  .facet-item .count {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    font-weight: 400;
+  }
+  .facet-item.active .count { color: var(--teal); }
 
-  .download-block { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; margin-top: 32px; }
-  .download-block .label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
-  .download-block .desc { font-size: 12px; color: var(--ink-2); line-height: 1.5; margin-bottom: 10px; }
-  .btn { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.04em; padding: 8px 14px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); border-radius: 4px; cursor: pointer; text-align: center; }
-  .btn:hover { background: var(--ink-2); border-color: var(--ink-2); text-decoration: none; }
-  .btn.ghost { background: transparent; color: var(--ink); }
-  .btn.ghost:hover { background: var(--paper-2); }
+  /* Sidebar cards (Activity, Dataset, Standard) */
+  .side-card {
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    padding: 14px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .side-card.bracket {
+    border-color: var(--line-bright);
+  }
+  .side-card.bracket::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid var(--teal);
+    border-left: 1px solid var(--teal);
+  }
+  .side-card.bracket::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1px solid var(--teal);
+    border-right: 1px solid var(--teal);
+  }
+  .side-card .label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .side-card .label .meta {
+    color: var(--ink-faint);
+    font-size: 8px;
+  }
+  .side-card .desc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .btn {
+    display: inline-block;
+    width: 100%;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 8px 12px;
+    background: var(--teal);
+    color: var(--bg);
+    border: 0.5px solid var(--teal);
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn:hover {
+    background: var(--teal-bright);
+    color: var(--bg);
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line-bright);
+  }
+  .btn.ghost:hover {
+    background: var(--bg-card-hover);
+    color: var(--teal);
+  }
 
+  /* Activity log */
+  .activity-log {
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  .activity-entry {
+    display: grid;
+    grid-template-columns: 36px 14px 1fr;
+    gap: 6px;
+    padding: 5px 0;
+    border-bottom: 0.5px solid var(--line);
+    color: var(--ink-soft);
+  }
+  .activity-entry:last-child { border-bottom: none; }
+  .activity-entry .when { color: var(--ink-faint); font-size: 9px; }
+  .activity-entry .icon { color: var(--teal); text-align: center; font-weight: 500; }
+  .activity-entry .what { color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .activity-entry .what .name { color: var(--ink); }
+
+  /* Main results */
   main.results { min-width: 0; }
-  .meta-bar { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid var(--rule-2); margin-bottom: 18px; }
-  .meta-bar .count-line { font-family: var(--serif); font-size: 17px; font-weight: 500; }
-  .meta-bar .count-line .num { font-variant-numeric: tabular-nums; }
+  .meta-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 0.5px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .meta-bar .count-line {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .meta-bar .count-line .num {
+    font-variant-numeric: tabular-nums;
+    color: var(--teal);
+  }
 
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; min-height: 22px; }
-  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; font-size: 12px; cursor: pointer; color: var(--ink-2); }
-  .chip:hover { background: var(--paper-3); }
-  .chip .x { color: var(--ink-3); font-size: 14px; line-height: 1; }
-  .chips-empty { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); padding: 4px 0; }
+  /* Active filter chips */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+    min-height: 22px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    color: var(--ink-soft);
+    transition: background 0.15s, color 0.15s;
+  }
+  .chip:hover { background: var(--bg-card-hover); color: var(--ink); }
+  .chip .x { color: var(--ink-faint); font-size: 12px; line-height: 1; }
+  .chip:hover .x { color: var(--teal); }
 
-  .empty-state { padding: 80px 24px; text-align: center; border: 1px dashed var(--rule); border-radius: 8px; }
-  .empty-state .e-title { font-family: var(--serif); font-size: 22px; font-weight: 500; margin-bottom: 8px; }
-  .empty-state .e-desc { font-size: 14px; color: var(--ink-2); max-width: 380px; margin: 0 auto; line-height: 1.6; }
+  /* Empty / prompt states */
+  .empty-state {
+    padding: 60px 24px;
+    text-align: center;
+    border: 0.5px dashed var(--line);
+    background: var(--bg-elev);
+  }
+  .empty-state .e-title {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .empty-state .e-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    max-width: 380px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .prompt-state { padding: 80px 24px; text-align: center; }
+  .prompt-state .p-title {
+    font-family: var(--sans);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--ink);
+  }
+  .prompt-state .p-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    max-width: 440px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+  }
+  .prompt-state .p-hints {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    max-width: 460px;
+  }
+  .prompt-state .p-hint {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 6px 11px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .prompt-state .p-hint:hover {
+    background: var(--bg-card-hover);
+    color: var(--teal);
+    border-color: var(--line-bright);
+  }
 
-  .prompt-state { padding: 96px 24px; text-align: center; }
-  .prompt-state .p-title { font-family: var(--serif); font-size: 26px; font-weight: 500; line-height: 1.2; margin-bottom: 12px; max-width: 460px; margin-left: auto; margin-right: auto; }
-  .prompt-state .p-desc { font-size: 14px; color: var(--ink-2); max-width: 440px; margin: 0 auto 24px; line-height: 1.6; }
-  .prompt-state .p-hints { display: inline-flex; flex-wrap: wrap; gap: 6px; justify-content: center; max-width: 460px; }
-  .prompt-state .p-hint { font-family: var(--mono); font-size: 11px; padding: 5px 10px; background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; color: var(--ink-2); cursor: pointer; }
-  .prompt-state .p-hint:hover { background: var(--paper-3); }
-
+  /* Tool list */
   .tool-list { display: flex; flex-direction: column; gap: 0; }
-  .tool { display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 20px 16px; border-top: 1px solid var(--rule-2); cursor: pointer; transition: background 0.1s; margin: 0 -16px; border-radius: 6px; }
-  .tool:hover { background: var(--paper); }
-  .tool:first-child { border-top: none; padding-top: 8px; }
+  .tool {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    padding: 18px 16px;
+    border-top: 0.5px solid var(--line);
+    cursor: pointer;
+    transition: background 0.15s;
+    margin: 0 -16px;
+  }
+  .tool:hover { background: var(--bg-elev); }
+  .tool:first-child { border-top: none; }
   .tool-main { min-width: 0; }
-  .tool-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
-  .tool-name { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.1; }
-  .tool-domain { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
-  .pill { display: inline-flex; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; font-weight: 500; }
-  .pill.free { background: var(--free-bg); color: var(--free); }
-  .pill.freemium { background: var(--freemium-bg); color: var(--freemium); }
-  .pill.paid { background: var(--paid-bg); color: var(--paid); }
-  .tool-desc { font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink-2); margin-bottom: 12px; max-width: 640px; }
-  .tool-notes { display: grid; grid-template-columns: 80px 1fr; gap: 4px 16px; font-size: 13px; line-height: 1.45; margin-bottom: 12px; }
-  .tool-notes .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); padding-top: 3px; }
-  .tool-notes .v { color: var(--ink-2); }
-  .tool-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 8px; border-top: 1px dashed var(--rule-2); }
-  .card-refs { display: flex; gap: 6px; align-items: center; }
-  .card-ref { font-family: var(--mono); font-size: 11px; padding: 3px 7px; background: var(--paper-3); color: var(--ink-2); border-radius: 3px; letter-spacing: 0.04em; }
-  .card-ref.empty { background: transparent; color: var(--ink-4); padding-left: 0; }
-  .verification { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); text-align: right; }
-  .verification .by { color: var(--ink-2); }
-  .tool-aside { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; min-width: 90px; }
-  .tool-cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+  .tool-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .tool-name {
+    font-family: var(--sans);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .tool-domain {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
 
-  .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(20, 20, 20, 0.5); z-index: 100; align-items: flex-start; justify-content: center; padding: 64px 32px; overflow-y: auto; }
+  /* Pricing pills */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    font-weight: 500;
+  }
+  .pill.free { background: var(--teal-tint); color: var(--teal); }
+  .pill.freemium { background: rgba(232, 157, 60, 0.14); color: var(--warn); }
+  .pill.paid { background: rgba(194, 73, 20, 0.14); color: var(--alert); }
+
+  .tool-desc {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    max-width: 640px;
+  }
+
+  /* Foot row: cards + verifier badge */
+  .tool-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 10px;
+    border-top: 0.5px dashed var(--line);
+  }
+  .card-refs { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+  .card-ref {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 7px;
+    background: var(--bg-card);
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    border: 0.5px solid var(--line);
+  }
+  .card-ref.empty {
+    background: transparent;
+    color: var(--ink-mute);
+    padding-left: 0;
+    border: none;
+    font-style: italic;
+  }
+
+  /* Verifier badge - prominent treatment */
+  .verifier-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+  .verifier-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--teal);
+    color: var(--teal);
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .verifier-text { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; line-height: 1.2; }
+  .verifier-text .when { color: var(--teal); font-size: 10px; }
+  .verifier-text .who { color: var(--ink-faint); font-size: 9px; letter-spacing: 0.1em; }
+
+  .tool-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    min-width: 90px;
+  }
+  .tool-cat {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .tool-juris {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: var(--ink-mute);
+    text-align: right;
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 14, 20, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 64px 32px;
+    overflow-y: auto;
+  }
   .modal-backdrop.open { display: flex; }
-  .modal { background: var(--paper); border-radius: 8px; max-width: 720px; width: 100%; padding: 40px; position: relative; max-height: calc(100vh - 128px); overflow-y: auto; }
-  .modal-close { position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; background: transparent; border: 1px solid var(--rule); border-radius: 4px; cursor: pointer; color: var(--ink-2); font-size: 18px; line-height: 1; font-family: var(--sans); }
-  .modal-close:hover { background: var(--paper-2); }
-  .modal-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
-  .modal-name { font-family: var(--serif); font-size: 38px; font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 6px; }
-  .modal-domain { font-family: var(--mono); font-size: 13px; color: var(--ink-3); margin-bottom: 20px; }
-  .modal-domain a { color: var(--ink-2); }
+  .modal {
+    background: var(--bg-elev);
+    border: 0.5px solid var(--line-bright);
+    max-width: 720px;
+    width: 100%;
+    padding: 40px;
+    position: relative;
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+  }
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid var(--teal);
+    border-left: 1px solid var(--teal);
+  }
+  .modal::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid var(--teal);
+    border-right: 1px solid var(--teal);
+  }
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 0.5px solid var(--line);
+    cursor: pointer;
+    color: var(--ink-soft);
+    font-size: 18px;
+    line-height: 1;
+    font-family: var(--sans);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .modal-close:hover {
+    background: var(--bg-card);
+    color: var(--teal);
+    border-color: var(--teal);
+  }
+  .modal-eyebrow {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .modal-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 0.5px;
+    background: var(--teal);
+  }
+  .modal-name {
+    font-family: var(--sans);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .modal-domain {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+    letter-spacing: 0.04em;
+  }
+  .modal-domain a { color: var(--ink-soft); }
+  .modal-domain a:hover { color: var(--teal); }
   .modal-pills { display: flex; gap: 6px; margin-bottom: 24px; }
-  .modal-desc { font-family: var(--serif); font-size: 18px; line-height: 1.55; color: var(--ink-2); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--rule-2); }
-  .modal-section { margin-bottom: 20px; }
-  .modal-section .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
-  .modal-section .section-body { font-size: 14px; line-height: 1.6; color: var(--ink); }
-  .modal-section.warn .section-label { color: var(--accent); }
-  .modal-meta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule-2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .modal-meta .meta-block { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+  .modal-desc {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .modal-section { margin-bottom: 22px; }
+  .modal-section .section-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .modal-section .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--teal);
+  }
+  .modal-section.warn .section-label { color: var(--warn); }
+  .modal-section.warn .section-label::before { background: var(--warn); }
+  .modal-section .section-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .modal-section .section-body.empty {
+    color: var(--ink-mute);
+    font-style: italic;
+  }
+  .modal-meta {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .modal-meta .meta-block {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
   .modal-meta .meta-block .v { color: var(--ink); }
+  .modal-verifier {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .modal-verifier .verifier-avatar { width: 32px; height: 32px; font-size: 12px; }
 
-  footer.site { background: var(--paper); border-top: 1px solid var(--rule); padding: 32px 0; margin-top: 48px; }
-  footer.site .row { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-3); }
-  footer.site a { color: var(--ink-2); }
+  /* Footer */
+  footer.site {
+    background: var(--bg-elev);
+    border-top: 0.5px solid var(--line);
+    padding: 24px 0;
+    margin-top: 48px;
+  }
+  footer.site .row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  footer.site .row .center { text-align: center; }
+  footer.site .row .accent { color: var(--teal); }
+  footer.site a { color: var(--ink-soft); }
+  footer.site a:hover { color: var(--teal); }
 
-  .loading { padding: 80px 24px; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+  /* Loading */
+  .loading {
+    padding: 80px 24px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
 
+  /* Mobile */
   @media (max-width: 900px) {
     .wrap { padding: 0 20px; }
     .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
-    aside.facets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .download-block { grid-column: span 2; }
-    .masthead .inner { grid-template-columns: 1fr; gap: 24px; }
-    .stats { justify-content: flex-start; }
-    h1.title { font-size: 44px; }
-    .tool { grid-template-columns: 1fr; }
-    .tool-aside { flex-direction: row; align-items: center; }
+    aside.facets { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .facet-block.full-width-mobile { grid-column: 1 / -1; }
+    .side-card { grid-column: span 2; }
+    .masthead .inner { grid-template-columns: 1fr; gap: 24px; padding: 40px 0 32px; }
+    .stats { justify-content: flex-start; flex-wrap: wrap; }
+    .stat { min-width: auto; padding: 12px 16px; }
+    .stat .n { font-size: 22px; }
+    h1.title { font-size: 38px; }
+    .tool { grid-template-columns: 1fr; padding: 16px 12px; margin: 0 -12px; }
+    .tool-aside { flex-direction: row; align-items: center; justify-content: space-between; min-width: 0; }
+    .tool-foot { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .verifier-badge { align-self: flex-end; }
     .modal { padding: 24px; }
-    .modal-name { font-size: 28px; }
+    .modal-name { font-size: 26px; }
+    .status-bar .row { grid-template-columns: 1fr 1fr; gap: 12px; font-size: 9px; }
+    .status-bar .row > *:nth-child(3),
+    .status-bar .row > *:nth-child(4) { display: none; }
+    .controls .row { flex-wrap: wrap; }
+    .search-wrap { flex: 1 1 100%; }
+    select { flex: 1; min-width: 0; }
+    footer.site .row { grid-template-columns: 1fr; text-align: left; }
+    footer.site .row .center { text-align: left; }
   }
 </style>
 </head>
 <body>
 
+<!-- Status bar -->
+<section class="status-bar">
+  <div class="wrap row">
+    <span class="sys-id">[ S&S / OPS ]</span>
+    <span class="breadcrumb">HUB / TOOLS / REFERENCE</span>
+    <span class="pulse"><span class="dot"></span>SIG-TLS-001 · v0.1</span>
+    <span id="status-time">VERSOIX</span>
+  </div>
+</section>
+
+<!-- Masthead -->
 <section class="masthead">
   <div class="wrap inner">
     <div>
-      <div class="eyebrow">SIG-TLS-001 · v0.1 · Tool Reference</div>
-      <h1 class="title">The tools we<br>actually use.</h1>
+      <div class="eyebrow">SIG-TLS-001 · TOOL REFERENCE</div>
+      <h1 class="title">The tools we<br>actually <span class="accent">use.</span></h1>
       <p class="lede">The tools cited in our methodology cards, written up with operational notes for working investigators. Every entry signed, dated, and sourced.</p>
     </div>
     <div class="stats">
       <div class="stat">
-        <div class="n" id="stat-tools">—</div>
+        <div class="n" id="stat-tools">···</div>
         <div class="l">Tools</div>
       </div>
       <div class="stat">
-        <div class="n" id="stat-cats">—</div>
+        <div class="n" id="stat-cats">···</div>
         <div class="l">Categories</div>
       </div>
-      <div class="stat">
-        <div class="n" id="stat-updated">—</div>
+      <div class="stat live">
+        <div class="n" id="stat-updated">···</div>
         <div class="l">Last update</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Search/sort controls -->
 <section class="controls">
   <div class="wrap row">
     <div class="search-wrap">
-      <input id="search" type="text" placeholder="Search by tool, jurisdiction, technique, or use case…" autocomplete="off">
+      <input id="search" type="text" placeholder="Search by tool, jurisdiction, technique, or use case..." autocomplete="off">
     </div>
     <select id="pricing">
       <option value="">Any pricing</option>
@@ -208,26 +906,40 @@
   </div>
 </section>
 
+<!-- Layout -->
 <div class="wrap layout">
 
   <aside class="facets">
-    <div class="facet-block">
+    <div class="facet-block full-width-mobile">
       <div class="facet-title">Category</div>
       <div id="cat-list"></div>
     </div>
 
-    <div class="facet-block">
+    <div class="facet-block full-width-mobile">
       <div class="facet-title">Jurisdiction</div>
       <div id="juris-list"></div>
     </div>
 
-    <div class="download-block">
-      <div class="label">Open dataset</div>
-      <div class="desc">The full database as a single JSON file. MIT licensed. Schema versioned.</div>
-      <a class="btn" href="./tools.json" download>Download tools.json</a>
+    <!-- Activity log card (Option A) -->
+    <div class="side-card bracket">
+      <div class="label">
+        <span>● Activity</span>
+        <span class="meta">Last 6</span>
+      </div>
+      <div class="activity-log" id="activity-log">
+        <div style="color: var(--ink-mute); font-size: 10px;">Loading...</div>
+      </div>
     </div>
 
-    <div class="download-block" style="background: var(--paper-2); border-color: var(--rule-2);">
+    <!-- Open Dataset card -->
+    <div class="side-card">
+      <div class="label">Open dataset</div>
+      <div class="desc">The full database as a single JSON file. MIT licensed. Schema versioned.</div>
+      <a class="btn" href="./tools.json" download>↓ tools.json</a>
+    </div>
+
+    <!-- Editorial Standard card -->
+    <div class="side-card">
       <div class="label">Editorial standard</div>
       <div class="desc">Every entry is written under LST-001. The standard is open-source and citable.</div>
       <a class="btn ghost" href="https://github.com/signalandshadow/lst-001">View LST-001 ↗</a>
@@ -236,18 +948,19 @@
 
   <main class="results">
     <div class="meta-bar">
-      <div class="count-line"><span class="num" id="result-count">—</span> tools, vetted and dated</div>
+      <div class="count-line"><span class="num" id="result-count">···</span> tools, vetted and dated</div>
     </div>
 
     <div class="chips" id="chips"></div>
 
     <div id="tool-list" class="tool-list">
-      <div class="loading">Loading the catalogue…</div>
+      <div class="loading">Loading the catalogue...</div>
     </div>
   </main>
 
 </div>
 
+<!-- Modal -->
 <div class="modal-backdrop" id="modal-backdrop">
   <div class="modal" id="modal">
     <button class="modal-close" onclick="closeModal()">×</button>
@@ -255,15 +968,18 @@
   </div>
 </div>
 
+<!-- Footer -->
 <footer class="site">
   <div class="wrap row">
-    <span>© 2026 Signal &amp; Shadow · Signed and dated, every line</span>
-    <span id="footer-meta">Schema v1 · LST-001 · Loading…</span>
+    <span class="accent">[ S&S / OPS ]</span>
+    <span class="center">SIGNED · DATED · SOURCED · GRADED</span>
+    <span id="footer-meta">Schema v1 · LST-001 · Loading...</span>
   </div>
 </footer>
 
 <script>
   let data = [];
+  let metaInfo = {};
   const state = { query: '', pricing: '', category: null, jurisdiction: null, sort: 'cat' };
   const els = {
     search: document.getElementById('search'),
@@ -278,6 +994,7 @@
     statCats: document.getElementById('stat-cats'),
     statUpdated: document.getElementById('stat-updated'),
     footerMeta: document.getElementById('footer-meta'),
+    activityLog: document.getElementById('activity-log'),
     modal: document.getElementById('modal-backdrop'),
     modalBody: document.getElementById('modal-body')
   };
@@ -287,16 +1004,27 @@
     if (j.includes('Russia')) return 'Russia/CIS';
     if (j.includes('Global')) return 'Global';
     if (j.includes('EU') || j.includes('Europe')) return 'EU/Europe';
-    if (j.includes('US')) return 'US';
+    if (j.includes('US') || j.includes('United States') || j.includes('America')) return 'US';
     return 'Regional';
   }
 
   function daysSince(dateStr) {
-    if (!dateStr) return '—';
+    if (!dateStr) return '···';
     const d = new Date(dateStr);
     const now = new Date();
     const diff = Math.floor((now - d) / (1000 * 60 * 60 * 24));
     if (diff < 1) return 'today';
+    if (diff < 30) return diff + 'd';
+    if (diff < 365) return Math.floor(diff / 30) + 'mo';
+    return Math.floor(diff / 365) + 'y';
+  }
+
+  function daysSinceShort(dateStr) {
+    if (!dateStr) return '···';
+    const d = new Date(dateStr);
+    const now = new Date();
+    const diff = Math.floor((now - d) / (1000 * 60 * 60 * 24));
+    if (diff < 1) return 'now';
     if (diff < 30) return diff + 'd';
     if (diff < 365) return Math.floor(diff / 30) + 'mo';
     return Math.floor(diff / 365) + 'y';
@@ -323,23 +1051,108 @@
   function renderFacets() {
     const cats = {};
     data.forEach(t => { cats[t.category] = (cats[t.category] || 0) + 1; });
-    els.catList.innerHTML = Object.entries(cats).sort().map(([c, n]) => {
+    els.catList.innerHTML = Object.entries(cats).sort((a, b) => b[1] - a[1]).map(([c, n]) => {
       const active = state.category === c ? 'active' : '';
       return `<div class="facet-item ${active}" data-cat="${c}"><span>${c}</span><span class="count">${n}</span></div>`;
-    }).join('') || '<div style="font-size: 12px; color: var(--ink-4);">No categories yet</div>';
+    }).join('') || '<div style="font-size: 11px; color: var(--ink-mute); padding: 6px 0;">No categories yet</div>';
     els.catList.querySelectorAll('[data-cat]').forEach(el => {
       el.onclick = () => { state.category = state.category === el.dataset.cat ? null : el.dataset.cat; render(); };
     });
 
     const juris = {};
     data.forEach(t => { const g = jurisGroup(t); juris[g] = (juris[g] || 0) + 1; });
-    els.jurisList.innerHTML = Object.entries(juris).sort().map(([j, n]) => {
+    els.jurisList.innerHTML = Object.entries(juris).sort((a, b) => b[1] - a[1]).map(([j, n]) => {
       const active = state.jurisdiction === j ? 'active' : '';
       return `<div class="facet-item ${active}" data-juris="${j}"><span>${j}</span><span class="count">${n}</span></div>`;
-    }).join('') || '<div style="font-size: 12px; color: var(--ink-4);">No jurisdictions yet</div>';
+    }).join('') || '<div style="font-size: 11px; color: var(--ink-mute); padding: 6px 0;">No jurisdictions yet</div>';
     els.jurisList.querySelectorAll('[data-juris]').forEach(el => {
       el.onclick = () => { state.jurisdiction = state.jurisdiction === el.dataset.juris ? null : el.dataset.juris; render(); };
     });
+  }
+
+  function renderActivityLog() {
+    if (data.length === 0) {
+      els.activityLog.innerHTML = '<div style="color: var(--ink-mute); font-size: 10px;">No activity yet</div>';
+      return;
+    }
+
+    // Group verifications by date to avoid showing N identical-timestamp rows
+    const byDate = {};
+    data.filter(t => t.verified).forEach(t => {
+      if (!byDate[t.verified]) byDate[t.verified] = [];
+      byDate[t.verified].push(t);
+    });
+
+    // Sort dates descending
+    const dates = Object.keys(byDate).sort().reverse();
+
+    const entries = [];
+
+    // Schema event from meta.index_updated if it exists and is recent
+    if (metaInfo.index_updated && metaInfo.schema_version) {
+      entries.push({
+        date: metaInfo.index_updated,
+        icon: '⚙',
+        what: `Schema v${metaInfo.schema_version}`,
+        title: `Schema v${metaInfo.schema_version} (${metaInfo.lst_version || 'LST-001'}) · index updated ${metaInfo.index_updated}`
+      });
+    }
+
+    // Verification events: one per date, grouped if multiple tools on same day
+    dates.forEach(date => {
+      const tools = byDate[date];
+      if (tools.length === 1) {
+        const t = tools[0];
+        const displayName = t.name.length > 16 ? t.name.slice(0, 14) + '…' : t.name;
+        entries.push({
+          date: date,
+          icon: '↻',
+          what: displayName,
+          title: `${t.name} verified ${date} by ${t.verifier}`
+        });
+      } else {
+        const verifiers = [...new Set(tools.map(t => t.verifier))].join(', ');
+        entries.push({
+          date: date,
+          icon: '↻',
+          what: `${tools.length} entries`,
+          title: `${tools.length} entries verified ${date} by ${verifiers}`
+        });
+      }
+    });
+
+    // Most-cited tool: surface as a "● cited" event using its verified date
+    const sortedByCites = [...data]
+      .filter(t => t.cards && t.cards.length > 0)
+      .sort((a, b) => (b.cards || []).length - (a.cards || []).length);
+
+    if (sortedByCites.length > 0 && sortedByCites[0].cards.length > 1) {
+      const t = sortedByCites[0];
+      const displayName = t.name.length > 14 ? t.name.slice(0, 12) + '…' : t.name;
+      entries.push({
+        date: t.verified || metaInfo.index_updated,
+        icon: '⚲',
+        what: `${displayName} ×${t.cards.length}`,
+        title: `${t.name} cited in ${t.cards.length} methodology cards: ${t.cards.join(', ')}`
+      });
+    }
+
+    // Sort all entries by date descending, take top 6
+    entries.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    const recent = entries.slice(0, 6);
+
+    if (recent.length === 0) {
+      els.activityLog.innerHTML = '<div style="color: var(--ink-mute); font-size: 10px;">No activity recorded yet</div>';
+      return;
+    }
+
+    els.activityLog.innerHTML = recent.map(e => `
+      <div class="activity-entry" title="${e.title}">
+        <span class="when">${daysSinceShort(e.date)}</span>
+        <span class="icon">${e.icon}</span>
+        <span class="what"><span class="name">${e.what}</span></span>
+      </div>
+    `).join('');
   }
 
   function renderChips() {
@@ -378,47 +1191,56 @@
     if (!hasActiveFilter()) {
       const cats = [...new Set(data.map(t => t.category))].sort();
       const hints = cats.slice(0, 6).map(c => `<span class="p-hint" data-hint-cat="${c}">${c}</span>`).join('');
-      els.list.innerHTML = `<div class="prompt-state">
-        <div class="p-title">Search the manifest, or pick a category to begin.</div>
-        <div class="p-desc">Every tool in this register is cited in a Signal &amp; Shadow methodology card. Click any entry for OPSEC notes, reliability assessments, cost, and the cards that use it.</div>
-        <div class="p-hints">${hints}</div>
-      </div>`;
+      els.list.innerHTML = `
+        <div class="prompt-state">
+          <div class="p-title">${data.length} tools, vetted and dated.</div>
+          <div class="p-desc">Use the search above, choose a category, or filter by jurisdiction to begin.</div>
+          <div class="p-hints">${hints}</div>
+        </div>
+      `;
       els.list.querySelectorAll('[data-hint-cat]').forEach(el => {
         el.onclick = () => { state.category = el.dataset.hintCat; render(); };
       });
       return;
     }
     if (f.length === 0) {
-      els.list.innerHTML = `<div class="empty-state"><div class="e-title">No matches</div><div class="e-desc">No tools match the current filters. Clear filters or broaden the search.</div></div>`;
+      els.list.innerHTML = `
+        <div class="empty-state">
+          <div class="e-title">No tools match those filters.</div>
+          <div class="e-desc">Try clearing one of the filters above, or broaden your search.</div>
+        </div>
+      `;
       return;
     }
-
     els.list.innerHTML = f.map(t => {
       const cardsHtml = (t.cards || []).length > 0
         ? t.cards.map(c => `<span class="card-ref">${c}</span>`).join('')
         : '<span class="card-ref empty">No card yet</span>';
-      const pricing = (t.pricing || '').toLowerCase();
+      const verifier = t.verifier || '??';
+      const when = daysSince(t.verified);
       return `
         <div class="tool" data-id="${t.id}">
           <div class="tool-main">
             <div class="tool-head">
               <span class="tool-name">${t.name}</span>
               <span class="tool-domain">${t.url}</span>
-              <span class="pill ${pricing}">${t.pricing}</span>
+              <span class="pill ${(t.pricing || '').toLowerCase()}">${t.pricing}</span>
             </div>
             <p class="tool-desc">${t.desc}</p>
-            <div class="tool-notes">
-              <span class="k">OPSEC</span><span class="v">${t.opsec}</span>
-              <span class="k">Reliability</span><span class="v">${t.reliability}</span>
-              <span class="k">Cost</span><span class="v">${t.cost}</span>
-            </div>
             <div class="tool-foot">
               <div class="card-refs">${cardsHtml}</div>
-              <div class="verification">Verified ${t.verified} · <span class="by">${t.verifier}</span></div>
+              <div class="verifier-badge">
+                <div class="verifier-text">
+                  <span class="when">${when}</span>
+                  <span class="who">VERIFIED · ${verifier}</span>
+                </div>
+                <div class="verifier-avatar">${verifier}</div>
+              </div>
             </div>
           </div>
           <div class="tool-aside">
             <div class="tool-cat">${t.category}</div>
+            <div class="tool-juris">${t.jurisdiction}</div>
           </div>
         </div>
       `;
@@ -434,6 +1256,13 @@
     const cardsHtml = (t.cards || []).length > 0
       ? t.cards.map(c => `<span class="card-ref">${c}</span>`).join(' ')
       : '<span class="card-ref empty">No card yet</span>';
+    const opsecHtml = t.opsec
+      ? `<div class="section-body">${t.opsec}</div>`
+      : `<div class="section-body empty">No OPSEC notes recorded for this entry.</div>`;
+    const reliabilityHtml = t.reliability
+      ? `<div class="section-body">${t.reliability}</div>`
+      : `<div class="section-body empty">No reliability notes recorded for this entry.</div>`;
+    const verifier = t.verifier || '??';
     els.modalBody.innerHTML = `
       <div class="modal-eyebrow">${t.category} · ${t.jurisdiction}</div>
       <div class="modal-name">${t.name}</div>
@@ -442,11 +1271,11 @@
       <p class="modal-desc">${t.desc}</p>
       <div class="modal-section warn">
         <div class="section-label">OPSEC</div>
-        <div class="section-body">${t.opsec}</div>
+        ${opsecHtml}
       </div>
       <div class="modal-section">
         <div class="section-label">Reliability</div>
-        <div class="section-body">${t.reliability}</div>
+        ${reliabilityHtml}
       </div>
       <div class="modal-section">
         <div class="section-label">Cost</div>
@@ -457,10 +1286,14 @@
         <div class="section-body">${cardsHtml}</div>
       </div>
       <div class="modal-meta">
-        <div>
-          <div class="meta-block">Verified <span class="v">${t.verified}</span> by <span class="v">${t.verifier}</span></div>
-          <div class="meta-block">Citation: <span class="v">signalandshadow.com/tools#${t.id}</span></div>
+        <div class="modal-verifier">
+          <div class="verifier-avatar">${verifier}</div>
+          <div>
+            <div class="meta-block">Verified <span class="v">${t.verified}</span></div>
+            <div class="meta-block" style="margin-top: 2px;">By verifier <span class="v">${verifier}</span> · ${daysSince(t.verified)} ago</div>
+          </div>
         </div>
+        <div class="meta-block">Citation: <span class="v">signalandshadow.com/tools#${t.id}</span></div>
       </div>
     `;
     els.modal.classList.add('open');
@@ -484,7 +1317,7 @@
   els.pricing.onchange = (e) => { state.pricing = e.target.value; render(); };
   els.sort.onchange = (e) => { state.sort = e.target.value; render(); };
 
-  function render() { renderFacets(); renderChips(); renderList(); }
+  function render() { renderFacets(); renderChips(); renderList(); renderActivityLog(); }
 
   fetch('./tools.json')
     .then(r => {
@@ -493,18 +1326,18 @@
     })
     .then(json => {
       data = Array.isArray(json) ? json : (json.tools || []);
-      const meta = Array.isArray(json) ? {} : (json.meta || {});
+      metaInfo = Array.isArray(json) ? {} : (json.meta || {});
 
       els.statTools.textContent = data.length;
       els.statCats.textContent = new Set(data.map(t => t.category)).size;
 
       const mostRecent = data.map(t => t.verified).filter(Boolean).sort().pop();
-      els.statUpdated.textContent = mostRecent ? daysSince(mostRecent) : '—';
+      els.statUpdated.textContent = mostRecent ? daysSince(mostRecent) : '···';
 
-      const schemaVersion = meta.schema_version || '1';
-      const lstVersion = meta.lst_version || 'LST-001';
-      const indexUpdated = meta.index_updated || mostRecent || '—';
-      els.footerMeta.textContent = `Schema v${schemaVersion} · ${lstVersion} · Index updated ${indexUpdated}`;
+      const schemaVersion = metaInfo.schema_version || '1';
+      const lstVersion = metaInfo.lst_version || 'LST-001';
+      const indexUpdated = metaInfo.index_updated || mostRecent || '···';
+      els.footerMeta.innerHTML = `Schema v${schemaVersion} · ${lstVersion} · Index updated ${indexUpdated}`;
 
       render();
 
