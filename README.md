@@ -1,21 +1,21 @@
-# Signal & Shadow — Tools Reference
+# Signal & Shadow · OSINT Tool Database
 
-A vetted operational tools reference for investigative journalists.
+A vetted operational tool database for investigative journalists.
 
 Every entry is signed, dated, and linked to the methodology cards that use it. The project ships fewer tools than aggregator catalogues, verified by the Signal & Shadow editorial team, with operational notes covering OPSEC, reliability, and cost.
 
-**Live page:** [signalandshadow.com/tools](https://signalandshadow.com/tools)
+**Live page:** [signalandshadow.io/osint-tool-database](https://signalandshadow.io/osint-tool-database)
 **Open dataset:** [tools.json](./tools.json)
 **Editorial standard:** [LST-001](https://github.com/signalandshadow/lst-001)
 
 ## What this is
 
-A single-page reference, hosted as a static site, with the underlying dataset published as a citable JSON file. Built for two audiences:
+A single-page database, hosted as a static site, with the underlying dataset published as a citable JSON file. Built for two audiences:
 
 1. Working investigative journalists who need an operational reference. What does the tool actually do, what's the OPSEC posture, where does it fail, what does it cost.
 2. Other publishers and tool-builders who want to consume the dataset directly. The schema is stable and versioned. MIT licensed.
 
-For breadth across the wider OSINT ecosystem, see [OSINT Navigator](https://navigator.indicator.media). This reference is deliberately narrower and deeper.
+For breadth across the wider OSINT ecosystem, see [OSINT Navigator](https://navigator.indicator.media). This database is deliberately narrower and deeper.
 
 ## Schema
 
@@ -72,11 +72,11 @@ Direct PRs that add or modify entries will be reviewed but not auto-merged. Ever
 
 The dataset is MIT licensed. Cite it as:
 
-> Signal & Shadow Tools Reference, [version], [date accessed]. https://signalandshadow.com/tools
+> Signal & Shadow OSINT Tool Database, [version], [date accessed]. https://signalandshadow.io/osint-tool-database
 
 Individual tool entries can be cited by their stable identifier:
 
-> signalandshadow.com/tools#marinetraffic
+> signalandshadow.io/osint-tool-database#marinetraffic
 
 ## Development
 
