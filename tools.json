@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1",
     "lst_version": "LST-001 v1.0.3",
-    "index_updated": "2026-05-07",
+    "index_updated": "2026-05-11",
     "license": "MIT",
     "canonical_url": "https://signalandshadow.io/osint-tool-database",
     "repo_url": "https://github.com/signalandshadow/tools",
@@ -58,8 +58,7 @@
       "verifier": "DB",
       "cards": [
         "MAR-002",
-        "MAR-005",
-        "CZ-002"
+        "MAR-005"
       ]
     },
     {
@@ -67,7 +66,7 @@
       "name": "Copernicus Open Access Hub",
       "url": "scihub.copernicus.eu",
       "category": "Geolocation",
-      "jurisdiction": "Global · ESA",
+      "jurisdiction": "Global \u00b7 ESA",
       "pricing": "Free",
       "cost": "Free.",
       "desc": "European Space Agency hub for Sentinel-1 SAR imagery. Used to obtain radar returns covering vessel positions during AIS gap periods.",
@@ -101,7 +100,7 @@
       "name": "Equasis",
       "url": "equasis.org",
       "category": "Maritime",
-      "jurisdiction": "Global · IMO-endorsed",
+      "jurisdiction": "Global \u00b7 IMO-endorsed",
       "pricing": "Free",
       "cost": "Free with mandatory registration.",
       "desc": "IMO-endorsed registry providing verified information on commercial vessels including registered owner, ship manager, flag state, class society, and port state control inspection history.",
@@ -194,7 +193,7 @@
       "name": "IMO GISIS",
       "url": "gisis.imo.org",
       "category": "Maritime",
-      "jurisdiction": "Global · IMO-backed",
+      "jurisdiction": "Global \u00b7 IMO-backed",
       "pricing": "Free",
       "cost": "Free with registration.",
       "desc": "IMO Global Integrated Shipping Information System. Houses the marine casualties module containing formal flag-state casualty filings and detention records.",
@@ -337,7 +336,7 @@
       "name": "OpenCorporates",
       "url": "opencorporates.com",
       "category": "Corporate",
-      "jurisdiction": "Global · 140+ jurisdictions",
+      "jurisdiction": "Global \u00b7 140+ jurisdictions",
       "pricing": "Freemium",
       "cost": "Free web search; paid tiers for API access.",
       "desc": "Largest open database of company registrations across 140+ jurisdictions. Used for tracing corporate layers and identifying directors and shareholders.",
@@ -372,7 +371,7 @@
       "name": "Paris MoU",
       "url": "parismou.org",
       "category": "Maritime",
-      "jurisdiction": "Europe · North Atlantic",
+      "jurisdiction": "Europe \u00b7 North Atlantic",
       "pricing": "Free",
       "cost": "Free.",
       "desc": "European and North Atlantic port state control inspection database. Publishes annual flag state performance rankings used to assess detention risk.",
@@ -458,7 +457,7 @@
       "name": "UN Comtrade",
       "url": "comtradeplus.un.org",
       "category": "Public Records",
-      "jurisdiction": "Global · UN",
+      "jurisdiction": "Global \u00b7 UN",
       "pricing": "Free",
       "cost": "Free.",
       "desc": "Trade flow data used to cross-check declared cargo volumes against reporter-country and commodity-code declarations.",
@@ -527,7 +526,7 @@
       "name": "VIIRS Boat Detection (NASA FIRMS)",
       "url": "firms.modaps.eosdis.nasa.gov",
       "category": "Geolocation",
-      "jurisdiction": "Global · NASA",
+      "jurisdiction": "Global \u00b7 NASA",
       "pricing": "Free",
       "cost": "Free.",
       "desc": "Nighttime lights data from NASA. Provides a third independent position signal for nocturnal AIS gaps in known fishing or transfer zones.",
@@ -555,9 +554,7 @@
       "cards": [
         "MAR-005",
         "MAR-006",
-        "MAR-007",
-        "CZ-002",
-        "SOC-004"
+        "MAR-007"
       ]
     },
     {
@@ -613,460 +610,17 @@
       ]
     },
     {
-      "id": "firefox",
-      "name": "Firefox",
-      "url": "mozilla.org/firefox",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Mozilla's open-source browser. The research-browser foundation of the Course Zero stack because of native containers, configurable fingerprint resistance via privacy.resistFingerprinting, and DNS-over-HTTPS settings exposed in about:config.",
-      "opsec": "Use a dedicated profile created via about:profiles, not your personal profile. Disable in-browser AI features (browser.ml.chat.enabled and browser.ml.enable) before the profile meets a live subject; sidebar AI features upload page content to hosted providers.",
-      "reliability": "privacy.resistFingerprinting normalises screen size, time zone, fonts and canvas output but does not eliminate fingerprint entropy. Letterboxing adds grey margins to standardise viewport size; this is the feature, not a bug. Permanent private browsing mode disables Multi-Account Containers, so do not enable it.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-001"
-      ]
-    },
-    {
-      "id": "multi-account-containers",
-      "name": "Firefox Multi-Account Containers",
-      "url": "addons.mozilla.org/firefox/addon/multi-account-containers",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Mozilla extension that adds site-assignment rules and per-container exits on top of Firefox's native containers. Each container holds its own cookie jar, local storage and IndexedDB, so a login or tracker in one container cannot read state in another.",
-      "opsec": "Containers isolate cookies and storage, not the network layer. Every container shares the same IP, DNS resolver and outbound route; if the VPN drops, all containers fall back to the real IP simultaneously. Never log in to a real-name account inside a research persona container; the binding is durable.",
-      "reliability": "Built and maintained by Mozilla, no third-party dependency. Content-script-injecting extensions are detectable from the page's perspective and narrow the pool of browsers that look like yours, so keep the extension count low.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-001"
-      ]
-    },
-    {
-      "id": "mullvad",
-      "name": "Mullvad VPN",
-      "url": "mullvad.net",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Paid",
-      "cost": "Flat €5/mo. Anonymous numbered accounts, no email required. Cash by post and Monero accepted.",
-      "desc": "Swedish VPN operator using anonymous 16-digit account numbers with no email or password. RAM-only servers. Default first-stop network-origin masking for investigative work.",
-      "opsec": "Card payments are linked to your real identity by the payment processor regardless of Mullvad's policies; cash and Monero are the only anonymous funding routes. ISP-level metadata showing you connected to a Mullvad endpoint is visible regardless of what the provider logs. Country-switching mid-session is itself a signal; pick an exit country and hold it.",
-      "reliability": "No-logs policy corroborated by the April 2023 Swedish police search warrant that produced no seizable customer data, per Mullvad's 20 April 2023 statement. Independent audits by Cure53 and Assured AB are publicly available. A passing leak test today can fail silently after a system update or Firefox version change; re-verify at the start of every session.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-001"
-      ]
-    },
-    {
-      "id": "ublock-origin",
-      "name": "uBlock Origin",
-      "url": "github.com/gorhill/uBlock",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free, open source.",
-      "desc": "Content blocker that removes known trackers, analytics beacons and fingerprinting scripts at the request layer, before they execute. Blocks the signal-collection layer that VPNs and containers do not address.",
-      "opsec": "Enable the Annoyances and Privacy filter lists in addition to the defaults. Blocking is per-request and does not cover scripts loaded from first-party domains; treat it as one of three layers, not the layer.",
-      "reliability": "",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-001"
-      ]
-    },
-    {
-      "id": "browserleaks",
-      "name": "BrowserLeaks",
-      "url": "browserleaks.com",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Public web service that reads and reports everything the browser exposes: IP, DNS resolver, WebRTC endpoints, canvas and WebGL fingerprint entropy. Standard third-party cross-check before a research stack meets a live subject.",
-      "opsec": "Run from inside the research container with the VPN connected; the goal is to see what a target site would see. Visiting BrowserLeaks reveals nothing about your investigation, but the visit itself is logged on their side.",
-      "reliability": "Independent observer, not affiliated with any VPN or browser vendor. Tests are a snapshot; re-run at the start of every session to catch configuration drift.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-001"
-      ]
-    },
-    {
-      "id": "eff-cover-your-tracks",
-      "name": "EFF Cover Your Tracks",
-      "url": "coveryourtracks.eff.org",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Electronic Frontier Foundation tool that measures browser fingerprint entropy and explains the signal vectors commercial fingerprinters use. Companion to BrowserLeaks for fingerprint-specific testing.",
-      "opsec": "",
-      "reliability": "Maintained by the EFF as research infrastructure. Reports the rarity of your fingerprint relative to the tool's panel, which gives a relative score, not an absolute identifier.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-001"
-      ]
-    },
-    {
-      "id": "arkenfox",
-      "name": "arkenfox user.js",
-      "url": "github.com/arkenfox/user.js",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free, open source.",
-      "desc": "Community-maintained, deeply documented hardened Firefox configuration. Advanced alternative to manual about:config edits, with every setting commented and grouped by purpose.",
-      "opsec": "Read every section before applying; some settings break common sites and need per-site overrides. Track upstream changes; the project updates with each Firefox release and silently broken settings are common during transitions.",
-      "reliability": "Open source, version-controlled and reviewed by a public community. Not a substitute for the layer model; hardening reduces fingerprint entropy but does not mask network origin.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-001"
-      ]
-    },
-    {
-      "id": "monolith",
-      "name": "monolith",
-      "url": "github.com/Y2Z/monolith",
-      "category": "Archiving",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free, open source.",
-      "desc": "Command-line tool that saves a complete web page as a single self-contained HTML file with all assets embedded inline. Renders offline and resists the dead-link problem that erodes investigation archives within months.",
-      "opsec": "Run from the same VPN-connected research environment used to view the page; otherwise the request signature differs from the rest of the session.",
-      "reliability": "Self-contained output is independently reviewable years later without depending on the live source. Hash the captured file with SHA-256 at the moment of capture, not the live page; live pages hash differently on revisit because of dynamic content.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-001"
-      ]
-    },
-    {
-      "id": "haveibeenpwned",
-      "name": "Have I Been Pwned",
-      "url": "haveibeenpwned.com",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free for individual lookup and notification subscription. Paid tiers for domain monitoring and API access.",
-      "desc": "Standard public reference for whether an email address or phone number appears in a known data breach. Lists more than 970 breached sites and processes new dumps continuously.",
-      "opsec": "Lookups are not authenticated and the service does not require an account for individual searches. Notification subscription requires confirmation via email, which establishes that the address is monitored by the subscriber.",
-      "reliability": "Includes only breaches the project has been given access to; many breaches circulate privately and never reach HIBP. A clean record is the floor of exposure, not the ceiling. Google's Dark Web Report tool was discontinued in February 2026; HIBP is the recommended replacement.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "firefox-monitor",
-      "name": "Firefox Monitor",
-      "url": "monitor.firefox.com",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free with Mozilla account.",
-      "desc": "Browser-integrated interface to the Have I Been Pwned backend. Useful for monitoring multiple addresses simultaneously through a single Mozilla account.",
-      "opsec": "Requires a Mozilla account and ties monitored addresses to that account; use a research-dedicated Mozilla account, not a personal one.",
-      "reliability": "Same backend as HIBP and inherits the same coverage limits.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "google-takeout",
-      "name": "Google Takeout",
-      "url": "takeout.google.com",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free with a Google account.",
-      "desc": "Exports the data Google holds across Search history, location history, YouTube, Maps, Drive metadata and account activity. Reveals what the dominant search engine knows about the account holder.",
-      "opsec": "The export itself is a complete dossier of the account; treat the resulting archive as sensitive and store it on encrypted media. Generating the export does not delete the underlying data, only copies it.",
-      "reliability": "Export covers what Google holds at the moment of generation, not data inferred or shared with advertising partners. Some data classes (notably aggregated profiling signals) are not included.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "192-com",
-      "name": "192.com",
-      "url": "192.com",
-      "category": "People Search",
-      "jurisdiction": "United Kingdom",
-      "pricing": "Freemium",
-      "cost": "Free results require registration. Full results are credit-based.",
-      "desc": "Aggregates the UK Open Register, BT phone directories, Companies House filings and Land Registry property prices. Default first stop for any UK people-search lookup.",
-      "opsec": "Registration ties searches to an account; use an investigation-dedicated email. Logged-in and public visitors are sometimes served different content; verify each hit by visiting the listing directly.",
-      "reliability": "Open Register opt-out at gov.uk/register-to-vote is the only operational way to remove the upstream feed, and is not retrospective. Brokers retain prior editions legally. Multiple search variants per identifier are required; segment-by-region matching is exact and a single variant can return zero hits where another returns a match.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "tracesmart",
-      "name": "Tracesmart",
-      "url": "tracesmart.co.uk",
-      "category": "People Search",
-      "jurisdiction": "United Kingdom",
-      "pricing": "Paid",
-      "cost": "Paid; subscription pricing.",
-      "desc": "UK people-search service that retains Open Register data going back to 2002. Routinely missed by US-focused removal services.",
-      "opsec": "Has a manual opt-out procedure on its site; submit before any UK self-audit goes live.",
-      "reliability": "Long historical retention means listings persist for identifiers no longer on the current Open Register. Cross-reference against 192.com and PeopleTraceUK for full UK coverage.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "peopletraceuk",
-      "name": "PeopleTraceUK",
-      "url": "peopletraceuk.com",
-      "category": "People Search",
-      "jurisdiction": "United Kingdom",
-      "pricing": "Paid",
-      "cost": "Paid; per-lookup pricing.",
-      "desc": "UK people-search service that retains Open Register data going back to 2008. Companion to Tracesmart for historical UK coverage.",
-      "opsec": "Has a manual opt-out procedure on its site.",
-      "reliability": "Like Tracesmart, retains historical Open Register data beyond what current upstream feeds expose. Cross-reference against 192.com and Tracesmart for full UK coverage.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "spokeo",
-      "name": "Spokeo",
-      "url": "spokeo.com",
-      "category": "People Search",
-      "jurisdiction": "United States",
-      "pricing": "Freemium",
-      "cost": "Free preview; paid tiers for full results.",
-      "desc": "US people-search aggregator covering name, address, phone and relatives. One of the four most exposed US aggregators per Optery's broker directory.",
-      "opsec": "Has a free opt-out procedure that takes one to four weeks to action. Removed records sometimes reappear on next data refresh; re-check periodically.",
-      "reliability": "Coverage skews to US public records, electoral rolls and marketing data. Cross-reference against Whitepages, BeenVerified and Radaris for full US picture.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "whitepages",
-      "name": "Whitepages",
-      "url": "whitepages.com",
-      "category": "People Search",
-      "jurisdiction": "United States",
-      "pricing": "Freemium",
-      "cost": "Free preview; paid tiers for full results and reverse lookup.",
-      "desc": "US people-search aggregator covering name, phone, address and household composition. One of the four most exposed US aggregators per Optery's broker directory.",
-      "opsec": "Has an opt-out procedure that takes one to four weeks. Removed records sometimes reappear on data refresh.",
-      "reliability": "Phone-number coverage stronger than several competitors. Cross-reference against Spokeo, BeenVerified and Radaris for full US picture.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "beenverified",
-      "name": "BeenVerified",
-      "url": "beenverified.com",
-      "category": "People Search",
-      "jurisdiction": "United States",
-      "pricing": "Paid",
-      "cost": "Subscription pricing for full reports.",
-      "desc": "US people-search aggregator covering background reports, court records, contact and social profiles. One of the four most exposed US aggregators per Optery's broker directory.",
-      "opsec": "Has an opt-out procedure that takes one to four weeks. Removed records sometimes reappear on data refresh.",
-      "reliability": "Background-report aggregation overlaps with court-record sources and may surface filings other brokers omit. Cross-reference against Spokeo, Whitepages and Radaris.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "radaris",
-      "name": "Radaris",
-      "url": "radaris.com",
-      "category": "People Search",
-      "jurisdiction": "United States",
-      "pricing": "Freemium",
-      "cost": "Free preview; paid tiers for full results.",
-      "desc": "US people-search aggregator covering name, address, relatives and associated handles. One of the four most exposed US aggregators per Optery's broker directory.",
-      "opsec": "Has an opt-out procedure that takes one to four weeks. Removed records sometimes reappear on data refresh; Radaris has a documented pattern of restoration on subsequent refreshes.",
-      "reliability": "Often surfaces handle and username associations that other US aggregators omit. Cross-reference against Spokeo, Whitepages and BeenVerified.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "optery",
-      "name": "Optery",
-      "url": "optery.com",
-      "category": "People Search",
-      "jurisdiction": "United States",
-      "pricing": "Freemium",
-      "cost": "Free directory of broker opt-out URLs. Paid tiers for managed removal.",
-      "desc": "Maintains a current list of US data broker opt-out pages organised by aggregator. Reference index for routing remediation across the fragmented US broker landscape.",
-      "opsec": "Free directory access does not require an account. Managed removal tier requires personal data, which itself becomes broker exposure if Optery is breached.",
-      "reliability": "Directory is updated as broker opt-out URLs change; treat as authoritative for current US broker landscape but verify each opt-out URL at the broker itself before submitting.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "pimeyes",
-      "name": "PimEyes",
-      "url": "pimeyes.com",
-      "category": "People Search",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free tier reveals match locations. Paid tiers for full URLs and alerts.",
-      "desc": "Reverse-image search service indexing billions of public face images. Listed for completeness because adversaries use it, not endorsed for casual use.",
-      "opsec": "The lookup itself is logged and the uploaded face image becomes part of the service's processed query history. If using, do so once, from the investigative browser, after reading the privacy policy. Do not click claim-listing links on any subsequent listings; this confirms the match and may convert a partial record into a complete one.",
-      "reliability": "Face-matching is not biometric-grade. A returned hit may be someone who looks similar, not the subject. Treat every hit as a candidate to verify, not a confirmed exposure.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002",
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "archive-today",
-      "name": "archive.today",
-      "url": "archive.today",
-      "category": "Archiving",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Independent web archive that captures and stores snapshots of pages on demand. Often retains content the Wayback Machine does not, and vice versa.",
-      "opsec": "Submitting a URL to archive.today causes a fetch from archive.today's infrastructure, not from the submitter; the submitter's IP is not exposed to the captured site. The archive itself does not have a removal request procedure, unlike the Wayback Machine.",
-      "reliability": "Captures are point-in-time and cannot be revised by the submitter. Used alongside the Wayback Machine because each archive holds material the other does not.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "sec-edgar",
-      "name": "SEC EDGAR",
-      "url": "sec.gov/edgar",
-      "category": "Public Records",
-      "jurisdiction": "United States",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "US Securities and Exchange Commission filing system. Public reference for officer, director and shareholder disclosures of US-listed entities.",
-      "opsec": "Searches are not authenticated; queries are logged at the source. Use the investigative browser profile.",
-      "reliability": "Coverage is limited to entities subject to SEC filing requirements. Private US companies and non-US listings are not included; cross-reference against OpenCorporates and the relevant national registry.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "land-registry-uk",
-      "name": "HM Land Registry",
-      "url": "gov.uk/government/organisations/land-registry",
-      "category": "Public Records",
-      "jurisdiction": "United Kingdom",
-      "pricing": "Paid",
-      "cost": "£3 per title register or title plan.",
-      "desc": "UK property ownership and price records. Returns title registers, title plans and historical sales data for England and Wales.",
-      "opsec": "Each search requires payment by card, which links the query to a real identity. Use a corporate or institutional card where available, not a personal one.",
-      "reliability": "Coverage is England and Wales only. Scotland uses Registers of Scotland; Northern Ireland uses Land Registry NI. Beneficial ownership is not always disclosed; offshore-held property may name a corporate vehicle, not the underlying owner.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "bailii",
-      "name": "BAILII",
-      "url": "bailii.org",
-      "category": "Public Records",
-      "jurisdiction": "United Kingdom · Ireland",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "British and Irish Legal Information Institute. Free access to UK and Irish case law and legislation, including transcripts of higher-court judgments.",
-      "opsec": "Searches are not authenticated and not logged at the user level. Standard browser hygiene applies.",
-      "reliability": "Coverage of higher courts is comprehensive but lower-court and tribunal coverage is patchy. Cross-reference against the official court service for completeness.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "courtlistener",
-      "name": "CourtListener",
-      "url": "courtlistener.com",
-      "category": "Public Records",
-      "jurisdiction": "United States",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Free Law Project's database of US federal and state court opinions, oral arguments and judges. Companion to PACER for users without paid PACER access.",
-      "opsec": "Searches do not require an account. Free Law Project publishes its data-handling policy.",
-      "reliability": "Coverage of federal opinions is strong; state-court coverage is uneven and lags PACER for new federal filings. Cross-reference against PACER for current federal docket activity.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
-      "id": "pacer",
-      "name": "PACER",
-      "url": "pacer.uscourts.gov",
-      "category": "Public Records",
-      "jurisdiction": "United States",
-      "pricing": "Paid",
-      "cost": "$0.10 per page, capped at $3 per document. Quarterly fees waived if usage is below $30.",
-      "desc": "Public Access to Court Electronic Records. Official US federal court docket and document system covering district, appellate and bankruptcy courts.",
-      "opsec": "Account required and tied to a real identity for billing. Every search is logged against the account; use an institutional account where available.",
-      "reliability": "Authoritative for current US federal docket activity. Documents available within minutes of filing in most districts. Cross-reference against CourtListener for free access to opinions and older material.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "CZ-002"
-      ]
-    },
-    {
       "id": "suncalc",
       "name": "SunCalc",
       "url": "suncalc.org",
       "category": "Geolocation",
       "jurisdiction": "Global",
       "pricing": "Free",
-      "cost": "Free, open source.",
-      "desc": "Browser-based sun-position calculator. Returns sun azimuth and altitude for any date, time and coordinate. Used in reverse to narrow latitude bands from observed shadow direction and length in a still image.",
-      "opsec": "Browser tool with no account required. Queries are sent over standard HTTPS; assume the operator can see candidate coordinates being tested. Run from the investigative browser profile per CZ-001.",
-      "reliability": "Sun-shadow analysis breaks down at high latitudes near solstice. Within the Arctic and Antarctic Circles, the sun does not set for weeks at midsummer or rise for weeks at midwinter; shadow direction over 24 hours is an arc, not a bearing. The calculation is only as good as the shadow measurement; mirrored or flipped images invert shadow direction and produce wrong bearings unless caught.",
-      "verified": "2026-05-07",
+      "cost": "Free.",
+      "desc": "Browser-based solar geometry calculator. Returns sun azimuth and elevation for any confirmed location and date; used to establish time-of-day range from shadow angle and direction in footage.",
+      "opsec": "",
+      "reliability": "Requires a confirmed geolocation before output is defensible. Cross-reference against at least one independent solar calculator.",
+      "verified": "2026-05-11",
       "verifier": "DB",
       "cards": [
         "GEO-001"
@@ -1075,358 +629,35 @@
     {
       "id": "google-earth-pro",
       "name": "Google Earth Pro",
-      "url": "google.com/earth/versions",
-      "category": "Geolocation",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free desktop application.",
-      "desc": "Desktop-only historical imagery archive and 3D terrain viewer. The historical imagery slider is the single most-used feature for geolocation chronolocation cross-checks. Web Google Earth lacks the slider and is not a substitute.",
-      "opsec": "Desktop application; tile requests are visible to Google. Open the application pointed away from prior session coordinates before each new case so cached tiles do not preload sensitive locations. Query through the investigative environment, not signed in to a personal Google account.",
-      "reliability": "Historical imagery dates and resolution vary by region; some areas have annual coverage, others a single capture every several years. A scene that fails current Streetview verification may match historical imagery from the date of capture; always test the slider against the claimed image date before concluding non-match. Older tiles are sometimes resampled or replaced by Google without notice.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001"
-      ]
-    },
-    {
-      "id": "google-streetview",
-      "name": "Google Maps Streetview",
-      "url": "google.com/maps",
+      "url": "earth.google.com",
       "category": "Geolocation",
       "jurisdiction": "Global",
       "pricing": "Free",
       "cost": "Free.",
-      "desc": "Ground-level imagery for confirming candidate intersections against fixed features in a source still. Default first-stop for street-level verification.",
-      "opsec": "Tile and panorama requests are logged by Google. Run from the investigative browser profile, signed out of any personal Google account, with VPN active.",
-      "reliability": "Imagery is dated; some locations are several years old, others updated annually. Buildings are demolished and roads widened between captures, so a scene that fails Streetview today may have been correct at the time of the original image. Coverage is patchy outside Western Europe and North America; Bing Streetside often catches the gaps.",
-      "verified": "2026-05-07",
+      "desc": "Desktop application with historical satellite imagery archive. Used to bound earliest and latest possible filming dates by matching features in footage against dated archive passes.",
+      "opsec": "Query coordinates are sent to Google servers. Use a dedicated research profile for sensitive investigations.",
+      "reliability": "Archive pass density varies by region; rural and conflict-affected areas may have multi-year gaps. Record the exact acquisition date shown in the timeline slider before citing any pass.",
+      "verified": "2026-05-11",
       "verifier": "DB",
       "cards": [
         "GEO-001"
       ]
     },
     {
-      "id": "bing-streetside",
-      "name": "Bing Maps Streetside",
-      "url": "bing.com/maps",
+      "id": "meteostat",
+      "name": "Meteostat",
+      "url": "meteostat.net",
       "category": "Geolocation",
       "jurisdiction": "Global",
       "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Microsoft's ground-level imagery layer. Coverage differs from Google Streetview, especially outside Western Europe and North America. Always check both as an independent visual source.",
-      "opsec": "Tile requests are logged by Microsoft. Run from the investigative browser profile, signed out of any Microsoft account, with VPN active.",
-      "reliability": "Coverage is uneven and often older than Google's in Western markets but stronger than Google's in some Eastern European and Asian regions. Use as a primary cross-check, not as a fallback. Independent of Google's imagery pipeline; the two together approximate two independent sources for street-level verification.",
-      "verified": "2026-05-07",
+      "cost": "Free; API access requires free registration.",
+      "desc": "Historical meteorological records by station and date. Used to retrieve METAR records and cross-reference observable conditions in footage against a candidate date range.",
+      "opsec": "",
+      "reliability": "Verify proximity of the weather station to the incident coordinates before treating records as evidence.",
+      "verified": "2026-05-11",
       "verifier": "DB",
       "cards": [
         "GEO-001"
-      ]
-    },
-    {
-      "id": "peakvisor",
-      "name": "PeakVisor",
-      "url": "peakvisor.com",
-      "category": "Geolocation",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free web 3D terrain viewer. Paid mobile app for offline use and additional features.",
-      "desc": "3D mountain identification with named peak overlays. Used to match skyline silhouettes and ridge profiles in a still against named terrain features.",
-      "opsec": "Browser tool with no account required for free tier. Viewpoint queries are visible to the operator.",
-      "reliability": "A ridge with three peaks at specific apparent angular separations resolves to a small set of viewing positions; combine with sun-shadow and country band before treating as a coordinate. Peak naming is most complete in well-documented mountain regions; lesser-known ranges may have gaps. The 3D model is a reconstruction, not satellite imagery; verify candidate viewpoints against Google Earth Pro before publishing.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001"
-      ]
-    },
-    {
-      "id": "openstreetmap",
-      "name": "OpenStreetMap",
-      "url": "openstreetmap.org",
-      "category": "Geolocation",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free, open data.",
-      "desc": "Community-edited world map with full edit history per feature. Used for corroborating candidate coordinates through independent map data and for surfacing recent ground-truth changes via edit history at a location.",
-      "opsec": "All queries are public and the data is open. No account required for reading. Editing requires an account and edits are publicly attributed; never edit map features at a candidate coordinate during an investigation.",
-      "reliability": "Coverage and accuracy vary by region; densely populated and well-mapped areas are reliable, remote and conflict-affected areas often lag. Edit history is a corroboration tool: two new building outlines added at a candidate coordinate after the claimed image date suggests the scene has changed materially since capture. Cross-reference against satellite imagery before drawing inferences from edits alone.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001"
-      ]
-    },
-    {
-      "id": "geoguessr",
-      "name": "GeoGuessr",
-      "url": "geoguessr.com",
-      "category": "Geolocation",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free daily challenge. Paid subscription for unlimited play and additional modes.",
-      "desc": "Geolocation game built on Google Streetview. Used operationally as a deliberate practice environment for vernacular pattern recognition: kerbstones, road paint, signage typography, vehicle plate formats, vegetation cues.",
-      "opsec": "Free tier requires no account. Subscription tier ties usage to an account; use a research-dedicated email if subscribing. Game data is held by GeoGuessr AB; assume play history is logged.",
-      "reliability": "Useful for building the visual reference set that geolocation work depends on; not a verification tool for a live investigation. The game scores by distance, which trains rapid pattern recognition rather than the chain-of-custody discipline required for publishable geolocation. Treat it as a training environment, not as evidence.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001"
-      ]
-    },
-    {
-      "id": "tineye",
-      "name": "TinEye",
-      "url": "tineye.com",
-      "category": "SOCMINT",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free web search. Paid API access for bulk queries.",
-      "desc": "Reverse-image search engine indexing crawled web images. Used to flag stock photos, stolen images and recycled avatars across coordinated-network accounts.",
-      "opsec": "Web queries are logged by the operator; the uploaded image becomes part of the service's processed query history. Run from the investigative browser profile per CZ-001, not signed in to a personal account.",
-      "reliability": "Index focuses on web-published images and is weaker against AI-generated faces, which are not crawled if not posted publicly. Cross-reference against PimEyes for face-specific coverage. A no-result is not proof an image is original; treat as one source in a chain, not a verdict.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "openmeasures",
-      "name": "OpenMeasures",
-      "url": "openmeasures.io",
-      "category": "SOCMINT",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free tier with limited queries. Paid tiers for higher volume and additional platforms.",
-      "desc": "Cross-platform search across alt-tech and mainstream social platforms including Telegram, Gab, BitChute, 4chan, Truth Social and others. Used to pivot suspect usernames and shared URLs from a seed account to its full cross-platform footprint.",
-      "opsec": "Free-tier queries are logged against an account email; use a research-dedicated address. Paid tiers tie usage to billing identity, which links query history to a real-name payer.",
-      "reliability": "Coverage breadth across alt-tech is the primary value; mainstream-platform coverage is weaker than native search on those platforms. Useful for surfacing cross-platform handle reuse but not for full-archive analysis on any single platform. Treat hits as leads to verify on the platform itself, not as confirmed evidence.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "meta-threat-reports",
-      "name": "Meta Influence Operations Threat Reports",
-      "url": "about.fb.com/news/tag/coordinated-inauthentic-behavior",
-      "category": "SOCMINT",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Meta's quarterly takedown reports on coordinated inauthentic behaviour, with attribution and indicators of compromise. Primary first-party source for documented network removals on Facebook and Instagram.",
-      "opsec": "Public web pages with no authentication required. Archive each report as a PDF on download because Meta has historically restructured its newsroom URLs without notice.",
-      "reliability": "Authoritative for what Meta has publicly attributed and removed. Coverage is limited to operations Meta has chosen to disclose; private removals and ongoing investigations are not in scope. Cross-reference against Stanford Internet Observatory, Graphika and DFRLab reporting for independent corroboration.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "graphika",
-      "name": "Graphika",
-      "url": "graphika.com",
-      "category": "SOCMINT",
-      "jurisdiction": "Global",
-      "pricing": "Paid",
-      "cost": "Paid platform access. Public reports on major operations are free.",
-      "desc": "Network analysis platform used to map influence operations and amplification structures. Publishes free public reports on major investigations including the Stanford Internet Observatory's Unheard Voice analysis from August 2022.",
-      "opsec": "Platform queries are tied to a paid account and logged. Public-report reading is unauthenticated.",
-      "reliability": "Public reports represent one of the most rigorous open analyses of influence operations available. Platform-tier access provides independent network graphs not derivable from native platform search, but findings still require corroboration against the underlying platform data before publication.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "osomenet",
-      "name": "OSoMeNet",
-      "url": "osome.iu.edu",
-      "category": "SOCMINT",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free academic and journalist access.",
-      "desc": "Indiana University Observatory on Social Media's suite for tracking information spread and visualising amplifier networks in claim-diffusion graphs.",
-      "opsec": "Access requires registration tied to an institutional or research-dedicated email. Queries against specific claim keywords reveal investigative interest to the operator.",
-      "reliability": "Academic-grade tooling with peer-reviewed methodology underpinning the visualisations. Coverage of platforms shifts with API access; some platform integrations have been retired as platforms restricted academic access. Verify which platforms are currently covered before relying on a null result.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "bot-sentinel",
-      "name": "Bot Sentinel",
-      "url": "botsentinel.com",
-      "category": "SOCMINT",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free tier for individual account scoring. Paid tier for bulk analysis.",
-      "desc": "Account scoring service that flags X (Twitter) accounts for inauthentic-behaviour indicators including posting cadence, content patterns and network signals.",
-      "opsec": "Free tier requires no account for individual lookups. Bulk-tier subscription ties usage to billing identity.",
-      "reliability": "Score is a heuristic, not a verdict; treat a flag as a lead to verify, not a confirmed inauthenticity finding. Methodology is partially disclosed; cross-reference scoring against direct timeline analysis before publishing an attribution. False positives include high-volume legitimate posters, news aggregators and activist communities using shared toolkits.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "meedan-check",
-      "name": "Meedan Check",
-      "url": "meedan.com/check",
-      "category": "SOCMINT",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free for journalists.",
-      "desc": "Collaborative claim verification workspace used by fact-checking organisations and newsrooms. Supports shared workflows across investigators on a single claim or network.",
-      "opsec": "Workspace data is held by Meedan; treat the platform as a managed third party rather than a private store. Use a research-dedicated account and avoid storing source-identifying details in shared workspaces unless the source has consented.",
-      "reliability": "Strongest for collaborative claim triage rather than network mapping. Fits alongside OSoMeNet and Graphika as a verification-stage tool, not a discovery-stage one.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "junkipedia",
-      "name": "Junkipedia",
-      "url": "junkipedia.org",
-      "category": "SOCMINT",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free academic and journalist access.",
-      "desc": "Monitored-channel archive covering known problematic actors across mainstream and alt-tech platforms. Used to surface coordinated content from channels already flagged by the project's curation.",
-      "opsec": "Access requires registration; use a research-dedicated email. Queries are logged against the account.",
-      "reliability": "Coverage is curated, not exhaustive; absence from Junkipedia does not mean absence of coordination. Strongest as a first-pass scan of known-bad channels, weaker as a discovery tool for new networks. Cross-reference against OpenMeasures for broader cross-platform coverage.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "SOC-004"
-      ]
-    },
-    {
-      "id": "twilio-lookup",
-      "name": "Twilio Lookup",
-      "url": "twilio.com/lookup",
-      "category": "Telecoms",
-      "jurisdiction": "Global",
-      "pricing": "Paid",
-      "cost": "Per-query API pricing. SIM swap signals and line-type intelligence priced separately per region.",
-      "desc": "Paid API returning carrier, line type, porting status and SIM-swap risk signals globally. Default first-stop for programmatic carrier resolution against E.164-formatted numbers.",
-      "opsec": "Queries are tied to a paid Twilio account and logged against billing identity. Use an institutional account where available, not a personal one. Assume every query is recoverable by Twilio under subpoena.",
-      "reliability": "Carrier-of-record reflects the original assignment, not the current operator; ported numbers retain the prefix from the original carrier. Treat carrier as one signal in a chain, not a verdict on current operator.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "TEL-001"
-      ]
-    },
-    {
-      "id": "numverify",
-      "name": "NumVerify",
-      "url": "numverify.com",
-      "category": "Telecoms",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free tier with registration. Paid tiers for higher volume and additional fields.",
-      "desc": "Validates phone number format and resolves country, carrier and line type. Free-tier alternative to Twilio Lookup for lower-volume verification work.",
-      "opsec": "Registration ties queries to an account email; use a research-dedicated address. Free-tier rate limits are visible to the operator.",
-      "reliability": "Format validation is reliable; carrier resolution is weaker than Twilio Lookup for ported numbers and small carriers. Cross-reference against a second source before treating carrier as a finding.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "TEL-001"
-      ]
-    },
-    {
-      "id": "phoneinfoga",
-      "name": "PhoneInfoga",
-      "url": "github.com/sundowndev/phoneinfoga",
-      "category": "Telecoms",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free, open source.",
-      "desc": "Open-source command-line tool that aggregates carrier resolution, VoIP detection and Google-dork hits for a target number. Runs locally, leaving no third-party query log beyond the underlying services it calls.",
-      "opsec": "Local execution avoids creating a query trail with a single aggregator, but downstream API calls (carrier services, search engines) still log requests against whatever credentials or IP are configured. Run from the investigative environment with VPN active. Open source; review the version's network behaviour before relying on it for sensitive work.",
-      "reliability": "Aggregator-of-aggregators inherits the limits of every underlying source. Output quality depends on which API keys are configured. Treat results as leads to corroborate, not standalone findings.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "TEL-001"
-      ]
-    },
-    {
-      "id": "truecaller",
-      "name": "Truecaller",
-      "url": "truecaller.com",
-      "category": "Telecoms",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free with registration. Paid Premium tier for ad removal and additional features.",
-      "desc": "Crowd-sourced caller ID and spam-tag service. Returns labels contributed by other users for a queried number.",
-      "opsec": "Registration requires a phone number, which itself becomes an exposure tied to the research account. Use a managed-attribution account, never a personal line. Truecaller ingests contact lists from registered users, so any contact who has the analyst's number in their phone may have already submitted that number to the service.",
-      "reliability": "Crowd labels are unreliable individually: contacts tag numbers with outdated, inaccurate or malicious names. Mass-reported spam tags include journalists and activists targeted by harassment campaigns. Use as a signal among others, never as a sole basis for attribution.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "TEL-001"
-      ]
-    },
-    {
-      "id": "getcontact",
-      "name": "GetContact",
-      "url": "getcontact.com",
-      "category": "Telecoms",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free with registration. Paid Premium tier for additional lookups.",
-      "desc": "Crowd-sourced label service that returns how registered users have saved a queried number in their contacts. Most useful in regions with high penetration including Turkey, the Middle East and parts of South Asia.",
-      "opsec": "Registration ingests the registering user's full contact list by default, which has been the subject of multiple privacy enforcement actions in EU jurisdictions. Use a managed-attribution account on a clean device with no personal contact data. Assume every label returned is a label submitted by someone who has the labelled number in their own phone.",
-      "reliability": "Coverage is uneven by region; strong in markets with high adoption, near-zero in others. Labels are unverified user input and inherit the same false-positive risks as Truecaller. Use as a signal of how a number is socially perceived, not as an identity verification.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "TEL-001"
-      ]
-    },
-    {
-      "id": "epieos",
-      "name": "Epieos",
-      "url": "epieos.com",
-      "category": "Telecoms",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free tier with limited queries. Paid tiers for higher volume.",
-      "desc": "Reverse-lookup service that links email addresses or phone numbers to associated Google, WhatsApp and other public account fingerprints.",
-      "opsec": "Queries are logged against the user account. Free-tier results are visible to Epieos staff; paid-tier billing ties usage to identity. Lookups against high-value targets reveal investigative interest to whoever has access to the service's logs.",
-      "reliability": "Surfaces account associations that exist in public account-recovery flows; does not penetrate private account data. A null result reflects what is publicly observable, not whether an account exists. Cross-reference against direct platform probing (per the TEL-001 platform-probe step) before treating as a finding.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "TEL-001"
-      ]
-    },
-    {
-      "id": "hlr-lookup",
-      "name": "HLR Lookup",
-      "url": "hlrlookups.com",
-      "category": "Telecoms",
-      "jurisdiction": "Global",
-      "pricing": "Paid",
-      "cost": "Per-query pricing.",
-      "desc": "Pings carrier home-location-register databases for live status and roaming information on a queried number.",
-      "opsec": "HLR pings can notify the carrier of a query against a number, which has surfaced in operational contexts where the subject's carrier has alerted the subject. Avoid HLR queries against sensitive targets; the technique is detectable upstream of the analyst. Paid service ties queries to billing identity.",
-      "reliability": "Returns live network state, including roaming country at query time. Strongest evidence available for current device-network state but cannot reconstruct historical positions. The notification risk often outweighs the intelligence value; use sparingly and only when the subject's awareness of the query is acceptable.",
-      "verified": "2026-05-07",
-      "verifier": "DB",
-      "cards": [
-        "TEL-001"
       ]
     }
   ]
