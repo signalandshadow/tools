@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1",
     "lst_version": "LST-001 v1.0.3",
-    "index_updated": "2026-05-19",
+    "index_updated": "2026-05-26",
     "license": "MIT",
     "canonical_url": "https://signalandshadow.io/osint-tool-database",
     "repo_url": "https://github.com/signalandshadow/tools",
@@ -57,7 +57,6 @@
       "verified": "2026-05-01",
       "verifier": "DB",
       "cards": [
-        "COR-001",
         "MAR-002",
         "MAR-005"
       ]
@@ -167,7 +166,6 @@
       "verified": "2026-05-01",
       "verifier": "DB",
       "cards": [
-        "ENV-001",
         "MAR-003",
         "MAR-007"
       ]
@@ -186,7 +184,7 @@
       "verified": "2026-05-01",
       "verifier": "DB",
       "cards": [
-        "FIN-001",
+        "COR-002",
         "MAR-002",
         "MAR-005"
       ]
@@ -348,8 +346,8 @@
       "verified": "2026-05-01",
       "verifier": "DB",
       "cards": [
-        "COR-001",
-        "FIN-001",
+        "AVI-002",
+        "COR-002",
         "MAR-002",
         "MAR-005"
       ]
@@ -368,7 +366,6 @@
       "verified": "2026-05-01",
       "verifier": "DB",
       "cards": [
-        "FIN-001",
         "MAR-002"
       ]
     },
@@ -403,7 +400,6 @@
       "verified": "2026-05-01",
       "verifier": "DB",
       "cards": [
-        "ENV-001",
         "MAR-003",
         "MAR-007"
       ]
@@ -561,8 +557,7 @@
       "cards": [
         "MAR-005",
         "MAR-006",
-        "MAR-007",
-        "SOC-001"
+        "MAR-007"
       ]
     },
     {
@@ -618,230 +613,258 @@
       ]
     },
     {
-      "id": "signal",
-      "name": "Signal",
-      "url": "signal.org",
-      "category": "OPSEC",
+      "id": "audacity",
+      "name": "Audacity",
+      "url": "audacityteam.org",
+      "category": "Image",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free and open source.",
+      "desc": "Free audio editor providing waveform visualisation, noise profiling, and spectrogram analysis for forensic audio workflows.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "ACU-002"
+      ]
+    },
+    {
+      "id": "sonicvisualiser",
+      "name": "SonicVisualiser",
+      "url": "sonicvisualiser.org",
+      "category": "Image",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free and open source.",
+      "desc": "Layer-based audio annotation and spectrogram analysis tool favoured in forensic workflows for producing annotated exports.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "ACU-002"
+      ]
+    },
+    {
+      "id": "merlin-bird-id",
+      "name": "Merlin Bird ID",
+      "url": "merlin.allaboutbirds.org",
+      "category": "Geolocation",
       "jurisdiction": "Global",
       "pricing": "Free",
       "cost": "Free.",
-      "desc": "End-to-end encrypted messaging and voice calls. Default secure channel for source communications and inter-team coordination on sensitive investigations.",
-      "opsec": "Register using a non-attributable SIM and dedicated device; Signal reveals the phone number to contacts unless Note to Self is used. Enable disappearing messages for all source contacts. Always relay calls setting prevents IP disclosure during voice calls.",
-      "reliability": "Encryption is sound; endpoint security determines actual protection. A compromised device negates the channel. Metadata showing contact timing and frequency is visible to Signal's servers despite message content being encrypted.",
-      "verified": "2026-05-19",
+      "desc": "Cornell Lab audio identification app that maps identified bird species against their geographic range, used for acoustic geolocation in recordings.",
+      "opsec": "",
+      "reliability": "Species range data reduces but does not eliminate locational ambiguity; cosmopolitan species appear across wide ranges.",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "HUM-001",
-        "OPS-001"
+        "ACU-002"
       ]
     },
     {
-      "id": "tails-os",
-      "name": "Tails OS",
-      "url": "tails.boum.org",
-      "category": "OPSEC",
+      "id": "xeno-canto",
+      "name": "xeno-canto",
+      "url": "xeno-canto.org",
+      "category": "Image",
       "jurisdiction": "Global",
       "pricing": "Free",
       "cost": "Free.",
-      "desc": "Amnesic operating system booted from USB that routes all traffic through Tor and writes nothing to the host device on shutdown.",
-      "opsec": "Boot from a dedicated USB drive on a non-primary device. Confirm Tor circuit establishment before accessing any target resource. Never boot Tails on a device also used for personal or institutional work.",
-      "reliability": "Amnesia is complete on clean shutdown; a forced power cut may leave traces in RAM for a short window. Tor exit node coverage varies; onion services avoid exit nodes entirely.",
-      "verified": "2026-05-19",
+      "desc": "Global repository of bird and wildlife sound recordings used for comparative species identification in acoustic geolocation workflows.",
+      "opsec": "Fauna recordings from online platforms may carry metadata from a location different from the audio's geographic origin.",
+      "reliability": "",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "DRK-001",
-        "OPS-001"
+        "ACU-002"
       ]
     },
     {
-      "id": "protonmail",
-      "name": "ProtonMail",
-      "url": "proton.me",
-      "category": "OPSEC",
-      "jurisdiction": "Switzerland",
-      "pricing": "Freemium",
-      "cost": "Free tier available; paid plans from CHF 3.99/mo.",
-      "desc": "End-to-end encrypted email with Swiss jurisdiction and zero-knowledge architecture. Used for source contact where Signal is not viable.",
-      "opsec": "Register via Tor or VPN to avoid linking the account to your IP. Do not link to any personal identifier. Use only for investigation-dedicated correspondence.",
-      "reliability": "End-to-end encryption applies only between ProtonMail accounts; messages to standard email providers are encrypted in transit only. Swiss jurisdiction limits but does not eliminate legal compulsion risk.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "OPS-001"
-      ]
-    },
-    {
-      "id": "mullvad-vpn",
-      "name": "Mullvad VPN",
-      "url": "mullvad.net",
-      "category": "OPSEC",
-      "jurisdiction": "Sweden",
+      "id": "adobe-audition",
+      "name": "Adobe Audition",
+      "url": "adobe.com/products/audition",
+      "category": "Image",
+      "jurisdiction": "Global",
       "pricing": "Paid",
-      "cost": "EUR 5/mo flat; anonymous account creation; accepts cash and cryptocurrency.",
-      "desc": "No-log VPN with anonymous account creation and kill switch. Used to separate investigative sessions from institutional and personal IP addresses.",
-      "opsec": "Enable the kill switch before any session to block all traffic if the VPN drops. Verify the exit IP has changed before proceeding. VPN use alone is not anonymity; behavioural fingerprinting and login patterns persist.",
-      "reliability": "No-log policy is audited; Mullvad has published audit results. Does not protect against endpoint compromise or traffic correlation at the network level.",
-      "verified": "2026-05-19",
+      "cost": "Paid; subscription via Adobe Creative Cloud.",
+      "desc": "Professional spectrogram and waveform editor used for forensic audio analysis, including frequency analysis and noise profiling.",
+      "opsec": "Route audio files through a sanitised offline environment before analysis. Verify playback software does not auto-upload to cloud storage.",
+      "reliability": "",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "OPS-001"
+        "ACU-002"
       ]
     },
     {
-      "id": "1password",
-      "name": "1Password",
-      "url": "1password.com",
-      "category": "OPSEC",
-      "jurisdiction": "Canada",
+      "id": "hive-moderation",
+      "name": "Hive Moderation AI Detector",
+      "url": "hivemoderation.com",
+      "category": "Image",
+      "jurisdiction": "Global",
       "pricing": "Paid",
-      "cost": "Individual from $2.99/mo (annual); Teams Starter Pack $19.95/mo flat for up to 10 users (annual).",
-      "desc": "Password manager with team vault sharing. Used to generate, store, and rotate credentials for all investigative accounts without reuse across platforms.",
-      "opsec": "Use a strong, unique master password stored nowhere digitally. Enable two-factor authentication on the vault. Do not store source contact details or sensitive case notes in shared vaults.",
-      "reliability": "Vault data is end-to-end encrypted; 1Password cannot read stored credentials. Team vault sharing requires careful access control; departing team members must be offboarded promptly.",
-      "verified": "2026-05-19",
+      "cost": "Paid; per-file pricing via dashboard or API.",
+      "desc": "Multi-modal AI-generated content detector covering images, video, and audio with per-file confidence scores across generation classes.",
+      "opsec": "Confirm the platform's data retention policy before uploading evidential media. Record the exact API build version used at time of analysis.",
+      "reliability": "Treat any single detector result as a corroborating signal, not a conclusion; layer with at least one additional detector.",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "OPS-001"
+        "AIV-002"
       ]
     },
     {
-      "id": "malwarebytes",
-      "name": "Malwarebytes",
-      "url": "malwarebytes.com",
-      "category": "OPSEC",
+      "id": "optic",
+      "name": "Optic",
+      "url": "optic.io",
+      "category": "Image",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Paid; web interface and API access.",
+      "desc": "AI-generated image and video detector cited in Reuters Institute and GIJN comparative testing; returns detection scores with visual overlay highlighting flagged regions.",
+      "opsec": "Confirm the platform's data retention policy before uploading evidential media.",
+      "reliability": "Cited in published comparative evaluations (Reuters Institute; GIJN). Detectors trained on specific generation models may not recognise output from newer architectures.",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "AIV-002"
+      ]
+    },
+    {
+      "id": "illuminarty",
+      "name": "Illuminarty",
+      "url": "illuminarty.ai",
+      "category": "Image",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free tier available.",
+      "desc": "Image-focused AI probability scorer used as a cross-check source alongside higher-confidence commercial detectors.",
+      "opsec": "",
+      "reliability": "Use as a secondary cross-check; heavy JPEG compression or low-resolution crops reduce accuracy across all detectors.",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "AIV-002"
+      ]
+    },
+    {
+      "id": "invid-weverify",
+      "name": "InVID / WeVerify",
+      "url": "invid-project.eu",
+      "category": "Image",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free browser extension.",
+      "desc": "Browser extension providing metadata inspection, reverse image search, and keyframe extraction for video verification workflows.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "AIV-002"
+      ]
+    },
+    {
+      "id": "c2pa-inspector",
+      "name": "C2PA Content Credentials Inspector",
+      "url": "contentcredentials.org/verify",
+      "category": "Image",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Reads embedded C2PA provenance metadata in media files where watermarking has been applied at capture; documents whether credentials are present, absent, or stripped.",
+      "opsec": "C2PA credentials are frequently stripped by social media platforms on upload; their absence is not evidence of fabrication.",
+      "reliability": "Absence of credentials does not indicate AI generation. Presence confirms only that provenance was recorded at capture, not that content is authentic.",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "AIV-002"
+      ]
+    },
+    {
+      "id": "faa-aircraft-registry",
+      "name": "FAA Aircraft Registry",
+      "url": "registry.faa.gov",
+      "category": "Aviation",
       "jurisdiction": "United States",
-      "pricing": "Freemium",
-      "cost": "Free scanner; Premium from $3.75/mo.",
-      "desc": "Endpoint malware and spyware detection. Used to run baseline device health checks before beginning a new investigation.",
-      "opsec": "Run scans on the investigative device before each new investigation. Document the scan result and date in the case folder.",
-      "reliability": "Effective against known commercial malware. Does not detect sophisticated state-level spyware such as Pegasus, which leaves minimal footprint detectable by consumer tools.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "OPS-001"
-      ]
-    },
-    {
-      "id": "acled",
-      "name": "ACLED",
-      "url": "acleddata.com",
-      "category": "Geopolitical",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free with registration.",
-      "desc": "Armed Conflict Location and Event Data project. Geolocated conflict event database covering battles, explosions, and violence against civilians with actor, fatality, and source fields.",
-      "opsec": "Register using a research email. Data downloads are logged against the registered account.",
-      "reliability": "Event coordinates reflect media reporting locations, not field-verified GPS positions. Coverage varies by region; remote areas with limited press access are systematically undercounted. Apply deduplication checks; multiple outlets reporting the same event can produce duplicate entries.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "GEP-001",
-        "MED-001"
-      ]
-    },
-    {
-      "id": "liveuamap",
-      "name": "LiveUAMap",
-      "url": "liveuamap.com",
-      "category": "Geopolitical",
-      "jurisdiction": "Global",
       "pricing": "Free",
       "cost": "Free.",
-      "desc": "Real-time conflict mapping platform aggregating open-source incident reports from social media, news, and official sources across active conflict zones.",
+      "desc": "Authoritative US N-number registration search with ownership history and airworthiness records maintained by the Federal Aviation Administration.",
+      "opsec": "Route all registry searches through a VPN to avoid alerting subjects. Document the registration date, jurisdiction, and source URL for every record retrieved.",
+      "reliability": "Trust and LLC registrations are standard US aviation practice and do not indicate concealment without additional indicators. Historical registry data may lag real ownership changes by weeks.",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "AVI-002"
+      ]
+    },
+    {
+      "id": "adsb-exchange",
+      "name": "ADS-B Exchange",
+      "url": "adsbexchange.com",
+      "category": "Aviation",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; community-fed platform.",
+      "desc": "Unfiltered global flight tracking platform that does not honour operator removal requests, making it the primary source for investigators tracking sensitive aircraft.",
+      "opsec": "Use as the primary tracking source precisely because operators cannot suppress data.",
+      "reliability": "ADS-B gaps over ocean or in airspace with limited receiver coverage do not indicate intentional flight suppression. (ADS-B Exchange platform documentation, adsbexchange.com/what-is-the-exchange)",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "AVI-002"
+      ]
+    },
+    {
+      "id": "flightaware",
+      "name": "FlightAware",
+      "url": "flightaware.com",
+      "category": "Aviation",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free tier available; operators can pay for suppression.",
+      "desc": "Global flight tracking platform with ownership lookup; operators can pay to suppress visibility, so cross-reference against ADS-B Exchange for sensitive investigations.",
+      "opsec": "Do not rely on FlightAware alone; operators can pay to remove their aircraft from results.",
+      "reliability": "Operator suppression is a documented feature; absence of a record does not confirm a flight did not occur.",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "AVI-002"
+      ]
+    },
+    {
+      "id": "icarus-flights",
+      "name": "Icarus Flights",
+      "url": "icarus.flights",
+      "category": "Aviation",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; institutional access via C4ADS.",
+      "desc": "Transponder data, ownership records, and area-based search designed specifically for investigative use; introduced by C4ADS at GIJC21.",
       "opsec": "",
-      "reliability": "Aggregates unverified reports; each incident requires individual source assessment before use in published work. Not a primary source; treat as a triage and discovery tool only.",
-      "verified": "2026-05-19",
+      "reliability": "",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "GEP-001"
+        "AVI-002"
       ]
     },
     {
-      "id": "google-earth-pro",
-      "name": "Google Earth Pro",
-      "url": "earth.google.com",
-      "category": "Geospatial",
+      "id": "rzjets",
+      "name": "Rzjets / PlaneLogger",
+      "url": "rzjets.net",
+      "category": "Aviation",
       "jurisdiction": "Global",
       "pricing": "Free",
       "cost": "Free.",
-      "desc": "3D terrain and multi-date satellite imagery viewer with measurement, polygon, and KML import tools. Primary platform for geolocation analysis and conflict mapping overlays.",
-      "opsec": "Use the desktop application rather than the web version to limit data transmitted during analysis. Do not query the exact target coordinates from an institutional IP.",
-      "reliability": "Historical imagery availability varies by location and date; some regions have gaps of months or years. Imagery dates are shown per tile and may differ within a single scene. Coordinate accuracy is sub-metre for most populated areas.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001",
-        "GEP-001"
-      ]
-    },
-    {
-      "id": "sentinel-hub",
-      "name": "Sentinel Hub",
-      "url": "sentinelhub.com",
-      "category": "Geospatial",
-      "jurisdiction": "Global · ESA",
-      "pricing": "Freemium",
-      "cost": "Free trial; paid plans from EUR 25/mo.",
-      "desc": "Browser-based access to ESA Sentinel-1 SAR and Sentinel-2 multispectral imagery with date-filtered scene browsing and band combination tools.",
-      "opsec": "Register using a research email. Download and hash imagery files immediately; platform archives are occasionally updated or corrected.",
-      "reliability": "SAR imagery penetrates cloud cover but requires expert interpretation; returns can be ambiguous. Optical imagery at 10m resolution is sufficient for feature matching but not sub-metre measurement. Verify the acquisition UTC timestamp before asserting imagery shows current conditions.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "ENV-001",
-        "GEO-001",
-        "GEP-001"
-      ]
-    },
-    {
-      "id": "deepstatemap",
-      "name": "DeepStateMap",
-      "url": "deepstatemap.live",
-      "category": "Geopolitical",
-      "jurisdiction": "Ukraine",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Ukraine-specific territorial control mapping updated by a volunteer analyst team using geolocated OSINT and satellite imagery.",
+      "desc": "Community-maintained databases of business jet registrations and ownership records across jurisdictions, used for multi-jurisdiction registration history searches.",
       "opsec": "",
-      "reliability": "Reflects analyst assessment, not confirmed physical presence on the ground. Control lines should be treated as the team's best current estimate and cross-referenced against ISW and geolocated primary sources.",
-      "verified": "2026-05-19",
+      "reliability": "Identical company names in different jurisdictions can produce erroneous ownership linkages without MSN verification.",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "GEP-001"
-      ]
-    },
-    {
-      "id": "kontur-population",
-      "name": "Kontur Population",
-      "url": "kontur.io",
-      "category": "Geospatial",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Gridded population density dataset at 400m resolution. Used to estimate civilian exposure in areas of military activity or environmental harm.",
-      "opsec": "",
-      "reliability": "Population estimates are modelled from census, satellite, and ancillary data; accuracy varies in areas with poor baseline data. Not a substitute for displacement or casualty counts.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "GEP-001"
-      ]
-    },
-    {
-      "id": "ted-eu",
-      "name": "TED",
-      "url": "ted.europa.eu",
-      "category": "Public Records",
-      "jurisdiction": "European Union",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Official Journal of the EU tenders supplement. Covers all contract notices and award notices above EU threshold values across all member states.",
-      "opsec": "Query through a research browser profile without saved session cookies.",
-      "reliability": "Award notice dates may lag actual contract signing by weeks. Contract values are disclosed minimums; variation orders regularly increase final spend. Company names in notices may be trading names that differ from registered legal entity names.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "PRO-001"
+        "AVI-002"
       ]
     },
     {
@@ -849,937 +872,135 @@
       "name": "OCCRP Aleph",
       "url": "aleph.occrp.org",
       "category": "Corporate",
-      "jurisdiction": "Global",
+      "jurisdiction": "Global · 141 countries",
       "pricing": "Free",
-      "cost": "Free with registration.",
-      "desc": "Cross-reference platform indexing leaked and public datasets including procurement records, court filings, company registries, and sanctions lists across multiple jurisdictions.",
-      "opsec": "Register using a research email. OCCRP logs queries against registered accounts.",
-      "reliability": "Coverage depends on which datasets have been ingested; absence of a result does not confirm absence of a record. Leaked dataset dates vary; some material may be years old. Cross-reference matches against primary source registries before publication.",
-      "verified": "2026-05-19",
+      "cost": "Free.",
+      "desc": "Cross-source search platform covering 340 million public entities across 141 countries, including persons-of-interest datasets, sanctions lists, and gazette records.",
+      "opsec": "Search from a research account with no personal identifiers. Route queries through a VPN.",
+      "reliability": "Database hits are starting points, not conclusions; the named party may be a nominee. Treat any match as requiring source-document verification.",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "PRO-001"
+        "COR-002"
       ]
     },
     {
-      "id": "openspending",
-      "name": "OpenSpending",
-      "url": "openspending.org",
-      "category": "Public Records",
+      "id": "gleif-lei",
+      "name": "GLEIF Global LEI Index",
+      "url": "gleif.org",
+      "category": "Corporate",
       "jurisdiction": "Global",
       "pricing": "Free",
       "cost": "Free.",
-      "desc": "Government spending data from multiple national sources in standardised format. Used to trace transactional payment flows between public bodies and suppliers.",
+      "desc": "Open corporate ownership database answering who-owns-whom via Level 2 LEI relationship records connecting direct and ultimate parent entities across jurisdictions.",
       "opsec": "",
-      "reliability": "Dataset coverage and completeness varies substantially by country. Data may lag real transactions by months; verify the reporting period before comparison.",
-      "verified": "2026-05-19",
+      "reliability": "LEI coverage is strongest in regulated financial sectors; privately held or small entities may lack LEI records.",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "PRO-001"
+        "COR-002"
       ]
     },
     {
-      "id": "contracts-finder",
-      "name": "Contracts Finder",
-      "url": "find-tender.service.gov.uk",
-      "category": "Public Records",
-      "jurisdiction": "United Kingdom",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "UK public sector contract notices and awards from GBP 10,000 upward. Covers central government and many local authority contracts with supplier and value fields.",
-      "opsec": "",
-      "reliability": "Local authority and NHS compliance with publication requirements is inconsistent; absence from Contracts Finder does not confirm absence of a contract. Supplement with Freedom of Information requests for contracts not published.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "PRO-001"
-      ]
-    },
-    {
-      "id": "sam-gov",
-      "name": "SAM.gov",
-      "url": "sam.gov",
-      "category": "Public Records",
+      "id": "littlesis",
+      "name": "LittleSis",
+      "url": "littlesis.org",
+      "category": "Corporate",
       "jurisdiction": "United States",
       "pricing": "Free",
       "cost": "Free.",
-      "desc": "US federal contract and grant award database. Returns awards with contracting officer, agency, NAICS code, and value. Also covers entity registration and exclusions.",
+      "desc": "US-focused relationship database mapping interlocks between corporate boards, political donors, and government officials.",
       "opsec": "",
-      "reliability": "Covers federal awards only; state and local contracts are not included. Subcontract data is not routinely disclosed. Award modifications and cancellations are logged but may lag the underlying transaction.",
-      "verified": "2026-05-19",
+      "reliability": "",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "PRO-001"
+        "COR-002"
       ]
     },
     {
-      "id": "tussell",
-      "name": "Tussell",
-      "url": "tussell.com",
-      "category": "Public Records",
-      "jurisdiction": "United Kingdom",
-      "pricing": "Paid",
-      "cost": "Paid; pricing on request.",
-      "desc": "UK public sector contract intelligence platform with supplier and authority analysis. Aggregates and structures data from Contracts Finder and other sources for pattern analysis.",
-      "opsec": "Queries on commercial platforms are logged against the account; do not query the target supplier from a byline-linked account.",
-      "reliability": "Aggregates from public sources; accuracy reflects the underlying publication quality of each contracting authority.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "PRO-001"
-      ]
-    },
-    {
-      "id": "claude",
-      "name": "Claude",
-      "url": "claude.ai",
-      "category": "AI",
-      "jurisdiction": "United States",
-      "pricing": "Freemium",
-      "cost": "Free tier; Pro at $20/mo; API pricing varies by model.",
-      "desc": "Large language model used for document analysis, translation triage, entity extraction, and structured reasoning tasks within the verification workflow.",
-      "opsec": "Never upload sensitive source documents, unpublished reporting, or personally identifiable information to cloud-based AI services. Use locally deployed models for sensitive material. Document the model version and exact prompt for every analytical task.",
-      "reliability": "All output is D3-grade pending independent verification. Hallucination produces plausible but fabricated names, dates, and citations. Treat extracted entities, figures, and translations as hypotheses requiring primary-source corroboration before use.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "AIV-001"
-      ]
-    },
-    {
-      "id": "whisper",
-      "name": "Whisper",
-      "url": "github.com/openai/whisper",
-      "category": "AI",
+      "id": "ipinfo",
+      "name": "IPinfo.io",
+      "url": "ipinfo.io",
+      "category": "Network",
       "jurisdiction": "Global",
       "pricing": "Free",
-      "cost": "Free; open-source, deployable locally.",
-      "desc": "Open-source audio transcription model deployable locally without data transmission. Used to transcribe recordings for subsequent manual verification.",
-      "opsec": "Deploy locally for all sensitive material; do not use cloud-hosted Whisper APIs for investigation audio. Retain the original audio file and hash it before any processing.",
-      "reliability": "Accuracy varies by audio quality, language, and speaker accent. Transcription requires manual review; do not publish output without a verifying human pass. Strong performance on clear audio in English and major European languages; weaker on regional dialects.",
-      "verified": "2026-05-19",
+      "cost": "Free tier; paid tiers for higher API volume.",
+      "desc": "IP geolocation, ASN, organisation, VPN and proxy flag lookup with API access; the standard first stop for IP attribution.",
+      "opsec": "Never query a target IP directly from an operational device; route all lookups through a VPN. Treat city-level geolocation as approximate; country and ASN attribution are significantly more reliable.",
+      "reliability": "Cloud provider IP ownership (AWS, Google Cloud, Cloudflare) identifies the data centre operator, not the customer. Dynamic IPs are reassigned frequently; document the retrieval timestamp for every lookup.",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "AIV-001"
-      ]
-    },
-    {
-      "id": "notebooklm",
-      "name": "Google NotebookLM",
-      "url": "notebooklm.google.com",
-      "category": "AI",
-      "jurisdiction": "United States",
-      "pricing": "Free",
-      "cost": "Free with Google account.",
-      "desc": "Document-grounded question-answering tool that generates responses with citations tied to uploaded source pages. Used for triage of large document sets.",
-      "opsec": "Do not upload sensitive source documents or unpublished material. Uploaded documents are processed by Google infrastructure; confirm data retention policy before use on sensitive investigations.",
-      "reliability": "Responses are grounded in uploaded documents and include source citations; this reduces but does not eliminate hallucination. Verify each cited passage against the original document before use.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "AIV-001"
-      ]
-    },
-    {
-      "id": "openrefine",
-      "name": "OpenRefine",
-      "url": "openrefine.org",
-      "category": "AI",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; open-source.",
-      "desc": "Open-source data cleaning and clustering tool for large structured datasets. Used to identify variant spellings, duplicates, and inconsistencies across entity name columns.",
-      "opsec": "Runs locally; no data is transmitted to external servers in standard use. Confirm no external reconciliation services are enabled when processing sensitive datasets.",
-      "reliability": "Clustering algorithms surface candidate matches but do not confirm identity; human review is required for each cluster before merging records.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "AIV-001"
-      ]
-    },
-    {
-      "id": "diffchecker",
-      "name": "Diffchecker",
-      "url": "diffchecker.com",
-      "category": "AI",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free web tool; Desktop from $9/mo for offline use.",
-      "desc": "Document comparison tool for identifying additions, deletions, and changes between two versions of a text. Used to detect alterations in official documents between releases.",
-      "opsec": "Use the desktop version or a locally hosted diff tool for sensitive documents; the web version transmits document content to Diffchecker servers.",
-      "reliability": "Identifies textual differences precisely; does not assess the significance of changes or detect reformatted content that is substantively identical.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "AIV-001"
-      ]
-    },
-    {
-      "id": "suncalc",
-      "name": "SunCalc",
-      "url": "suncalc.org",
-      "category": "Geospatial",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Sun position and shadow direction calculator by location, date, and time. Used in geolocation analysis to constrain the time or location of a photograph through shadow bearing.",
-      "opsec": "Do not query the exact target coordinates from your primary account or institutional IP.",
-      "reliability": "Calculations are astronomically accurate for the given inputs. Shadow direction in a photograph may be distorted by reflections, overcast diffusion, or image manipulation; verify sun visibility in the source before relying on shadow analysis.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001"
-      ]
-    },
-    {
-      "id": "mapillary",
-      "name": "Mapillary",
-      "url": "mapillary.com",
-      "category": "Geospatial",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Crowd-sourced street-level imagery platform. Used for ground-level perspective comparison in areas not covered by Google Street View, including conflict zones and rural regions.",
-      "opsec": "",
-      "reliability": "Coverage is uneven; urban areas and roads are better represented than rural or restricted areas. Image dates vary and may predate the event under investigation by years; verify the capture date before comparison.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001"
-      ]
-    },
-    {
-      "id": "what3words",
-      "name": "What3Words",
-      "url": "what3words.com",
-      "category": "Geospatial",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "3-metre grid location identifier system. Used to record and communicate precise coordinates in the case folder without ambiguity.",
-      "opsec": "",
-      "reliability": "Identifiers are stable and globally unique within the 3-metre grid. Requires conversion to decimal degrees for use in GIS platforms; verify conversion before archiving.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001"
-      ]
-    },
-    {
-      "id": "geoguessr",
-      "name": "GeoGuessr",
-      "url": "geoguessr.com",
-      "category": "Geospatial",
-      "jurisdiction": "Sweden",
-      "pricing": "Freemium",
-      "cost": "Free with limits; Pro at $1.99/mo.",
-      "desc": "Location familiarity training tool using Google Street View panoramas. Used to build regional visual cue recognition applicable to geolocation analysis.",
-      "opsec": "",
-      "reliability": "A training tool, not an investigative platform. Familiarity developed through GeoGuessr must be applied with the same evidentiary rigour as any other geolocation method; intuition requires independent corroboration.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "GEO-001"
-      ]
-    },
-    {
-      "id": "google-earth-engine",
-      "name": "Google Earth Engine",
-      "url": "earthengine.google.com",
-      "category": "Geospatial",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free with registration for non-commercial use.",
-      "desc": "Cloud-based platform for large-scale satellite imagery analysis using JavaScript or Python APIs. Used for time-series environmental change detection and spectral index calculations.",
-      "opsec": "Register using a research email. Do not upload sensitive location data or source material to the platform.",
-      "reliability": "Processing is cloud-side; results depend on dataset availability and script accuracy. Verify band combinations and index formulas against published methodology before drawing conclusions.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "ENV-001"
-      ]
-    },
-    {
-      "id": "copernicus-cams",
-      "name": "Copernicus Atmosphere Monitoring Service",
-      "url": "atmosphere.copernicus.eu",
-      "category": "Geospatial",
-      "jurisdiction": "Global · ESA",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Atmospheric composition data including NO2, SO2, CO, and aerosol optical depth. Used to document and map atmospheric pollution plumes from industrial or vessel sources.",
-      "opsec": "",
-      "reliability": "Spatial resolution of approximately 80km for some products limits attribution to specific facilities or vessels; useful for regional plume mapping rather than point-source identification. Cross-reference with vessel track or facility permit data for attribution.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "ENV-001"
-      ]
-    },
-    {
-      "id": "nasa-earthdata",
-      "name": "NASA Earthdata",
-      "url": "earthdata.nasa.gov",
-      "category": "Geospatial",
-      "jurisdiction": "Global · NASA",
-      "pricing": "Free",
-      "cost": "Free with registration.",
-      "desc": "Access portal for MODIS, VIIRS, Landsat, and other NASA datasets. Used for fire detection, aerosol tracking, and environmental baseline analysis.",
-      "opsec": "Register using a research email.",
-      "reliability": "MODIS active fire products have daily global coverage but 250m-1km resolution; confirm against higher-resolution imagery before attribution. VIIRS improves on MODIS resolution but shares similar limitations for sub-pixel feature identification.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "ENV-001"
-      ]
-    },
-    {
-      "id": "botometer",
-      "name": "Botometer",
-      "url": "botometer.osome.iu.edu",
-      "category": "Social",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free with registration.",
-      "desc": "Machine-learning bot likelihood scoring for X/Twitter accounts. Returns component scores across behavioural, network, and content dimensions.",
-      "opsec": "Register using a research account. Queries are logged against the registered account.",
-      "reliability": "Scores are probabilistic; human review of component breakdowns is required before asserting bot status. High scores indicate automation signals, not deceptive intent. Treat as B3-grade indicator requiring corroboration from behavioural and content analysis.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "SOC-001"
-      ]
-    },
-    {
-      "id": "social-blade",
-      "name": "Social Blade",
-      "url": "socialblade.com",
-      "category": "Social",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; paid tiers for extended history.",
-      "desc": "Follower and subscriber history tracking across YouTube, X, and Instagram. Used to identify anomalous growth spikes that may indicate coordinated inauthentic behaviour or purchased followers.",
-      "opsec": "",
-      "reliability": "Growth data reflects platform-reported counts and may lag real-time changes by 24-48 hours. Sudden drops may reflect platform purges of inauthentic accounts, not organic loss. Spikes alone are not evidence of inauthenticity without contextual corroboration.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "SOC-001"
-      ]
-    },
-    {
-      "id": "invid-weverify",
-      "name": "InVID / WeVerify",
-      "url": "weverify.eu",
-      "category": "Social",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free browser extension.",
-      "desc": "Reverse video search and social media content verification toolkit. Used to locate the original source of a video, extract keyframes, and detect reuse or manipulation.",
-      "opsec": "",
-      "reliability": "Reverse video search coverage depends on the underlying search engines queried. Keyframe extraction is automated; manually review extracted frames before relying on them for geolocation or timeline analysis.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "SOC-001"
-      ]
-    },
-    {
-      "id": "maltego",
-      "name": "Maltego",
-      "url": "maltego.com",
-      "category": "Social",
-      "jurisdiction": "Germany",
-      "pricing": "Freemium",
-      "cost": "Community edition free with limits; Professional from $999/yr.",
-      "desc": "Cross-platform entity and relationship mapping tool. Used to visualise networks of accounts, domains, companies, and individuals surfaced through OSINT.",
-      "opsec": "Queries run through Maltego transforms are sent to third-party transform servers; confirm data handling policies before querying sensitive targets. Use a research account and dedicated installation.",
-      "reliability": "Output quality depends on the transforms used and the data sources they query. Relationship links reflect data connections, not confirmed operational relationships; human interpretation is required.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "HUM-001",
-        "SOC-001"
-      ]
-    },
-    {
-      "id": "viewdns",
-      "name": "ViewDNS.info",
-      "url": "viewdns.info",
-      "category": "Domains",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; API access paid.",
-      "desc": "Reverse IP, DNS history, and reverse WHOIS lookup tools. Used to identify other domains sharing a registrant email or hosting IP address.",
-      "opsec": "Query through a research browser profile without login sessions where possible.",
-      "reliability": "Reverse WHOIS coverage depends on historical WHOIS snapshot availability; GDPR-era records frequently show privacy proxy addresses rather than real registrant data. Historical snapshots from before 2018 are more likely to contain genuine registrant fields.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DIG-001"
-      ]
-    },
-    {
-      "id": "domaintools",
-      "name": "DomainTools Iris",
-      "url": "domaintools.com",
-      "category": "Domains",
-      "jurisdiction": "United States",
-      "pricing": "Paid",
-      "cost": "Paid; enterprise pricing on request.",
-      "desc": "Commercial domain intelligence platform with pivot capability across registrant fields, nameservers, IPs, and SSL certificates. The most comprehensive WHOIS history source available.",
-      "opsec": "DomainTools logs all queries against the account; assume searches are visible to administrators. Do not query sensitive targets from a byline-linked account.",
-      "reliability": "Historical WHOIS coverage is the deepest available commercially. Pre-GDPR snapshots are most useful; post-2018 records are frequently privacy-protected. Registrant fields are unverified; entries may be falsified.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DIG-001"
+        "DIG-002"
       ]
     },
     {
       "id": "shodan",
       "name": "Shodan",
       "url": "shodan.io",
-      "category": "Domains",
-      "jurisdiction": "United States",
-      "pricing": "Freemium",
-      "cost": "Free with registration; Membership $49 one-time; API from $899/yr.",
-      "desc": "Internet-connected device and open port scanner. Used to identify running services, open ports, and exposed infrastructure on a target IP or domain.",
-      "opsec": "Query through a research account. Shodan search history is associated with the account. Do not query target IPs from your institutional network.",
-      "reliability": "Scan data is periodically refreshed, not real-time; a service visible in Shodan may have been taken down since the last scan. Banner data reflects what the service returned at scan time and may not reflect current configuration.",
-      "verified": "2026-05-19",
+      "category": "Network",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Paid; free account provides limited results.",
+      "desc": "Internet-wide service-banner search engine indexing open ports, certificates, and device banners from IP addresses; essential for infrastructure fingerprinting.",
+      "opsec": "Shodan logs all queries; searching for a target IP reveals your interest to the platform. Route lookups through a VPN. Note the scan date on all results, as banners reflect the date of last Shodan scan, not the current state.",
+      "reliability": "Shared hosting environments place hundreds of unrelated websites on a single IP; co-hosting alone is insufficient for attribution.",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "DIG-001"
+        "DIG-002"
+      ]
+    },
+    {
+      "id": "censys",
+      "name": "Censys",
+      "url": "censys.io",
+      "category": "Network",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free tier available; paid tiers for API access.",
+      "desc": "Certificate transparency and service data indexed by IP; complementary to Shodan for mapping shared SSL certificates and infrastructure across IP ranges.",
+      "opsec": "Censys queries are logged; route lookups through a VPN.",
+      "reliability": "",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "DIG-002"
+      ]
+    },
+    {
+      "id": "bgp-tools",
+      "name": "BGP.tools",
+      "url": "bgp.tools",
+      "category": "Network",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "ASN and BGP prefix lookup providing routing history and peering data for network infrastructure attribution.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "DIG-002"
       ]
     },
     {
       "id": "securitytrails",
       "name": "SecurityTrails",
       "url": "securitytrails.com",
-      "category": "Domains",
-      "jurisdiction": "United States",
-      "pricing": "Freemium",
-      "cost": "Free tier with limits; paid plans from $50/mo.",
-      "desc": "Passive DNS and WHOIS history platform. Used to retrieve historical DNS A, MX, and NS records and identify nameserver changes and hosting migrations over time.",
-      "opsec": "Queries are logged against the account. Use a research account for sensitive domain investigations.",
-      "reliability": "Passive DNS data reflects observed queries, not authoritative records; coverage varies by monitoring point. Historical records become less complete the further back they go.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DIG-001"
-      ]
-    },
-    {
-      "id": "crt-sh",
-      "name": "crt.sh",
-      "url": "crt.sh",
-      "category": "Domains",
+      "category": "Network",
       "jurisdiction": "Global",
       "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Certificate transparency log search. Returns all SSL/TLS certificates issued to a domain and its subdomains, surfacing unlisted subdomains and related infrastructure.",
-      "opsec": "Queries are logged server-side. Use through a research browser profile.",
-      "reliability": "Covers certificates logged to major CT logs; some older or non-compliant certificates may not appear. Subdomains surfaced via CT logs reflect historical certificate issuance, not necessarily current active infrastructure.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DIG-001"
-      ]
-    },
-    {
-      "id": "tor-browser",
-      "name": "Tor Browser",
-      "url": "torproject.org",
-      "category": "Dark Web",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Hardened browser for Tor network access with built-in JavaScript controls and circuit isolation. Used to access onion-addressed resources without exposing institutional infrastructure.",
-      "opsec": "Set Security Level to Safest before accessing any onion address. Disable JavaScript unless a verified need exists. Never access dark web resources from a primary work device or institutional network. Use inside Tails OS for full session isolation.",
-      "reliability": "Tor circuit availability and onion service uptime vary; inability to reach an address does not confirm takedown. Exit node timing correlation attacks are a theoretical risk for clearnet destinations; onion services avoid exit nodes.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DRK-001"
-      ]
-    },
-    {
-      "id": "virtualbox",
-      "name": "VirtualBox",
-      "url": "virtualbox.org",
-      "category": "Dark Web",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; open-source.",
-      "desc": "Virtualisation platform for creating isolated analysis environments. Used to run Whonix or other privacy-focused operating systems without dedicated hardware.",
-      "opsec": "Snapshot the clean VM state before each investigative session. Delete or revert snapshots containing sensitive material after each session. Do not share the host clipboard with the guest VM during sensitive work.",
-      "reliability": "VM isolation protects the host OS from guest-side compromise in most scenarios. Shared memory and clipboard channels can leak data between host and guest if not disabled.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DRK-001"
-      ]
-    },
-    {
-      "id": "whonix",
-      "name": "Whonix",
-      "url": "whonix.org",
-      "category": "Dark Web",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; open-source.",
-      "desc": "Privacy-focused operating system running inside a virtual machine with a separate Tor gateway. Ensures all traffic routes through Tor even if the workstation VM is compromised.",
-      "opsec": "Run inside VirtualBox on a non-primary device. Keep both the Gateway and Workstation VMs updated. Do not install additional software in the Workstation VM without assessing its network behaviour.",
-      "reliability": "Gateway-workstation architecture provides stronger traffic isolation than a single VM. Does not protect against hardware-level surveillance or physical access to the host machine.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DRK-001"
-      ]
-    },
-    {
-      "id": "onionshare",
-      "name": "OnionShare",
-      "url": "onionshare.org",
-      "category": "Dark Web",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; open-source.",
-      "desc": "Tool for receiving files anonymously over Tor without a permanent server. Generates a disposable onion address for each transfer session.",
-      "opsec": "Run from within Tails OS for maximum isolation. Each receive mode session generates a unique onion address; do not reuse addresses across sources or sessions.",
-      "reliability": "Transfer reliability depends on Tor circuit stability. Large files may require extended transfer windows. Confirm file integrity with SHA-256 hashes provided by the source after receipt.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DRK-001"
-      ]
-    },
-    {
-      "id": "securedrop",
-      "name": "SecureDrop",
-      "url": "securedrop.org",
-      "category": "Dark Web",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; open-source; requires server infrastructure to operate.",
-      "desc": "Open-source newsroom whistleblower submission platform built on Tor. Provides an institutional anonymous submission channel with source protection and air-gapped journalist workstations.",
-      "opsec": "Sources access the newsroom's SecureDrop via Tor Browser only. Do not instruct sources to access SecureDrop from a device or network that could be attributed to them. Journalist workstations must remain air-gapped from the internet.",
-      "reliability": "Mature platform with active security maintenance. Operational security depends on correct deployment and source education; a misconfigured or improperly used instance provides weaker protection than intended.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "DRK-001",
-        "HUM-001"
-      ]
-    },
-    {
-      "id": "hdx",
-      "name": "Humanitarian Data Exchange",
-      "url": "data.humdata.org",
-      "category": "Public Records",
-      "jurisdiction": "Global · UN",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "UN OCHA open data platform covering mortality, displacement, and humanitarian indicator datasets from UN agencies and NGO partners.",
+      "cost": "Free tier; paid tiers for API access.",
+      "desc": "Passive DNS history database linking domains to historical IP addresses and vice versa; used to pivot from a single IP to related domains hosted on the same infrastructure.",
       "opsec": "",
-      "reliability": "Dataset quality varies by contributing organisation and reporting period. UN agency data is typically B2-grade; NGO field data may be more granular but less consistently verified. Record the contributing organisation and data collection period for each dataset used.",
-      "verified": "2026-05-19",
+      "reliability": "Historical DNS records reflect the date range indexed; recent changes may not be captured immediately.",
+      "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "MED-001"
-      ]
-    },
-    {
-      "id": "who-gho",
-      "name": "WHO Global Health Observatory",
-      "url": "who.int/data/gho",
-      "category": "Public Records",
-      "jurisdiction": "Global · UN",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Official mortality and health statistics by country. Used to establish demographic baselines for excess mortality calculations in conflict or public health investigations.",
-      "opsec": "",
-      "reliability": "Data is authoritative for member state reporting but lags real-time events by one to two years in most cases. Baseline figures assume stable reporting systems; conflict and displacement degrade data quality in affected countries.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "MED-001"
-      ]
-    },
-    {
-      "id": "our-world-in-data",
-      "name": "Our World in Data",
-      "url": "ourworldindata.org",
-      "category": "Public Records",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Peer-reviewed demographic and mortality visualisation platform with downloadable CSV source data. Used for baseline mortality figures and excess death comparisons.",
-      "opsec": "",
-      "reliability": "Visualisations are derived from published sources and include source citations; verify figures against the cited primary source before publication. Data currency varies by indicator; check the last-updated date for each dataset.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "MED-001"
-      ]
-    },
-    {
-      "id": "pacer",
-      "name": "PACER",
-      "url": "pacer.gov",
-      "category": "Public Records",
-      "jurisdiction": "United States",
-      "pricing": "Paid",
-      "cost": "$0.10/page; first $30/quarter waived for low-volume users.",
-      "desc": "US federal court electronic filing system covering all district and circuit courts. The primary source for federal civil and criminal docket sheets, filings, and exhibits.",
-      "opsec": "Create a dedicated PACER account for investigative use; do not share credentials across team members. PACER logs user access to specific dockets; assume queries are visible to system administrators.",
-      "reliability": "Authoritative for federal filings. State court records are not included; absence from PACER does not mean no litigation history. Sealed exhibits are referenced in docket entries but not retrievable.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "LGL-001"
-      ]
-    },
-    {
-      "id": "courtlistener",
-      "name": "CourtListener",
-      "url": "courtlistener.com",
-      "category": "Public Records",
-      "jurisdiction": "United States",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "RECAP-powered free archive of PACER documents contributed by users and the Free Law Project. Used to access federal court filings without per-page PACER charges.",
-      "opsec": "",
-      "reliability": "Coverage depends on which documents RECAP users have previously retrieved from PACER; not all dockets are complete. Cross-reference against PACER for completeness on high-priority cases.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "LGL-001"
-      ]
-    },
-    {
-      "id": "justia",
-      "name": "Justia",
-      "url": "justia.com",
-      "category": "Public Records",
-      "jurisdiction": "United States",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "US case law and docket search with opinion full text across federal and state courts. Used for rapid initial search before pulling primary documents from PACER.",
-      "opsec": "",
-      "reliability": "Docket summaries may be truncated or formatted for display; verify against the official filed version. Not a substitute for PACER on active or recent cases; indexing may lag court filings.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "LGL-001"
-      ]
-    },
-    {
-      "id": "hmcts-find-a-case",
-      "name": "HMCTS Find a Case",
-      "url": "find-case-law.service.gov.uk",
-      "category": "Public Records",
-      "jurisdiction": "United Kingdom",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "England and Wales judgment search covering published decisions from 2003 onwards. Used to locate court opinions and establish litigation history for UK-based entities.",
-      "opsec": "",
-      "reliability": "Covers published judgments only; not all proceedings result in a published opinion. Tribunal decisions and county court judgments are not consistently included.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "LGL-001"
-      ]
-    },
-    {
-      "id": "unicourt",
-      "name": "UniCourt",
-      "url": "unicourt.com",
-      "category": "Public Records",
-      "jurisdiction": "United States",
-      "pricing": "Paid",
-      "cost": "Personal from $59/mo; Professional $199/mo; Premium $399/mo; Enterprise custom.",
-      "desc": "Commercial US court data aggregator with party-name search across federal and state courts. Used to surface state-level litigation not accessible via PACER.",
-      "opsec": "Queries are logged against the account. Use a research account for sensitive investigations.",
-      "reliability": "Coverage of state courts varies by jurisdiction; confirm which courts are indexed before concluding a party has no litigation history. Cross-reference against state portal direct searches for critical cases.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "LGL-001"
-      ]
-    },
-    {
-      "id": "audacity",
-      "name": "Audacity",
-      "url": "audacityteam.org",
-      "category": "Acoustic",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; open-source.",
-      "desc": "Open-source audio editing and spectrogram analysis tool. Used to visualise shot transients, measure blast-crack intervals, and calculate cyclic fire rates from conflict recordings.",
-      "opsec": "Runs locally; no data transmitted. Hash the original audio file before loading into Audacity to preserve chain of custody.",
-      "reliability": "Spectrogram accuracy depends on source audio quality and sample rate. Compressed audio codecs introduce artefacts that can mimic or mask impulsive events; use lossless source files wherever possible.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "ACU-001"
-      ]
-    },
-    {
-      "id": "ffmpeg",
-      "name": "FFmpeg",
-      "url": "ffmpeg.org",
-      "category": "Acoustic",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; open-source.",
-      "desc": "Command-line audio and video processing tool. Used to extract audio tracks from video files in lossless format without resampling or codec artefacts prior to acoustic analysis.",
-      "opsec": "Runs locally. Document the exact command string and FFmpeg version used for extraction in the case folder.",
-      "reliability": "Extracts audio faithfully from the container format. Output quality is bounded by the source encoding; lossy source formats produce lossy audio regardless of output format selected.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "ACU-001"
-      ]
-    },
-    {
-      "id": "space-track",
-      "name": "Space-Track",
-      "url": "space-track.org",
-      "category": "Space",
-      "jurisdiction": "Global · US Space Force",
-      "pricing": "Free",
-      "cost": "Free with registration.",
-      "desc": "US Space Force official orbital element database covering 27,000+ catalogued objects. The authoritative source for two-line element sets used in satellite pass calculations.",
-      "opsec": "Register using a research email. Do not query specific event dates and coordinates in rapid succession from a single account.",
-      "reliability": "TLE accuracy degrades over time from the epoch; positional uncertainty grows beyond several days. Historical TLE retrieval is possible but propagation errors increase for older sets. Treat derived positions as B2-grade.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "SPC-001"
-      ]
-    },
-    {
-      "id": "heavens-above",
-      "name": "Heavens-Above",
-      "url": "heavens-above.com",
-      "category": "Space",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Real-time satellite pass prediction and sky chart tool. Used to calculate which catalogued objects passed over a given location at a specific date and time.",
-      "opsec": "",
-      "reliability": "Pass predictions are based on current TLEs; historical calculations using period-accurate TLEs require Space-Track data and a separate propagator. Predictions are accurate to within seconds for most objects.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "SPC-001"
-      ]
-    },
-    {
-      "id": "n2yo",
-      "name": "N2YO",
-      "url": "n2yo.com",
-      "category": "Space",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Live satellite tracking with pass predictions and TLE data. Used to identify objects passing over a target location with visual ground track display.",
-      "opsec": "",
-      "reliability": "Pass calculations based on current TLEs; accuracy degrades for historical queries unless period-accurate TLEs are used. Cross-reference with Heavens-Above for confirmation on time-critical passes.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "SPC-001"
-      ]
-    },
-    {
-      "id": "celestrak",
-      "name": "Celestrak",
-      "url": "celestrak.org",
-      "category": "Space",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Curated two-line element data sets and satellite catalogue maintained by Dr T.S. Kelso. Used as a stable reference source for constellation TLEs and propagation calculations.",
-      "opsec": "",
-      "reliability": "TLE sets are updated regularly from Space-Track data. For historical analysis, archive the TLE file at retrieval with a UTC timestamp; do not use a current TLE to reconstruct historical positions.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "SPC-001"
-      ]
-    },
-    {
-      "id": "ucs-satellite-database",
-      "name": "UCS Satellite Database",
-      "url": "ucsusa.org/resources/satellite-database",
-      "category": "Space",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Union of Concerned Scientists catalogue of active satellites with operator, country of origin, launch date, and mission purpose fields.",
-      "opsec": "",
-      "reliability": "Updated periodically; may lag actual constellation changes by weeks to months. Covers active satellites only; recently decommissioned or debris objects require Space-Track. Operator fields reflect registered ownership, not operational control.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "SPC-001"
-      ]
-    },
-    {
-      "id": "google-images",
-      "name": "Google Images",
-      "url": "images.google.com",
-      "category": "Image",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Reverse image search indexed across the open web. The broadest available index for exact and visually similar image matches.",
-      "opsec": "Strip EXIF metadata from images before uploading using ExifTool. Use a research browser profile without login sessions. Do not upload images of sources or protected individuals.",
-      "reliability": "Index coverage favours English-language and Western web sources; supplementary searches via Yandex are necessary for Russian-language and Eastern European results. Results reflect the indexed web at crawl time, not real-time.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "IDN-001"
-      ]
-    },
-    {
-      "id": "tineye",
-      "name": "TinEye",
-      "url": "tineye.com",
-      "category": "Image",
-      "jurisdiction": "Canada",
-      "pricing": "Freemium",
-      "cost": "Free with daily limits; paid plans from $200/yr.",
-      "desc": "Reverse image search with chronological result ordering. Used to identify the earliest indexed appearance of an image and establish whether it has been reused from an earlier context.",
-      "opsec": "Strip EXIF metadata before uploading. Use a research browser profile.",
-      "reliability": "Smaller index than Google Images; use in combination, not as a standalone check. Chronological ordering is the primary value; confirms first-indexed date but not original capture date.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "IDN-001"
-      ]
-    },
-    {
-      "id": "yandex-images",
-      "name": "Yandex Images",
-      "url": "yandex.com/images",
-      "category": "Image",
-      "jurisdiction": "Russia",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Reverse image search with strong coverage of Russian-language and Eastern European web sources. Frequently surfaces results missed by Google and TinEye for subjects in those regions.",
-      "opsec": "Strip EXIF metadata before uploading. Use a research browser profile without a logged-in Yandex account.",
-      "reliability": "Superior recall for Russian and CIS-region sources. Coverage of other regions is weaker than Google. Each Yandex result must be independently verified; the platform indexes a wider range of source quality than Western engines.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "IDN-001"
-      ]
-    },
-    {
-      "id": "pimeyes",
-      "name": "PimEyes",
-      "url": "pimeyes.com",
-      "category": "Image",
-      "jurisdiction": "Poland",
-      "pricing": "Paid",
-      "cost": "Open Plus from CHF 26.99/mo; PROtect from CHF 21.69/mo (annual); Advanced from CHF 184.79/mo (annual).",
-      "desc": "Facial recognition reverse image search across indexed photographs. Used to locate other appearances of a face across the web when identity is the investigative goal.",
-      "opsec": "Do not upload images of sources, witnesses, or protected individuals. Use only where public-interest grounds are clearly established. Results are returned to the querying account; use a research account.",
-      "reliability": "Facial geometry matching is probabilistic; treat matches as B3-grade leads requiring corroborating documentary evidence before asserting identity. False positives occur, particularly across age gaps or with low-quality source images.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "IDN-001"
-      ]
-    },
-    {
-      "id": "fotoforensics",
-      "name": "FotoForensics",
-      "url": "fotoforensics.com",
-      "category": "Image",
-      "jurisdiction": "United States",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Error-level analysis tool for image manipulation detection. Used to identify compositing, localised editing, and re-saving artefacts in photographs submitted as evidence.",
-      "opsec": "Images uploaded to FotoForensics are transmitted to and processed on external servers. Do not upload sensitive or source-identifying images.",
-      "reliability": "ELA results require expert interpretation; compression artefacts from normal re-saving can mimic manipulation signatures. A clean ELA result does not confirm an image is authentic. Use as one signal among several, not as a standalone verdict.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "IDN-001"
-      ]
-    },
-    {
-      "id": "exiftool",
-      "name": "ExifTool",
-      "url": "exiftool.org",
-      "category": "Image",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; open-source.",
-      "desc": "Command-line metadata extraction and stripping tool for image and media files. Used to extract GPS coordinates, timestamps, camera model, and software fields, and to strip metadata before upload to external services.",
-      "opsec": "Run locally; no data is transmitted. Strip metadata from all images before uploading to any external search or analysis service. Hash the original file before stripping to preserve the unmodified version.",
-      "reliability": "Extracts all metadata present in the file; cannot recover metadata that was previously stripped. EXIF timestamps can be set manually; treat camera metadata as B3-grade absent corroboration from platform upload records or file system timestamps.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "IDN-001"
-      ]
-    },
-    {
-      "id": "linkedin",
-      "name": "LinkedIn",
-      "url": "linkedin.com",
-      "category": "Social",
-      "jurisdiction": "Global",
-      "pricing": "Freemium",
-      "cost": "Free with registration; Premium from $39.99/mo.",
-      "desc": "Professional network used to identify individuals in relevant roles during a specific period, map employment history, and locate potential sources with direct knowledge of an investigation target.",
-      "opsec": "Create a dedicated research account; do not use your primary professional profile. LinkedIn notifies account owners of profile views in most settings; review your privacy settings before querying targets. Do not connect with or follow accounts under investigation.",
-      "reliability": "Employment history and roles are self-reported and unverified; cross-check against company filings and contemporaneous press coverage before asserting a specific role or tenure. Profiles may be incomplete, outdated, or deliberately misleading.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "HUM-001"
-      ]
-    },
-    {
-      "id": "have-i-been-pwned",
-      "name": "Have I Been Pwned",
-      "url": "haveibeenpwned.com",
-      "category": "OPSEC",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free; domain monitoring paid.",
-      "desc": "Breach notification service. Used to check whether an investigative account email address has appeared in known data breaches, and to monitor for future exposure.",
-      "opsec": "",
-      "reliability": "Coverage depends on which breaches have been submitted to the HIBP database. A clean result does not confirm an address has never been exposed; it confirms no exposure in indexed breaches.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "HUM-001",
-        "OPS-001"
-      ]
-    },
-    {
-      "id": "hunter-io",
-      "name": "Hunter.io",
-      "url": "hunter.io",
-      "category": "Social",
-      "jurisdiction": "France",
-      "pricing": "Freemium",
-      "cost": "Free tier with 25 searches/mo; paid from $34/mo.",
-      "desc": "Email pattern discovery tool for organisations by domain. Returns likely email formats and known addresses for a target organisation, used to identify contact routes for potential sources.",
-      "opsec": "Use a research account. Do not contact sources using an email address discoverable via Hunter.io against your own domain.",
-      "reliability": "Email patterns are inferred from indexed sources and may not reflect current conventions; addresses are unverified. Confirm the address is live before using it for source contact. False pattern matches occur when organisations use multiple formats.",
-      "verified": "2026-05-19",
-      "verifier": "DB",
-      "cards": [
-        "HUM-001"
+        "DIG-002"
       ]
     }
   ]
