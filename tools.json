@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1",
     "lst_version": "LST-001 v1.0.3",
-    "index_updated": "2026-05-26",
+    "index_updated": "2026-05-28",
     "license": "MIT",
     "canonical_url": "https://signalandshadow.io/osint-tool-database",
     "repo_url": "https://github.com/signalandshadow/tools",
@@ -1002,6 +1002,81 @@
       "cards": [
         "DIG-002"
       ]
+    },
+    {
+      "id": "audacity",
+      "name": "Audacity",
+      "url": "audacityteam.org",
+      "category": "Audio",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, open-source, no account required.",
+      "desc": "Free, open-source waveform editor and spectrogram analyser. Primary tool for ENF extraction, acoustic environment profiling, and event-sound segmentation in audio forensics workflows.",
+      "opsec": "Runs entirely on the analyst's device; no data leaves the research environment during spectrogram or ENF analysis. Use a dedicated research browser profile for any online documentation lookups.",
+      "reliability": "Spectrogram resolution is limited by FFT size; set FFT to 4096 or higher for ENF band visibility. Insufficient for high-resolution spectral work where Adobe Audition's display is required.",
+      "verified": "2026-05-28",
+      "verifier": "DB",
+      "cards": []
+    },
+    {
+      "id": "adobe-audition",
+      "name": "Adobe Audition",
+      "url": "adobe.com/products/audition.html",
+      "category": "Audio",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Standalone from $22.99/mo (annual, billed monthly). Included in Creative Cloud Pro from $34.99/mo.",
+      "desc": "Commercial waveform editor with higher-resolution spectral frequency display than Audacity. Used for high-resolution spectrogram work where Audacity resolution is insufficient for the target signal.",
+      "opsec": "Disable cloud sync before opening any sensitive file. Cloud sync is enabled by default and will upload file content to Adobe servers if not explicitly turned off before opening the recording.",
+      "reliability": "Trial tier is adequate for spectrogram analysis; full subscription not required for basic forensic audio work. Cloud sync behaviour must be verified after every application update as settings can reset.",
+      "verified": "2026-05-28",
+      "verifier": "DB",
+      "cards": []
+    },
+    {
+      "id": "freesound",
+      "name": "FreeSound",
+      "url": "freesound.org",
+      "category": "Audio",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; account required for file download, not for search or preview.",
+      "desc": "Community audio database with Creative Commons-licensed reference recordings searchable by environment type, geography, and acoustic tag. Used for acoustic environment comparison in audio forensics workflows.",
+      "opsec": "Use a dedicated research account; do not use a personal account for investigation-related searches. Never upload evidentiary recordings to FreeSound; uploads are public by default. Search queries are logged server-side.",
+      "reliability": "Obtain at least two reference recordings from independent sources before treating an environment match as corroborating. A single-source match is insufficient for evidential purposes.",
+      "verified": "2026-05-28",
+      "verifier": "DB",
+      "cards": []
+    },
+    {
+      "id": "noaa-weather-radio-archive",
+      "name": "NOAA Weather Radio Archive",
+      "url": "weather.gov/nwr",
+      "category": "Audio",
+      "jurisdiction": "United States",
+      "pricing": "Free",
+      "cost": "Free, open access, no account required.",
+      "desc": "US government public archive of weather broadcast recordings with verified timestamps and transmitter location data. Used as a reference source for ENF comparison and acoustic environment practice exercises.",
+      "opsec": "Public government database; no registration required. Standard research compartmentalisation applies to any browser-based access.",
+      "reliability": "Verified timestamps and transmitter metadata make this a reliable ENF reference source for the Eastern Interconnection and other US grid regions. Coverage limited to US transmitters.",
+      "verified": "2026-05-28",
+      "verifier": "DB",
+      "cards": []
+    },
+    {
+      "id": "enf-toolkit",
+      "name": "ENF Toolkit",
+      "url": "github.com/bellingcat/ENF-toolkit",
+      "category": "Audio",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, open-source. Requires Python.",
+      "desc": "Bellingcat's open-source Python toolkit for automated ENF extraction and database comparison. Runs locally via command line. Used where manual Audacity ENF extraction lacks sufficient resolution.",
+      "opsec": "Runs entirely on the analyst's device; no data leaves the research environment. Verify package integrity against the Bellingcat GitHub repository before installation.",
+      "reliability": "Requires intermediate technical proficiency to install and operate. ENF database coverage varies by country and grid region; a mismatch does not confirm fabrication where database gaps exist. Document the database version and tolerance parameters used in every analysis.",
+      "verified": "2026-05-28",
+      "verifier": "DB",
+      "cards": []
     }
   ]
 }
