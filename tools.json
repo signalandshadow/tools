@@ -613,40 +613,6 @@
       ]
     },
     {
-      "id": "audacity",
-      "name": "Audacity",
-      "url": "audacityteam.org",
-      "category": "Image",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free and open source.",
-      "desc": "Free audio editor providing waveform visualisation, noise profiling, and spectrogram analysis for forensic audio workflows.",
-      "opsec": "",
-      "reliability": "",
-      "verified": "2026-05-26",
-      "verifier": "DB",
-      "cards": [
-        "ACU-002"
-      ]
-    },
-    {
-      "id": "sonicvisualiser",
-      "name": "SonicVisualiser",
-      "url": "sonicvisualiser.org",
-      "category": "Image",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free and open source.",
-      "desc": "Layer-based audio annotation and spectrogram analysis tool favoured in forensic workflows for producing annotated exports.",
-      "opsec": "",
-      "reliability": "",
-      "verified": "2026-05-26",
-      "verifier": "DB",
-      "cards": [
-        "ACU-002"
-      ]
-    },
-    {
       "id": "merlin-bird-id",
       "name": "Merlin Bird ID",
       "url": "merlin.allaboutbirds.org",
@@ -657,40 +623,6 @@
       "desc": "Cornell Lab audio identification app that maps identified bird species against their geographic range, used for acoustic geolocation in recordings.",
       "opsec": "",
       "reliability": "Species range data reduces but does not eliminate locational ambiguity; cosmopolitan species appear across wide ranges.",
-      "verified": "2026-05-26",
-      "verifier": "DB",
-      "cards": [
-        "ACU-002"
-      ]
-    },
-    {
-      "id": "xeno-canto",
-      "name": "xeno-canto",
-      "url": "xeno-canto.org",
-      "category": "Image",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free.",
-      "desc": "Global repository of bird and wildlife sound recordings used for comparative species identification in acoustic geolocation workflows.",
-      "opsec": "Fauna recordings from online platforms may carry metadata from a location different from the audio's geographic origin.",
-      "reliability": "",
-      "verified": "2026-05-26",
-      "verifier": "DB",
-      "cards": [
-        "ACU-002"
-      ]
-    },
-    {
-      "id": "adobe-audition",
-      "name": "Adobe Audition",
-      "url": "adobe.com/products/audition",
-      "category": "Image",
-      "jurisdiction": "Global",
-      "pricing": "Paid",
-      "cost": "Paid; subscription via Adobe Creative Cloud.",
-      "desc": "Professional spectrogram and waveform editor used for forensic audio analysis, including frequency analysis and noise profiling.",
-      "opsec": "Route audio files through a sanitised offline environment before analysis. Verify playback software does not auto-upload to cloud storage.",
-      "reliability": "",
       "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
@@ -1004,36 +936,6 @@
       ]
     },
     {
-      "id": "audacity",
-      "name": "Audacity",
-      "url": "audacityteam.org",
-      "category": "Audio",
-      "jurisdiction": "Global",
-      "pricing": "Free",
-      "cost": "Free, open-source, no account required.",
-      "desc": "Free, open-source waveform editor and spectrogram analyser. Primary tool for ENF extraction, acoustic environment profiling, and event-sound segmentation in audio forensics workflows.",
-      "opsec": "Runs entirely on the analyst's device; no data leaves the research environment during spectrogram or ENF analysis. Use a dedicated research browser profile for any online documentation lookups.",
-      "reliability": "Spectrogram resolution is limited by FFT size; set FFT to 4096 or higher for ENF band visibility. Insufficient for high-resolution spectral work where Adobe Audition's display is required.",
-      "verified": "2026-05-28",
-      "verifier": "DB",
-      "cards": []
-    },
-    {
-      "id": "adobe-audition",
-      "name": "Adobe Audition",
-      "url": "adobe.com/products/audition.html",
-      "category": "Audio",
-      "jurisdiction": "Global",
-      "pricing": "Paid",
-      "cost": "Standalone from $22.99/mo (annual, billed monthly). Included in Creative Cloud Pro from $34.99/mo.",
-      "desc": "Commercial waveform editor with higher-resolution spectral frequency display than Audacity. Used for high-resolution spectrogram work where Audacity resolution is insufficient for the target signal.",
-      "opsec": "Disable cloud sync before opening any sensitive file. Cloud sync is enabled by default and will upload file content to Adobe servers if not explicitly turned off before opening the recording.",
-      "reliability": "Trial tier is adequate for spectrogram analysis; full subscription not required for basic forensic audio work. Cloud sync behaviour must be verified after every application update as settings can reset.",
-      "verified": "2026-05-28",
-      "verifier": "DB",
-      "cards": []
-    },
-    {
       "id": "freesound",
       "name": "FreeSound",
       "url": "freesound.org",
@@ -1077,6 +979,74 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": []
+    },
+    {
+      "id": "audacity",
+      "name": "Audacity",
+      "url": "audacityteam.org",
+      "category": "Audio",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, open-source, no account required.",
+      "desc": "Free, open-source waveform editor and spectrogram analyser. Primary tool for ENF extraction, acoustic environment profiling, and event-sound segmentation in audio forensics workflows.",
+      "opsec": "Runs entirely on the analyst's device; no data leaves the research environment during spectrogram or ENF analysis. Use a dedicated research browser profile for any online documentation lookups.",
+      "reliability": "Spectrogram resolution is limited by FFT size; set FFT to 4096 or higher for ENF band visibility. Insufficient for high-resolution spectral work where Adobe Audition's display is required.",
+      "verified": "2026-05-28",
+      "verifier": "DB",
+      "cards": [
+        "ACU-002"
+      ]
+    },
+    {
+      "id": "adobe-audition",
+      "name": "Adobe Audition",
+      "url": "adobe.com/products/audition.html",
+      "category": "Audio",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Standalone from $22.99/mo (annual, billed monthly). Included in Creative Cloud Pro from $34.99/mo.",
+      "desc": "Commercial waveform editor with higher-resolution spectral frequency display than Audacity. Used for high-resolution spectrogram work where Audacity resolution is insufficient for the target signal.",
+      "opsec": "Disable cloud sync before opening any sensitive file. Cloud sync is enabled by default and will upload file content to Adobe servers if not explicitly turned off before opening the recording.",
+      "reliability": "Trial tier is adequate for spectrogram analysis; full subscription not required for basic forensic audio work. Cloud sync behaviour must be verified after every application update as settings can reset.",
+      "verified": "2026-05-28",
+      "verifier": "DB",
+      "cards": [
+        "ACU-002"
+      ]
+    },
+    {
+      "id": "sonicvisualiser",
+      "name": "SonicVisualiser",
+      "url": "sonicvisualiser.org",
+      "category": "Audio",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free and open source.",
+      "desc": "Layer-based audio annotation and spectrogram analysis tool favoured in forensic workflows for producing annotated exports.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "ACU-002"
+      ]
+    },
+    {
+      "id": "xeno-canto",
+      "name": "xeno-canto",
+      "url": "xeno-canto.org",
+      "category": "Audio",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free.",
+      "desc": "Global repository of bird and wildlife sound recordings used for comparative species identification in acoustic geolocation workflows.",
+      "opsec": "Fauna recordings from online platforms may carry metadata from a location different from the audio's geographic origin.",
+      "reliability": "",
+      "verified": "2026-05-26",
+      "verifier": "DB",
+      "cards": [
+        "ACU-002"
+      ]
     }
   ]
 }
