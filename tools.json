@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1",
     "lst_version": "LST-001 v1.0.3",
-    "index_updated": "2026-05-31",
+    "index_updated": "2026-06-08",
     "license": "MIT",
     "canonical_url": "https://signalandshadow.io/osint-tool-database",
     "repo_url": "https://github.com/signalandshadow/tools",
@@ -60,6 +60,7 @@
         "AIO-003",
         "COR-001",
         "FIN-001",
+        "FIN-002",
         "MAR-002",
         "MAR-005"
       ]
@@ -190,6 +191,7 @@
       "cards": [
         "COR-002",
         "FIN-001",
+        "FIN-002",
         "MAR-002",
         "MAR-005"
       ]
@@ -355,6 +357,7 @@
         "COR-001",
         "COR-002",
         "FIN-001",
+        "FIN-002",
         "MAR-002",
         "MAR-005"
       ]
@@ -619,6 +622,7 @@
       "verified": "2026-05-01",
       "verifier": "DB",
       "cards": [
+        "FIN-002",
         "MAR-005"
       ]
     },
@@ -740,6 +744,7 @@
       "cards": [
         "ACU-003",
         "AIV-002",
+        "GEP-002",
         "IDN-001",
         "SOC-001"
       ]
@@ -1272,7 +1277,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "DIG-001"
+        "DIG-001",
+        "IDN-002"
       ]
     },
     {
@@ -1340,7 +1346,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "DRK-001"
+        "DRK-001",
+        "DRK-002"
       ]
     },
     {
@@ -1358,6 +1365,8 @@
       "verifier": "DB",
       "cards": [
         "DRK-001",
+        "DRK-002",
+        "HUM-002",
         "OPS-001"
       ]
     },
@@ -1427,7 +1436,9 @@
       "verifier": "DB",
       "cards": [
         "DRK-001",
-        "HUM-001"
+        "DRK-002",
+        "HUM-001",
+        "HUM-002"
       ]
     },
     {
@@ -1447,6 +1458,7 @@
         "ENV-001",
         "GEO-001",
         "GEP-001",
+        "GEP-002",
         "MED-004"
       ]
     },
@@ -1464,7 +1476,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "ENV-001"
+        "ENV-001",
+        "ENV-002"
       ]
     },
     {
@@ -1517,6 +1530,7 @@
       "cards": [
         "GEO-001",
         "GEP-001",
+        "GEP-002",
         "MED-004"
       ]
     },
@@ -1534,7 +1548,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "GEO-001"
+        "GEO-001",
+        "GEP-002"
       ]
     },
     {
@@ -1689,6 +1704,7 @@
       "verifier": "DB",
       "cards": [
         "HUM-001",
+        "HUM-002",
         "OPS-001"
       ]
     },
@@ -1706,7 +1722,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "HUM-001"
+        "HUM-001",
+        "IDN-002"
       ]
     },
     {
@@ -1740,6 +1757,7 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
+        "GEP-002",
         "HUM-001",
         "SOC-001"
       ]
@@ -1845,6 +1863,7 @@
       "verifier": "DB",
       "cards": [
         "ACU-003",
+        "DRK-002",
         "IDN-001"
       ]
     },
@@ -1862,6 +1881,7 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
+        "GEO-002",
         "LGL-001",
         "LST-005"
       ]
@@ -2531,6 +2551,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
+        "ENV-002",
+        "GEP-002",
         "MED-004"
       ]
     },
@@ -2993,7 +3015,9 @@
       "reliability": "Query by full BSSID, not SSID alone; common SSIDs return thousands of unrelated points. A cluster of five or more observations within roughly 50m across multiple dates supports a street-level claim; a single or dispersed observation supports only a neighbourhood claim or indicates a relocated access point.",
       "verified": "2026-05-31",
       "verifier": "DB",
-      "cards": []
+      "cards": [
+        "GEO-002"
+      ]
     },
     {
       "id": "maxmind-geolite2",
@@ -3039,6 +3063,329 @@
       "verified": "2026-05-31",
       "verifier": "DB",
       "cards": []
+    },
+    {
+      "id": "onionsearch",
+      "name": "OnionSearch",
+      "url": "github.com/megadose/onionsearch",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; open-source CLI tool.",
+      "desc": "Command-line tool aggregating search results from multiple dark web search engines in a single pass. Runs locally; no account required.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "DRK-002"
+      ]
+    },
+    {
+      "id": "ahmia",
+      "name": "Ahmia",
+      "url": "ahmia.fi",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; no registration.",
+      "desc": "Indexed, clearnet-accessible search engine for .onion sites. Allows initial dark web reconnaissance without installing Tor Browser.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "DRK-002"
+      ]
+    },
+    {
+      "id": "global-forest-watch",
+      "name": "Global Forest Watch",
+      "url": "globalforestwatch.org",
+      "category": "Geolocation",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; no registration required for basic access.",
+      "desc": "Near-real-time deforestation alerts and annual tree-cover loss data at 30m resolution, based on Hansen et al. (University of Maryland) Landsat analysis.",
+      "opsec": "",
+      "reliability": "Loss alerts include legal clearing; cross-check against land-use permits and protected area boundaries before asserting illegality. Cloud cover causes gaps in optical imagery.",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "ENV-002"
+      ]
+    },
+    {
+      "id": "ibama-sisflora",
+      "name": "IBAMA / SISFLORA",
+      "url": "ibama.gov.br",
+      "category": "Public Records",
+      "jurisdiction": "Brazil",
+      "pricing": "Free",
+      "cost": "Free; public government database.",
+      "desc": "Brazilian environmental enforcement fine database linking farm GPS coordinates to deforestation penalties. Primary source for cattle-laundering supply chain investigations.",
+      "opsec": "Access logs may be visible to state actors; use a VPN when querying sensitive records. Per ENV-002 (Signal & Shadow).",
+      "reliability": "Fine records include penalties subsequently overturned; verify current enforcement status before publication. Per ENV-002 (Signal & Shadow).",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "ENV-002"
+      ]
+    },
+    {
+      "id": "trase-earth",
+      "name": "Trase Earth",
+      "url": "trase.earth",
+      "category": "Geolocation",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; no registration.",
+      "desc": "Supply chain transparency platform tracing soy, beef, and palm oil from producing municipalities through to named exporters and retailers.",
+      "opsec": "",
+      "reliability": "Aggregates at municipality level; a flagged municipality does not implicate every producer within it. Data updated periodically; preserve screenshots. Per ENV-002 (Signal & Shadow).",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "ENV-002"
+      ]
+    },
+    {
+      "id": "qgis",
+      "name": "QGIS",
+      "url": "qgis.org",
+      "category": "Geolocation",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; open-source.",
+      "desc": "Open-source GIS desktop application for overlaying land-registry boundaries, protected area polygons, and satellite imagery. Cross-platform.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "ENV-002"
+      ]
+    },
+    {
+      "id": "hm-land-registry",
+      "name": "HM Land Registry",
+      "url": "searchpropertyinformation.service.gov.uk",
+      "category": "Public Records",
+      "jurisdiction": "UK",
+      "pricing": "Free",
+      "cost": "Free for basic title register search; individual title document downloads from GBP3.",
+      "desc": "UK title register returning registered proprietor, price paid, and mortgage charges for residential and commercial property.",
+      "opsec": "Some searches are logged and may be visible to the registered owner; use an intermediary where this presents risk. Per FIN-002 (Signal & Shadow).",
+      "reliability": "Price paid reflects the transacted price, not current market value. Coverage limited to England and Wales.",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "FIN-002"
+      ]
+    },
+    {
+      "id": "register-overseas-entities",
+      "name": "Register of Overseas Entities",
+      "url": "find-and-update.companyinformation.service.gov.uk/register-of-overseas-entities",
+      "category": "Corporate",
+      "jurisdiction": "UK",
+      "pricing": "Free",
+      "cost": "Free; public register.",
+      "desc": "Mandatory UK beneficial ownership register for foreign entities holding UK land, in force from August 2022 under the Economic Crime (Transparency and Enforcement) Act.",
+      "opsec": "",
+      "reliability": "Coverage limited to entities registered from August 2022 onwards; pre-existing offshore holdings may not appear. Verify against Companies House PSC register for UK-incorporated layers.",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "FIN-002"
+      ]
+    },
+    {
+      "id": "sam-gov",
+      "name": "SAM.gov / USASpending",
+      "url": "sam.gov",
+      "category": "Public Records",
+      "jurisdiction": "US",
+      "pricing": "Free",
+      "cost": "Free; public federal database.",
+      "desc": "US federal contract and award database. Search for government purchases of commercial location data from named brokers including Venntel, Babel Street, and Veraset.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "GEO-002"
+      ]
+    },
+    {
+      "id": "muckrock",
+      "name": "MuckRock",
+      "url": "muckrock.com",
+      "category": "Public Records",
+      "jurisdiction": "US",
+      "pricing": "Free",
+      "cost": "Free for basic FOIA filing and search; paid plans from $20/yr for higher volume.",
+      "desc": "FOIA request platform and public archive. Search existing requests and responses for government location data procurement records from named agencies.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "GEO-002"
+      ]
+    },
+    {
+      "id": "opencellid",
+      "name": "OpenCelliD",
+      "url": "opencellid.org",
+      "category": "Network",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free with registration; bulk download requires API token.",
+      "desc": "Crowd-sourced open database of cell tower locations. Maps MCC-MNC-LAC-CID combinations to GPS coordinates for cell-site disambiguation.",
+      "opsec": "",
+      "reliability": "Coverage varies significantly by region; rural and developing-world cell sites are often absent or inaccurate. Cross-reference with Wigle for Wi-Fi disambiguation.",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "GEO-002"
+      ]
+    },
+    {
+      "id": "veraset",
+      "name": "Veraset / Placer.ai",
+      "url": "veraset.com",
+      "category": "Geolocation",
+      "jurisdiction": "US",
+      "pricing": "Paid",
+      "cost": "Commercial data agreements; pricing on request. Research and journalist agreements available.",
+      "desc": "Commercial mobile location data aggregators. Used by investigators to obtain sample datasets documenting the broker ecosystem; not for tracking named individuals.",
+      "opsec": "Querying specific device identifiers may be logged. Never purchase real-time location of a private individual without legal advice; may constitute stalking in some jurisdictions. Per GEO-002 (Signal & Shadow).",
+      "reliability": "App-derived location data accuracy varies from 5 to 500 metres; absence of a data point does not confirm absence from a location. Per GEO-002 (Signal & Shadow).",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "GEO-002"
+      ]
+    },
+    {
+      "id": "pgp-gpg",
+      "name": "PGP / GPG",
+      "url": "gnupg.org",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; open-source.",
+      "desc": "Asymmetric email encryption protecting message content. Does not protect metadata; recommended for document exchange only, not ongoing source communications.",
+      "opsec": "Protects message content but not metadata; email headers, timestamps, and correspondent identities remain visible. Per HUM-002 (Signal & Shadow).",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "HUM-002"
+      ]
+    },
+    {
+      "id": "amnesty-mvt",
+      "name": "Amnesty Mobile Verification Toolkit",
+      "url": "github.com/mvt-project/mvt",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; open-source.",
+      "desc": "Forensic tool for detecting Pegasus and other commercial spyware indicators of compromise on iOS and Android devices. Developed by Amnesty International Security Lab.",
+      "opsec": "Do not inform the source that MVT is being run on their device; if the device is compromised, the adversary may be monitoring all activity. Per HUM-002 (Signal & Shadow).",
+      "reliability": "Detects known Pegasus IOCs only; a clean scan does not guarantee the device is uncompromised. Novel spyware variants may not be detected. Per HUM-002 (Signal & Shadow).",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "HUM-002"
+      ]
+    },
+    {
+      "id": "briar",
+      "name": "Briar",
+      "url": "briarproject.org",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; open-source.",
+      "desc": "Peer-to-peer encrypted messaging over Tor, Bluetooth, or Wi-Fi direct. No central server; designed for use in censored environments or where internet access is unreliable.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "HUM-002"
+      ]
+    },
+    {
+      "id": "sherlock",
+      "name": "Sherlock",
+      "url": "github.com/sherlock-project/sherlock",
+      "category": "Social",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; open-source CLI tool.",
+      "desc": "Command-line tool checking username registration across 400+ platforms simultaneously. Returns live URLs for each positive hit.",
+      "opsec": "Never query a target username from an IP or account linked to your institution; some platforms notify users of profile views. Per IDN-002 (Signal & Shadow).",
+      "reliability": "A positive hit confirms the username is registered, not that the same person registered it; common handles are frequently claimed by different users across platforms.",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "IDN-002"
+      ]
+    },
+    {
+      "id": "intelx",
+      "name": "Intelligence X",
+      "url": "intelx.io",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "Free tier limited to 3 results per search. Professional from EUR 1,800/yr; academic and journalist pricing available on request.",
+      "desc": "Search engine indexing breach data, dark web pastes, domain records, and leaked datasets by username, email, or domain. Covers Tor, I2P, and public paste sites.",
+      "opsec": "Queries may be logged; use an institutional research account. Target usernames may appear in platform access logs. Per IDN-002 (Signal & Shadow).",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "IDN-002"
+      ]
+    },
+    {
+      "id": "blockchair",
+      "name": "Blockchair",
+      "url": "blockchair.com",
+      "category": "Crypto",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free for manual queries; API from $30/mo.",
+      "desc": "Multi-chain blockchain explorer tracing Bitcoin and Ethereum address transaction histories. Links wallets to exchange deposits, withdrawal counterparties, and named entities.",
+      "opsec": "",
+      "reliability": "Address clustering is probabilistic; a wallet grouped with a target by heuristics may belong to a third party, exchange hot wallet, or CoinJoin participant. Per IDN-002 (Signal & Shadow).",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "IDN-002"
+      ]
+    },
+    {
+      "id": "osint-industries",
+      "name": "OSINT Industries",
+      "url": "osint.industries",
+      "category": "Social",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "From GBP 35/mo. Trial available.",
+      "desc": "Email-to-account mapping across social platforms using authentication API checks, without creating investigator accounts on those platforms.",
+      "opsec": "Queries may be logged by the platform; use an institutional account. Some target platforms may rate-limit or flag the underlying API checks.",
+      "reliability": "",
+      "verified": "2026-06-08",
+      "verifier": "DB",
+      "cards": [
+        "IDN-002"
+      ]
     }
   ]
 }
