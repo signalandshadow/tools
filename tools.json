@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1",
     "lst_version": "LST-001 v1.0.3",
-    "index_updated": "2026-06-08",
+    "index_updated": "2026-06-13",
     "license": "MIT",
     "canonical_url": "https://signalandshadow.io/osint-tool-database",
     "repo_url": "https://github.com/signalandshadow/tools",
@@ -59,10 +59,12 @@
       "cards": [
         "AIO-003",
         "COR-001",
+        "COR-003",
         "FIN-001",
         "FIN-002",
         "MAR-002",
-        "MAR-005"
+        "MAR-005",
+        "PRO-002"
       ]
     },
     {
@@ -79,6 +81,7 @@
       "verified": "2026-05-01",
       "verifier": "DB",
       "cards": [
+        "ENV-003",
         "MAR-003"
       ]
     },
@@ -171,6 +174,7 @@
       "verifier": "DB",
       "cards": [
         "ENV-001",
+        "ENV-003",
         "MAR-003",
         "MAR-007"
       ]
@@ -190,8 +194,10 @@
       "verifier": "DB",
       "cards": [
         "COR-002",
+        "COR-003",
         "FIN-001",
         "FIN-002",
+        "FIN-003",
         "MAR-002",
         "MAR-005"
       ]
@@ -356,8 +362,10 @@
         "AVI-002",
         "COR-001",
         "COR-002",
+        "COR-003",
         "FIN-001",
         "FIN-002",
+        "FIN-003",
         "MAR-002",
         "MAR-005"
       ]
@@ -570,7 +578,8 @@
         "MAR-005",
         "MAR-006",
         "MAR-007",
-        "SOC-001"
+        "SOC-001",
+        "SOC-002"
       ]
     },
     {
@@ -746,7 +755,8 @@
         "AIV-002",
         "GEP-002",
         "IDN-001",
-        "SOC-001"
+        "SOC-001",
+        "SOC-002"
       ]
     },
     {
@@ -781,7 +791,8 @@
       "verifier": "DB",
       "cards": [
         "AVI-001",
-        "AVI-002"
+        "AVI-002",
+        "AVI-003"
       ]
     },
     {
@@ -799,7 +810,8 @@
       "verifier": "DB",
       "cards": [
         "AVI-001",
-        "AVI-002"
+        "AVI-002",
+        "AVI-003"
       ]
     },
     {
@@ -817,7 +829,8 @@
       "verifier": "DB",
       "cards": [
         "AVI-001",
-        "AVI-002"
+        "AVI-002",
+        "AVI-003"
       ]
     },
     {
@@ -869,8 +882,13 @@
       "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
+        "AVI-003",
         "COR-002",
-        "PRO-001"
+        "COR-003",
+        "FIN-003",
+        "PRO-001",
+        "PRO-002",
+        "TEL-002"
       ]
     },
     {
@@ -888,7 +906,8 @@
       "verifier": "DB",
       "cards": [
         "COR-001",
-        "COR-002"
+        "COR-002",
+        "FIN-003"
       ]
     },
     {
@@ -922,7 +941,8 @@
       "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "DIG-002"
+        "DIG-002",
+        "GEO-003"
       ]
     },
     {
@@ -940,7 +960,9 @@
       "verifier": "DB",
       "cards": [
         "DIG-001",
-        "DIG-002"
+        "DIG-002",
+        "DIG-003",
+        "GEO-003"
       ]
     },
     {
@@ -957,7 +979,8 @@
       "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "DIG-002"
+        "DIG-002",
+        "DIG-003"
       ]
     },
     {
@@ -974,7 +997,9 @@
       "verified": "2026-05-26",
       "verifier": "DB",
       "cards": [
-        "DIG-002"
+        "DIG-002",
+        "DIG-003",
+        "GEO-003"
       ]
     },
     {
@@ -1106,7 +1131,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "ACU-001"
+        "ACU-001",
+        "ACU-003"
       ]
     },
     {
@@ -1260,7 +1286,9 @@
       "verifier": "DB",
       "cards": [
         "COR-001",
-        "FIN-001"
+        "COR-003",
+        "FIN-001",
+        "PRO-002"
       ]
     },
     {
@@ -1295,7 +1323,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "DIG-001"
+        "DIG-001",
+        "DIG-003"
       ]
     },
     {
@@ -1329,7 +1358,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "DIG-001"
+        "DIG-001",
+        "DIG-003"
       ]
     },
     {
@@ -1347,7 +1377,9 @@
       "verifier": "DB",
       "cards": [
         "DRK-001",
-        "DRK-002"
+        "DRK-002",
+        "DRK-003",
+        "OPS-002"
       ]
     },
     {
@@ -1384,7 +1416,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "DRK-001"
+        "DRK-001",
+        "OPS-002"
       ]
     },
     {
@@ -1477,7 +1510,8 @@
       "verifier": "DB",
       "cards": [
         "ENV-001",
-        "ENV-002"
+        "ENV-002",
+        "ENV-003"
       ]
     },
     {
@@ -1883,6 +1917,7 @@
       "cards": [
         "GEO-002",
         "LGL-001",
+        "LGL-002",
         "LST-005"
       ]
     },
@@ -1901,6 +1936,7 @@
       "verifier": "DB",
       "cards": [
         "LGL-001",
+        "LGL-002",
         "LST-005"
       ]
     },
@@ -1969,7 +2005,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "LGL-001"
+        "LGL-001",
+        "LGL-002"
       ]
     },
     {
@@ -1986,7 +2023,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "OPS-001"
+        "OPS-001",
+        "OPS-002"
       ]
     },
     {
@@ -2071,7 +2109,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "PRO-001"
+        "PRO-001",
+        "PRO-002"
       ]
     },
     {
@@ -2190,7 +2229,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "SPC-001"
+        "SPC-001",
+        "SPC-002"
       ]
     },
     {
@@ -2224,7 +2264,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "SPC-001"
+        "SPC-001",
+        "SPC-002"
       ]
     },
     {
@@ -2241,7 +2282,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "SPC-001"
+        "SPC-001",
+        "SPC-002"
       ]
     },
     {
@@ -2258,7 +2300,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "SPC-001"
+        "SPC-001",
+        "SPC-002"
       ]
     },
     {
@@ -2380,7 +2423,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "AVI-001"
+        "AVI-001",
+        "AVI-003"
       ]
     },
     {
@@ -2500,6 +2544,7 @@
       "verifier": "DB",
       "cards": [
         "MED-001",
+        "MED-002",
         "MED-004"
       ]
     },
@@ -2689,7 +2734,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "TEL-001"
+        "TEL-001",
+        "TEL-002"
       ]
     },
     {
@@ -2706,7 +2752,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "TEL-001"
+        "TEL-001",
+        "TEL-002"
       ]
     },
     {
@@ -2774,7 +2821,8 @@
       "verified": "2026-05-28",
       "verifier": "DB",
       "cards": [
-        "TEL-001"
+        "TEL-001",
+        "TEL-002"
       ]
     },
     {
@@ -2985,7 +3033,9 @@
       "reliability": "Crowdsourced; useful for visual identification and historical operator data not held in official registries. Confirm identity against the ICAO hex address in primary records before attribution.",
       "verified": "2026-05-31",
       "verifier": "DB",
-      "cards": []
+      "cards": [
+        "AVI-003"
+      ]
     },
     {
       "id": "gephi",
@@ -3032,7 +3082,9 @@
       "reliability": "Trustworthy at ASN and country level; treat city-level resolution as approximate and any street-level claim from IP alone as unsupported. Record the database release date, as editions update continuously.",
       "verified": "2026-05-31",
       "verifier": "DB",
-      "cards": []
+      "cards": [
+        "GEO-003"
+      ]
     },
     {
       "id": "ripe-ncc",
@@ -3047,7 +3099,10 @@
       "reliability": "Authoritative for ASN registration and routing. Use to confirm ASN ownership before including an attribution in a report.",
       "verified": "2026-05-31",
       "verifier": "DB",
-      "cards": []
+      "cards": [
+        "DIG-003",
+        "GEO-003"
+      ]
     },
     {
       "id": "sensity",
@@ -3078,7 +3133,8 @@
       "verified": "2026-06-08",
       "verifier": "DB",
       "cards": [
-        "DRK-002"
+        "DRK-002",
+        "DRK-003"
       ]
     },
     {
@@ -3095,7 +3151,8 @@
       "verified": "2026-06-08",
       "verifier": "DB",
       "cards": [
-        "DRK-002"
+        "DRK-002",
+        "DRK-003"
       ]
     },
     {
@@ -3384,7 +3441,348 @@
       "verified": "2026-06-08",
       "verifier": "DB",
       "cards": [
+        "DRK-003",
         "IDN-002"
+      ]
+    },
+    {
+      "id": "jeffrey-exif-viewer",
+      "name": "Jeffrey's Exif Viewer",
+      "url": "exifdata.com",
+      "category": "Image",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, no registration required.",
+      "desc": "Browser-based EXIF reader that surfaces GPS coordinates, camera model, and creation timestamps from uploaded images without local software installation.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "ACU-003"
+      ]
+    },
+    {
+      "id": "dnslytics",
+      "name": "DNSlytics",
+      "url": "dnslytics.com",
+      "category": "Network",
+      "jurisdiction": "Global",
+      "pricing": "Freemium",
+      "cost": "Free tier available; paid plans from $19/mo for higher query volumes and API access.",
+      "desc": "Passive DNS history, reverse IP lookup, and nameserver attribution tool; surfaces historical DNS records linking domains to shared hosting infrastructure.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "DIG-003"
+      ]
+    },
+    {
+      "id": "darksearch",
+      "name": "DarkSearch",
+      "url": "darksearch.io",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, clearnet accessible without Tor.",
+      "desc": "Real-time Tor search engine with boolean query support; indexes .onion sites and is accessible from the surface web without a Tor connection.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "DRK-003"
+      ]
+    },
+    {
+      "id": "unep-ede",
+      "name": "Environmental Data Explorer",
+      "url": "ede.unep.org",
+      "category": "Public Records",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, open access.",
+      "desc": "UNEP global environmental datasets covering freshwater quality, protected area boundaries, and emissions inventories; used to establish regulatory baselines for discharge investigations.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "ENV-003"
+      ]
+    },
+    {
+      "id": "epa-echo",
+      "name": "EPA ECHO",
+      "url": "echo.epa.gov",
+      "category": "Public Records",
+      "jurisdiction": "US",
+      "pricing": "Free",
+      "cost": "Free, no registration required.",
+      "desc": "US EPA enforcement and compliance database containing facility permit records, inspection history, and violation records; primary source for US industrial discharge investigations.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "ENV-003"
+      ]
+    },
+    {
+      "id": "fincen-boi",
+      "name": "FinCEN BOI Database",
+      "url": "fincen.gov/beneficial-ownership-information-reporting",
+      "category": "Corporate",
+      "jurisdiction": "US",
+      "pricing": "Free",
+      "cost": "Free with registration.",
+      "desc": "US beneficial ownership database established under the Corporate Transparency Act; holds declared beneficial ownership information for US companies filing with FinCEN.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "FIN-003"
+      ]
+    },
+    {
+      "id": "caselaw-access",
+      "name": "Caselaw Access Project",
+      "url": "case.law",
+      "category": "Public Records",
+      "jurisdiction": "US",
+      "pricing": "Free",
+      "cost": "Free; bulk download requires registration.",
+      "desc": "Harvard Law Library digitisation of 6.7 million US state and federal court cases; provides jurisdiction-filtered full-text search of historical caselaw without PACER fees.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "LGL-002"
+      ]
+    },
+    {
+      "id": "judyrecords",
+      "name": "Judyrecords",
+      "url": "judyrecords.com",
+      "category": "Public Records",
+      "jurisdiction": "US",
+      "pricing": "Free",
+      "cost": "Free, no account required.",
+      "desc": "Searches criminal and civil records across US state court systems without registration; useful for rapid triage of state-level litigation history before committing to paid PACER queries.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "LGL-002"
+      ]
+    },
+    {
+      "id": "promed",
+      "name": "ProMED",
+      "url": "promedmail.org",
+      "category": "Public Records",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free; archive access and email alerts require free registration.",
+      "desc": "Global expert-curated network reporting on emerging infectious diseases; active since 1994 and widely cited as an early-warning system that predates official WHO outbreak declarations.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "MED-002"
+      ]
+    },
+    {
+      "id": "healthmap",
+      "name": "HealthMap",
+      "url": "healthmap.org",
+      "category": "Public Records",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, no registration required.",
+      "desc": "Automated global disease alert aggregator drawing from news sources, ProMED, and official health authority feeds; provides a geographic map view of active outbreak signals.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "MED-002"
+      ]
+    },
+    {
+      "id": "nextstrain",
+      "name": "Nextstrain",
+      "url": "nextstrain.org",
+      "category": "Public Records",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, open source.",
+      "desc": "Real-time genomic epidemiology platform tracking pathogen evolution and geographic spread through phylogenetic analysis of publicly available sequence data.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "MED-002"
+      ]
+    },
+    {
+      "id": "mysudo",
+      "name": "MySudo",
+      "url": "mysudo.com",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Freemium",
+      "cost": "Free tier with 1 Sudo identity; paid plans from $0.99/mo for additional identities and numbers.",
+      "desc": "Provides separate phone numbers, email addresses, and browser tabs per research persona; reduces cross-contamination between investigative identities and personal accounts.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "OPS-002"
+      ]
+    },
+    {
+      "id": "fakenamegenerator",
+      "name": "FakeNameGenerator",
+      "url": "fakenamegenerator.com",
+      "category": "OPSEC",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, no registration required.",
+      "desc": "Generates culturally consistent synthetic identity data for research persona construction; produces names, addresses, and biographical details matched to a selected country and gender.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "OPS-002"
+      ]
+    },
+    {
+      "id": "opentender",
+      "name": "OpenTender",
+      "url": "opentender.eu",
+      "category": "Public Records",
+      "jurisdiction": "EU",
+      "pricing": "Free",
+      "cost": "Free, open access.",
+      "desc": "Pan-EU procurement database publishing structured tender data from member states in Open Contracting Data Standard format; enables red-flag analysis for single-bidder awards and anomalous contract patterns.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "PRO-002"
+      ]
+    },
+    {
+      "id": "hunchly",
+      "name": "Hunchly",
+      "url": "hunch.ly",
+      "category": "Archiving",
+      "jurisdiction": "Global",
+      "pricing": "Paid",
+      "cost": "$130/yr per investigator.",
+      "desc": "Browser extension that automatically captures and SHA-256 hashes every web page visited during an investigation session; produces tamper-evident logs for evidentiary use.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "SOC-002"
+      ]
+    },
+    {
+      "id": "mnemonic-archives",
+      "name": "Mnemonic Archives",
+      "url": "mnemonic.org",
+      "category": "Archiving",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, open access.",
+      "desc": "Open digital archive preserving conflict-documentation media with verification metadata; includes the Syrian Archive and Ukrainian Archive built to international criminal evidence standards.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "SOC-002"
+      ]
+    },
+    {
+      "id": "smat",
+      "name": "SMAT",
+      "url": "smat-app.com",
+      "category": "Social",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, no registration required.",
+      "desc": "Cross-platform social media monitoring and archiving tool for tracking specific keywords, hashtags, or accounts; covers fringe platforms not indexed by mainstream social listening tools.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "SOC-002"
+      ]
+    },
+    {
+      "id": "itu-sns",
+      "name": "ITU Space Services SNS",
+      "url": "itu.int/online/sns",
+      "category": "Space",
+      "jurisdiction": "Global",
+      "pricing": "Free",
+      "cost": "Free, public access.",
+      "desc": "ITU Space Network Systems database holding official frequency filing and coordination records for all registered satellite networks; discloses administering state, operator, frequency bands, and service footprint.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "SPC-002"
+      ]
+    },
+    {
+      "id": "fcc-ibfs",
+      "name": "FCC IBFS",
+      "url": "fcc.gov/ibfs",
+      "category": "Space",
+      "jurisdiction": "US",
+      "pricing": "Free",
+      "cost": "Free, no registration required.",
+      "desc": "FCC International Bureau Filing System; contains US earth station and satellite licence filings with operator identity and technical specifications; ground station records provide physical-world anchors for satellite investigations.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "SPC-002"
+      ]
+    },
+    {
+      "id": "numlookup",
+      "name": "NumLookup",
+      "url": "numlookup.com",
+      "category": "Network",
+      "jurisdiction": "US",
+      "pricing": "Free",
+      "cost": "Free for individual lookups; no registration required.",
+      "desc": "Returns carrier name, line type (mobile, landline, or VoIP), and basic ownership data for US phone numbers without requiring an account or API key.",
+      "opsec": "",
+      "reliability": "",
+      "verified": "2026-06-13",
+      "verifier": "DB",
+      "cards": [
+        "TEL-002"
       ]
     }
   ]
